@@ -1,0 +1,9 @@
+# Include everything
+!*
+# Except ...
+yankring_history_v2.txt
+*.swp
+*.swo
+*.pyc
+*.pyo
+tmp/*
