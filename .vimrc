@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: May 24, 2012
+" Last Modified: October 01, 2012
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -186,7 +186,7 @@ NeoBundle 'mfumi/unite-compiler'
 NeoBundle 'rhysd/unite-opts'
 NeoBundle 'tyru/unite-cmdwin'
 NeoBundle 'natsumesou/unite-flexmatcher'
-NeoBundle "josiah@cherry.tree:git/vim/unite-tmux.git"
+NeoBundle "zepto/unite-tmux"
 " }}}
 
 " Vinarise plugins."{{{
