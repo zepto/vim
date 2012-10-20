@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: October 01, 2012
+" Last Modified: October 20, 2012
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -183,8 +183,8 @@ NeoBundle 'soh335/unite-qflist'
 " NeoBundle 'tungd/unite-session'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'mfumi/unite-compiler'
-NeoBundle 'rhysd/unite-opts'
-NeoBundle 'tyru/unite-cmdwin'
+" NeoBundle 'rhysd/unite-opts'
+" NeoBundle 'tyru/unite-cmdwin'
 NeoBundle 'natsumesou/unite-flexmatcher'
 NeoBundle "zepto/unite-tmux"
 " }}}
@@ -222,7 +222,7 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-datetime'
 NeoBundle 'thinca/vim-textobj-comment'
-NeoBundle 'sgur/textobj-parameter'
+NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
@@ -249,7 +249,8 @@ NeoBundle 'ujihisa/neco-ruby'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'ujihisa/neco-drikin'
 NeoBundle 'ujihisa/neco-rake'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+" NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neocomplcache-clang'
 " NeoBundle 'osyo-manga/neocomplcache-clang_complete'
 NeoBundle 'Rip-Rip/clang_complete'
@@ -385,7 +386,7 @@ NeoBundle 'jimf/vim-pep8-text-width'
 NeoBundle 'nvie/vim-pep8', {'type': 'nosync'}
 NeoBundle 'nvie/vim-pyflakes', {'type': 'nosync'}
 NeoBundle 'nvie/vim-flake8'
-NeoBundle 'Bogdanp/pyrepl.vim'
+" NeoBundle 'Bogdanp/pyrepl.vim'
 " NeoBundle 'rkulla/pydiction'
 " NeoBundle 'nvie/vim-pyunit'
 "Bundle 'sashahart/pylint.vim'
@@ -435,9 +436,9 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'noahfrederick/Hemisu'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'mattn/mahjong-vim'
-NeoBundle 'mattn/hahhah-vim'
-NeoBundle 'mitsuhide/nyan-modoki.vim'
+" NeoBundle 'mattn/mahjong-vim'
+" NeoBundle 'mattn/hahhah-vim'
+" NeoBundle 'mitsuhide/nyan-modoki.vim'
 " NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tpope/vim-afterimage'
 NeoBundle 'Rykka/colorv.vim'
@@ -633,8 +634,9 @@ endif
 
 " Neocomplcache keybindings"{{{
 inoremap <expr><C-d>l neocomplcache#toggle_lock()."\<C-h>"
-imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
+imap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+" smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
 "inoremap <silent>G     <Plug>(neocomplcache_snippets_force_expand)
 "inoremap <expr><C-j> neocomplcache#sources#snippets_complete#expandable() ?
  "\ "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
