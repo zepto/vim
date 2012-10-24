@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: October 20, 2012
+" Last Modified: October 23, 2012
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -931,8 +931,8 @@ augroup python_filetype
     "}}}
 
     " Add python paths for completion."{{{
-    autocmd FileType python setlocal path+=/usr/lib/python3.2
-    autocmd FileType python setlocal path+=/usr/lib/python3.2/site-packages
+    autocmd FileType python setlocal path+=/usr/lib/python3.3
+    autocmd FileType python setlocal path+=/usr/lib/python3.3/site-packages
     autocmd FileType python setlocal path+=/usr/lib/python2.7
     autocmd FileType python setlocal path+=/usr/lib/python2.7/site-packages
     "}}}
