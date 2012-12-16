@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: November 10, 2012
+" Last Modified: November 20, 2012
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -1319,12 +1319,12 @@ let g:tagbar_type_freebasic = {
 "}}}
 
 " Preview settings."{{{
-let g:PreviewBrowsers = 'webbrowser,chromium,firefox'
+let g:PreviewBrowsers = 'webbrowser,firefox'
 let $PATH=$PATH . ':' . $HOME . '/.gem/ruby/1.9.1/bin/'
 " }}}
 
 " Mkdpreview settings."{{{
-let g:mkdpreview_python_path='/usr/bin/python2'
+let g:mkdpreview_python_path='/usr/bin/python'
 " }}}
 
 " Translate settings."{{{
