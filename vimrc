@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: November 20, 2012
+" Last Modified: January 08, 2013
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -1117,7 +1117,7 @@ let g:neocomplcache_enable_auto_delimiter = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 " Make it auto select the first item.
-let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_select = 0
 " let g:neocomplcache_ctags_program = 'anjuta-tags'
 let g:neocomplcache_ctags_program = 'ctags'
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
