@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: January 08, 2013
+" Last Modified: January 27, 2013
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -308,9 +308,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 't9md/vim-textmanip'
 NeoBundle 'Rykka/easydigraph.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'Phize/vim-rainbow_pairs'
-" NeoBundle 'kien/rainbow_parentheses.vim'
-" NeoBundle 'roman/rainbow'
+" NeoBundle 'Phize/vim-rainbow_pairs'
+NeoBundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'vim-scripts/camelcasemotion'
@@ -330,7 +329,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'mattn/zencoding-vim'
 " NeoBundle 'SirVer/ultisnips'
-NeoBundle 'hallettj/jslint.vim'
+" NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tyru/caw.vim'
 NeoBundle "honza/snipmate-snippets"
@@ -1002,6 +1001,13 @@ augroup java_filetype
 augroup END
 "}}}
 
+" php"{{{
+augroup php_filetype
+    autocmd!
+    autocmd FileType php setlocal omnifunc=phpcomplete#Complete
+augroup END
+"}}}
+
 " html"{{{
 augroup html_filetype
     autocmd!
@@ -1487,6 +1493,12 @@ let g:UltiSnipsExpandTrigger="<c-d>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-g>"
 "}}}
+
+" Rainbow Parenthesis Improved settings"{{{
+let g:rainbow_active = 1
+let g:rainbow_operators = 1
+"}}}
+
 " end plugin options"}}}
 
 " Status line settings."{{{
@@ -1680,7 +1692,7 @@ set incsearch
 
 " Set completion options"{{{
 set complete=.,w,b,u,t,i,d,],k,kspell
-set completeopt=menuone,preview
+set completeopt=menuone
 "}}}
 
 " Set encryption options"{{{

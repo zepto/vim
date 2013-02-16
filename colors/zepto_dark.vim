@@ -1,7 +1,7 @@
 " File: zepto_dark.vim
 " Author: Josiah Gordon
 " Description: A dark 16 color colorscheme for gui and terminal vim.
-" Last Modified: March 04, 2012
+" Last Modified: January 16, 2013
 "
 " Console to gui color table: {{{
 " Black:
