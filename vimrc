@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: January 27, 2013
+" Last Modified: March 06, 2013
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -140,6 +140,7 @@ NeoBundle 'yuratomo/w3m.vim'
 " NeoBundle 'corntrace/bufexplorer'
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'Smooth-Scroll'
+NeoBundle 'airblade/vim-gitgutter'
 "}}}
 
 " Unite plugins"{{{
