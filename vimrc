@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 06, 2013
+" Last Modified: December 25, 2013
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -122,7 +122,7 @@ NeoBundle 'pocket7878/curses-vim'
 NeoBundle 'pocket7878/presen-vim'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'rson/vim-conque'
+NeoBundle 'basepi/vim-conque'
 " NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'pydave/AsyncCommand'
 " NeoBundle 'roman/golden-ratio'
@@ -333,7 +333,7 @@ NeoBundle 'mattn/zencoding-vim'
 " NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tyru/caw.vim'
-NeoBundle "honza/snipmate-snippets"
+NeoBundle "honza/vim-snippets"
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'c9s/cascading.vim'
 NeoBundle 'semmons99/vim-ruby-matchit'
