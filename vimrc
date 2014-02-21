@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: December 25, 2013
+" Last Modified: February 21, 2014
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -1589,7 +1589,14 @@ if &term !~ 'linux'
     set listchars=tab:»\ ,trail:⋅,extends:»,precedes:«
     set showbreak=↪\ 
 else
-    set listchars=tab:»\ ,trail:∙,extends:»,precedes:«
+    " :help digraph to find what characters look best.
+
+    " Works with ter-v16n console font.
+    " set listchars=tab:»\ ,trail:∙,extends:»,precedes:«
+
+    " Works with Lat2-Terminus16 console font.
+    set listchars=tab:»\ ,trail:●,extends:»,precedes:«
+
     set showbreak=└▶\ 
 endif
 " Make :help the default keywordprg
