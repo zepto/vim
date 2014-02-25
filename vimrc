@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: February 21, 2014
+" Last Modified: February 25, 2014
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -102,25 +102,25 @@ NeoBundle 'kana/vim-gf-user'
 NeoBundle 'kana/vim-gf-diff'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/echodoc'
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'mattn/libcallex-vim'
-NeoBundle 'mattn/codepad-vim'
+" NeoBundle 'mattn/calendar-vim'
+" NeoBundle 'mattn/libcallex-vim'
+" NeoBundle 'mattn/codepad-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/vimplenote-vim'
+" NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/benchvimrc-vim'
-NeoBundle 'ujihisa/repl.vim'
+" NeoBundle 'ujihisa/repl.vim'
 NeoBundle 'ujihisa/nclipper.vim'
 NeoBundle 'vim-jp/vital.vim'
-NeoBundle 'tyru/winmove.vim'
+" NeoBundle 'tyru/winmove.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/urilib.vim'
 NeoBundle 'tyru/DumbBuf.vim'
 NeoBundle 'thinca/vim-openbuf'
-NeoBundle 'thinca/vim-scouter'
+" NeoBundle 'thinca/vim-scouter'
 NeoBundle 'thinca/vim-singleton'
-NeoBundle 'pocket7878/curses-vim'
-NeoBundle 'pocket7878/presen-vim'
-NeoBundle 'tpope/vim-speeddating'
+" NeoBundle 'pocket7878/curses-vim'
+" NeoBundle 'pocket7878/presen-vim'
+" NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'basepi/vim-conque'
 " NeoBundle 'jpalardy/vim-slime'
@@ -134,7 +134,7 @@ NeoBundle 'vim-scripts/autodate.vim'
 " NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'maxbrunsfeld/vim-yankstack'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'gregsexton/VimCalc'
+" NeoBundle 'gregsexton/VimCalc'
 NeoBundle 'kmnk/sonictemplate-vim'
 NeoBundle 'yuratomo/w3m.vim'
 " NeoBundle 'corntrace/bufexplorer'
@@ -356,13 +356,13 @@ NeoBundle 'c9s/perlomni.vim'
 " }}}
 
 " Textile plugins."{{{
-NeoBundle 'timcharper/textile.vim'
+" NeoBundle 'timcharper/textile.vim'
 NeoBundle 'greyblake/vim-preview'
 " }}}
 
 " Markdown plugins."{{{
 NeoBundle 'hallison/vim-markdown'
-NeoBundle 'mattn/mkdpreview-vim'
+" NeoBundle 'mattn/mkdpreview-vim'
 " }}}
 
 " Erlang plugins."{{{
@@ -818,6 +818,10 @@ map <leader><leader>r <Plug>(golden_ratio_toggle)
 
 " Post to paste.pocoo.org"{{{
 "noremap <leader>li :LodgeIt<CR>
+"}}}
+
+" IndentGuides keybindings."{{{
+noremap <leader><leader>i :IndentGuidesToggle<CR>
 "}}}
 " end plugin keybindings }}}
 "}}}
@@ -1440,7 +1444,7 @@ let g:ScreenImpl="Tmux"
 " }}}
 
 " Syntastic settings."{{{
-let g:syntastic_python_checker = 'pyflakes3k'       " pyflakes for python 3
+let g:syntastic_python_checker = 'pylint'       " pyflakes for python 3
 " Don't check on save.
 let g:syntastic_mode_map = { 'mode': 'passive',
                             \ 'active_filetypes': [],
@@ -1450,7 +1454,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 " Set the pylint settings."{{{
 let g:pylint_error_numbers = 1  " Show the python error numbers.
 let g:pylint_onwrite = 0       " Do not check code on save.
-let g:pylint_command = 'pylint3'
+let g:pylint_command = 'pylint'
 "}}}
 
 " Rope-vim settings."{{{
