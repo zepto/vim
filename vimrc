@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: February 25, 2014
+" Last Modified: May 06, 2014
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -1508,7 +1508,7 @@ let g:rainbow_operators = 1
 
 " Status line settings."{{{
 " Mode function for status line."{{{
-fun! l:GetMode()
+fun! s:GetMode()
     let l:mode_l = mode()
     if l:mode_l == 'n'
         let l:mode_l='NORMAL'
