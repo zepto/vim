@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: May 06, 2014
+" Last Modified: January 06, 2015
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -84,7 +84,7 @@ if has('vim_starting')
     " call pathogen#runtime_append_all_bundles()
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 " }}}
 
 " Load vundle or neobundle"{{{
@@ -252,6 +252,7 @@ NeoBundle 'ujihisa/neco-drikin'
 NeoBundle 'ujihisa/neco-rake'
 " NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplcache-clang'
 " NeoBundle 'osyo-manga/neocomplcache-clang_complete'
 NeoBundle 'Rip-Rip/clang_complete'
@@ -328,7 +329,7 @@ NeoBundle 'tobyS/vmustache'
 " NeoBundle 'ervandew/screen'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'SirVer/ultisnips'
 " NeoBundle 'hallettj/jslint.vim'
 NeoBundle 'thinca/vim-quickrun'
@@ -448,6 +449,8 @@ NeoBundle 'Rykka/colorv.vim'
 "call pathogen#infect()
 "call pathogen#helptags()
 "}}}
+
+call neobundle#end()
 
 " End plugin loading"}}}
 
@@ -1708,7 +1711,7 @@ set completeopt=menuone
 "}}}
 
 " Set encryption options"{{{
-set cryptmethod=blowfish
+set cryptmethod=blowfish2
 "}}}
 
 " Set tab preferences."{{{
