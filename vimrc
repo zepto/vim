@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: January 06, 2015
+" Last Modified: January 05, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -100,7 +100,7 @@ NeoBundle 'kana/vim-altercmd'
 NeoBundle 'kana/vim-skeleton'
 NeoBundle 'kana/vim-gf-user'
 NeoBundle 'kana/vim-gf-diff'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {'do': 'make'}
 NeoBundle 'Shougo/echodoc'
 " NeoBundle 'mattn/calendar-vim'
 " NeoBundle 'mattn/libcallex-vim'
@@ -172,7 +172,7 @@ NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'sgur/unite-qf'
 NeoBundle 'sgur/unite-git_grep'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'h1mesuke/unite-outline'
+" NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'tacroe/unite-mark'
@@ -255,7 +255,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplcache-clang'
 " NeoBundle 'osyo-manga/neocomplcache-clang_complete'
-NeoBundle 'Rip-Rip/clang_complete'
+" NeoBundle 'Rip-Rip/clang_complete'
 "}}}
 
 " Surround and surround like plugins."{{{
@@ -425,7 +425,7 @@ NeoBundle 'mattn/gist-vim'
 
 " Encryption plugins"{{{
 NeoBundle 'vim-scripts/openssl.vim', {'type': 'nosync'}
-NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+" NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 "}}}
 
 " Visual related plugins"{{{
