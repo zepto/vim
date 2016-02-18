@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: January 05, 2016
+" Last Modified: February 18, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -274,7 +274,7 @@ NeoBundle 'tyru/eskk.vim'
 NeoBundle 'tyru/skkdict.vim'
 " NeoBundle 'banyan/recognize_charcode.vim'
 " NeoBundle 'koron/verifyenc-vim'
-NeoBundle 'koron/dicwin-vim', {'type': 'nosync'}
+" NeoBundle 'koron/dicwin-vim', {'type': 'nosync'}
 " }}}
 
 " Searching related plugins"{{{
