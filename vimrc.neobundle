@@ -52,7 +52,7 @@ NeoBundle 'kana/vim-altercmd'
 NeoBundle 'kana/vim-skeleton'
 NeoBundle 'kana/vim-gf-user'
 NeoBundle 'kana/vim-gf-diff'
-NeoBundle 'Shougo/vimproc', {'do': 'make'}
+NeoBundle 'Shougo/vimproc', {'build' : {'linux': 'make'}}
 NeoBundle 'Shougo/echodoc'
 " NeoBundle 'mattn/calendar-vim'
 " NeoBundle 'mattn/libcallex-vim'
