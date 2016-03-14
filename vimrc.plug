@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: February 18, 2016
+" Last Modified: March 14, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,9 @@
 " Macros and other options that need to go first."{{{
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-set nocompatible
+if &compatible
+    set nocompatible
+endif
 
 " Load shell menu for shellscripts
 runtime! macros/shellmenu.vim
@@ -76,381 +78,212 @@ set fileformats=unix,dos,mac
 " Turn off filetype detection (for plugin manager)
 filetype plugin indent off
 
-if has('vim_starting')
-    " Initialize vundle
-    "set rtp+=~/.vim/bundle/vundle
-    "call vundle#rc()
-    set rtp+=~/.vim/bundle/neobundle.vim
-    " call pathogen#runtime_append_all_bundles()
-endif
+call plug#begin('~/.vim/plugged')
 
-call neobundle#begin(expand('~/.vim/bundle'))
 " }}}
 
-" Load vundle or neobundle"{{{
-"NeoBundle 'gmarik/vundle'
-NeoBundle 'Shougo/neobundle.vim'
-"}}}
-
 " Vim related plugins"{{{
-NeoBundle 'kana/vim-submode'
-NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'kana/vim-smartchr'
-NeoBundle 'kana/vim-altercmd'
-NeoBundle 'kana/vim-skeleton'
-NeoBundle 'kana/vim-gf-user'
-NeoBundle 'kana/vim-gf-diff'
-NeoBundle 'Shougo/vimproc', {'do': 'make'}
-NeoBundle 'Shougo/echodoc'
-" NeoBundle 'mattn/calendar-vim'
-" NeoBundle 'mattn/libcallex-vim'
-" NeoBundle 'mattn/codepad-vim'
-NeoBundle 'mattn/webapi-vim'
-" NeoBundle 'mattn/vimplenote-vim'
-NeoBundle 'mattn/benchvimrc-vim'
-" NeoBundle 'ujihisa/repl.vim'
-NeoBundle 'ujihisa/nclipper.vim'
-NeoBundle 'vim-jp/vital.vim'
-" NeoBundle 'tyru/winmove.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/urilib.vim'
-NeoBundle 'tyru/DumbBuf.vim'
-NeoBundle 'thinca/vim-openbuf'
-" NeoBundle 'thinca/vim-scouter'
-NeoBundle 'thinca/vim-singleton'
-" NeoBundle 'pocket7878/curses-vim'
-" NeoBundle 'pocket7878/presen-vim'
-" NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'basepi/vim-conque'
-" NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'pydave/AsyncCommand'
-" NeoBundle 'roman/golden-ratio'
-NeoBundle 'sickill/vim-pasta'
-" NeoBundle 'mikewest/vimroom'
-NeoBundle 'jceb/vim-orgmode'
-" NeoBundle 'sgur/autodate.vim'
-NeoBundle 'vim-scripts/autodate.vim'
-" NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'maxbrunsfeld/vim-yankstack'
-NeoBundle 'godlygeek/tabular'
-" NeoBundle 'gregsexton/VimCalc'
-NeoBundle 'kmnk/sonictemplate-vim'
-NeoBundle 'yuratomo/w3m.vim'
-" NeoBundle 'corntrace/bufexplorer'
-" NeoBundle 'fholgado/minibufexpl.vim'
-" NeoBundle 'Smooth-Scroll'
-NeoBundle 'airblade/vim-gitgutter'
+Plug 'kana/vim-submode'
+Plug 'kana/vim-arpeggio'
+Plug 'kana/vim-smartchr'
+Plug 'kana/vim-altercmd'
+Plug 'kana/vim-skeleton'
+Plug 'kana/vim-gf-user'
+Plug 'kana/vim-gf-diff'
+Plug 'Shougo/vimproc', {'do': 'make'}
+Plug 'Shougo/echodoc'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/benchvimrc-vim'
+Plug 'ujihisa/nclipper.vim'
+Plug 'vim-jp/vital.vim'
+Plug 'tyru/DumbBuf.vim'
+Plug 'thinca/vim-singleton'
+Plug 'tpope/vim-repeat'
+Plug 'pydave/AsyncCommand'
+Plug 'sickill/vim-pasta'
+Plug 'vim-scripts/autodate.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'godlygeek/tabular'
+Plug 'airblade/vim-gitgutter'
 "}}}
 
 " Unite plugins"{{{
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-ssh'
-NeoBundle 'Shougo/unite-build'
-NeoBundle 'ujihisa/unite-gem'
-NeoBundle 'ujihisa/unite-haskellimport'
-NeoBundle 'ujihisa/unite-launch'
-NeoBundle 'ujihisa/unite-rake'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'ujihisa/phrase-t9md'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/quicklearn'
-NeoBundle 'osyo-manga/unite-boost-online-doc', {'type': 'nosync'}
-NeoBundle 'osyo-manga/unite-edit-global-variables', {'type': 'nosync'}
-NeoBundle 'osyo-manga/unite-toggle-options', {'type': 'nosync'}
-NeoBundle 'osyo-manga/unite-env'
-NeoBundle 'mattn/unite-moukoneyo'
-NeoBundle 'mattn/unite-advent_calendar'
-NeoBundle 'mattn/unite-source-simplenote'
-NeoBundle 'mattn/unite-remotefile'
-NeoBundle 'kmnk/vim-unite-svn'
-NeoBundle 'kmnk/vim-unite-giti'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'basyura/outline-cs'
-NeoBundle 't9md/vim-phrase'
-NeoBundle 't9md/vim-unite-ack'
-NeoBundle 'sgur/unite-qf'
-NeoBundle 'sgur/unite-git_grep'
-NeoBundle 'h1mesuke/vim-alignta'
-" NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'tacroe/unite-mark'
-" NeoBundle 'tacroe/unite-alias'
-NeoBundle 'thinca/vim-unite-history'
-NeoBundle 'hakobe/unite-script'
-NeoBundle 'choplin/unite-vim_hacks'
-NeoBundle 'soh335/unite-qflist'
-" NeoBundle 'tungd/unite-session'
-NeoBundle 'eagletmt/unite-haddock'
-NeoBundle 'mfumi/unite-compiler'
-" NeoBundle 'rhysd/unite-opts'
-" NeoBundle 'tyru/unite-cmdwin'
-NeoBundle 'natsumesou/unite-flexmatcher'
-NeoBundle "zepto/unite-tmux"
-" }}}
-
-" Vinarise plugins."{{{
-NeoBundle 'Shougo/vinarise'
-NeoBundle 's-yukikaze/vinarise-plugin-peanalysis'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'ujihisa/unite-locate'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'ujihisa/quicklearn'
+Plug 't9md/vim-unite-ack'
+Plug 'sgur/unite-qf'
+Plug 'h1mesuke/vim-alignta'
+Plug 'tsukkee/unite-help'
+Plug 'tsukkee/unite-tag'
+Plug 'tacroe/unite-mark'
+Plug 'thinca/vim-unite-history'
+Plug 'soh335/unite-qflist'
+Plug 'natsumesou/unite-flexmatcher'
+Plug 'zepto/unite-tmux'
 " }}}
 
 " Vim-ref plugins"{{{
-NeoBundle 'mfumi/ref-dicts-en'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'ujihisa/ref-hoogle'
+Plug 'mfumi/ref-dicts-en'
+Plug 'thinca/vim-ref'
 " }}}
 
 " Operator plugins"{{{
-NeoBundle 'tyru/operator-html-escape.vim'
-NeoBundle 'tyru/operator-camelize.vim'
-NeoBundle 'tyru/operator-star.vim'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'emonkak/vim-operator-comment'
-NeoBundle 'emonkak/vim-operator-sort'
-NeoBundle 'thinca/vim-operator-sequence'
+Plug 'tyru/operator-html-escape.vim'
+Plug 'tyru/operator-camelize.vim'
+Plug 'tyru/operator-star.vim'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'emonkak/vim-operator-comment'
+Plug 'emonkak/vim-operator-sort'
+Plug 'thinca/vim-operator-sequence'
 " }}}
 
 " Vim textobj plugins."{{{
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'kana/vim-textobj-lastpat'
-NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-fold'
-NeoBundle 'kana/vim-textobj-datetime'
-NeoBundle 'thinca/vim-textobj-comment'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'mattn/vim-textobj-url'
-NeoBundle 't9md/vim-textobj-function-ruby'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-" NeoBundle 'vim-scripts/argtextobj.vim'
-" NeoBundle 'michaeljsmith/vim-indent-object'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-lastpat'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-fold'
+Plug 'kana/vim-textobj-datetime'
+Plug 'thinca/vim-textobj-comment'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'mattn/vim-textobj-url'
+Plug 't9md/vim-textobj-function-ruby'
+Plug 'nelstrom/vim-textobj-rubyblock'
 " }}}
 
 " Metarw plugins."{{{
-NeoBundle 'kana/vim-metarw'
-NeoBundle 'kana/vim-metarw-git'
-NeoBundle 'mattn/vim-metarw-simplenote'
-NeoBundle 'emonkak/vim-metarw-gist'
+Plug 'kana/vim-metarw'
+Plug 'kana/vim-metarw-git'
+Plug 'mattn/vim-metarw-simplenote'
+Plug 'emonkak/vim-metarw-gist'
 " }}}
 
 " Vimshell plugins."{{{
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'ujihisa/vimshell-ssh'
+Plug 'Shougo/vimshell'
+Plug 'ujihisa/vimshell-ssh'
 " }}}
 
 " neocomplcache completion."{{{
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/neco-ruby'
-NeoBundle 'ujihisa/neco-look'
-NeoBundle 'ujihisa/neco-drikin'
-NeoBundle 'ujihisa/neco-rake'
-" NeoBundle 'Shougo/neocomplcache-snippets-complete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neocomplcache-clang'
-" NeoBundle 'osyo-manga/neocomplcache-clang_complete'
-" NeoBundle 'Rip-Rip/clang_complete'
+Plug 'Shougo/neocomplcache'
+Plug 'ujihisa/neco-ruby'
+Plug 'ujihisa/neco-look'
+Plug 'ujihisa/neco-drikin'
+Plug 'ujihisa/neco-rake'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 "}}}
 
 " Surround and surround like plugins."{{{
-NeoBundle 'tpope/vim-surround'
-NeoBundle 't9md/vim-surround_custom_mapping'
+Plug 'tpope/vim-surround'
+Plug 't9md/vim-surround_custom_mapping'
 " NeoBundle 'kana/vim-surround'
 " }}}
 
 " Language Related plugins."{{{
-NeoBundle 'mattn/googletranslate-vim'
-NeoBundle 'mattn/excitetranslate-vim'
-NeoBundle 'mattn/bingtranslate-vim'
-NeoBundle 'maksimr/vim-translator'
-NeoBundle 'tyru/eskk.vim'
-" NeoBundle 'tyru/skk.vim'
-NeoBundle 'tyru/skkdict.vim'
-" NeoBundle 'banyan/recognize_charcode.vim'
-" NeoBundle 'koron/verifyenc-vim'
-" NeoBundle 'koron/dicwin-vim', {'type': 'nosync'}
+Plug 'mattn/excitetranslate-vim'
 " }}}
 
-" Searching related plugins"{{{
-NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
-NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
-" NeoBundle 'wincent/Command-T'
-" NeoBundle 'mileszs/ack.vim'
-" NeoBundle 'vim-scripts/EasyGrep'
-" NeoBundle 'kien/ctrlp.vim'
-" NeoBundle 'sjbach/lusty'
-" NeoBundle 'pydave/vim-ack'
-"}}}
-
 " File related plugins"{{{
-NeoBundle 'vim-scripts/pdftotext'
-NeoBundle 'Shougo/vimfiler'
-" NeoBundle 'scrooloose/nerdtree'
+Plug 'vim-scripts/pdftotext'
+Plug 'Shougo/vimfiler'
 "}}}
 
 " Editing related plugins"{{{
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'chrisbra/unicode.vim'
-NeoBundle 'kana/vim-smartword'
-NeoBundle 'kana/vim-grex'
-NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'thinca/vim-visualstar'
-" NeoBundle 'kana/vim-smartpunc'
-" NeoBundle 'Raimondi/delimitMate'
-" NeoBundle 'shanlalit/vim-autoclose'
-" NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 't9md/vim-textmanip'
-NeoBundle 'Rykka/easydigraph.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-" NeoBundle 'Phize/vim-rainbow_pairs'
-NeoBundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
-NeoBundle 'yuroyoro/monday'
-NeoBundle 'taku-o/vim-toggle'
-NeoBundle 'vim-scripts/camelcasemotion'
-NeoBundle 'tobyS/vmustache'
-" NeoBundle 'ujihisa/shadow.vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'chrisbra/unicode.vim'
+Plug 'kana/vim-smartword'
+Plug 'kana/vim-grex'
+Plug 'thinca/vim-qfreplace'
+Plug 'thinca/vim-visualstar'
+Plug 'sjl/gundo.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
+Plug 't9md/vim-textmanip'
+Plug 'Rykka/easydigraph.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/Rainbow-Parentheses-Improved-and2'
+Plug 'yuroyoro/monday'
+Plug 'taku-o/vim-toggle'
+Plug 'vim-scripts/camelcasemotion'
+Plug 'tobyS/vmustache'
 "}}}
 
 " Programming related plugins"{{{
-" NeoBundle 'ervandew/supertab'
-" NeoBundle 'ervandew/taglisttoo'
-" NeoBundle 'int3/vim-taglist-plus'
-" NeoBundle 'scrooloose/nerdcommenter'
-" NeoBundle 'kana/vim-flymake'
-" NeoBundle 'tomtom/tcomment_vim'
-" NeoBundle 'ervandew/screen'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'mattn/emmet-vim'
-" NeoBundle 'SirVer/ultisnips'
-" NeoBundle 'hallettj/jslint.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tyru/caw.vim'
-NeoBundle "honza/vim-snippets"
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'c9s/cascading.vim'
-NeoBundle 'semmons99/vim-ruby-matchit'
-" NeoBundle 'vim-scripts/Source-Explorer-srcexpl.vim'
+Plug 'majutsushi/tagbar'
+Plug 'othree/html5.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'tyru/caw.vim'
+Plug 'honza/vim-snippets'
+Plug 'c9s/cascading.vim'
+Plug 'semmons99/vim-ruby-matchit'
 
 " Perl plugins."{{{
-NeoBundle 'c9s/perlomni.vim'
-" }}}
-
-" Snipmate plugin."{{{
-" Install vim-snipmate dependencies.
-"Bundle "MarcWeber/vim-addon-mw-utils"
-"Bundle "tomtom/tlib_vim"
-            
-" Install snipmate
-"Bundle 'garbas/vim-snipmate'
-
-" Original snipmate
-"Bundle 'msanders/snipmate.vim'
+Plug 'c9s/perlomni.vim'
 " }}}
 
 " Textile plugins."{{{
-" NeoBundle 'timcharper/textile.vim'
-NeoBundle 'greyblake/vim-preview'
+Plug 'timcharper/textile.vim'
+Plug 'greyblake/vim-preview'
 " }}}
 
 " Markdown plugins."{{{
-NeoBundle 'hallison/vim-markdown'
-" NeoBundle 'mattn/mkdpreview-vim'
-" }}}
-
-" Erlang plugins."{{{
-NeoBundle 'jimenezrick/vimerl'
+Plug 'hallison/vim-markdown'
+Plug 'mattn/mkdpreview-vim'
 " }}}
 
 " Json plugins"{{{
-NeoBundle 'rogerz/vim-json'
-"}}}
-
-" Bash plugins"{{{
-" NeoBundle 'vim-scripts/bash-support.vim'
+Plug 'rogerz/vim-json'
 "}}}
 
 " Python related plugins."{{{
-" NeoBundle 'klen/python-mode'
-" NeoBundle 'klen/rope-vim'
-" NeoBundle 'rygwdn/rope-omni'
-NeoBundle 'jmcantrell/vim-virtualenv'
-NeoBundle 'jimf/vim-pep8-text-width'
-NeoBundle 'nvie/vim-pep8', {'type': 'nosync'}
-NeoBundle 'nvie/vim-pyflakes', {'type': 'nosync'}
-NeoBundle 'nvie/vim-flake8'
-" NeoBundle 'Bogdanp/pyrepl.vim'
-" NeoBundle 'rkulla/pydiction'
-" NeoBundle 'nvie/vim-pyunit'
-"Bundle 'sashahart/pylint.vim'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'jimf/vim-pep8-text-width'
+Plug 'nvie/vim-pep8', {'type': 'nosync'}
+Plug 'nvie/vim-pyflakes', {'type': 'nosync'}
+Plug 'nvie/vim-flake8'
 
 " My modified pylint plugin.
-NeoBundle 'vim-pylint', {'type': 'nosync'}
+Plug 'vim-pylint', {'type': 'nosync'}
 "}}}
 
-" Coffee-script related plugins."{{{
-" NeoBundle 'kchmck/vim-coffee-script'
-" }}}
-
-" Java-script related plugins."{{{
-" NeoBundle 'pangloss/vim-javascript'
-" NeoBundle 'othree/javascript-syntax.vim'
-" }}}
-
 " Java related plugins."{{{
-NeoBundle 'vim-scripts/javacomplete'
+Plug 'vim-scripts/javacomplete'
 " }}}
 
 " Ruby related plugins."{{{
-NeoBundle 'Bogdanp/rbrepl.vim'
+Plug 'Bogdanp/rbrepl.vim'
 " }}}
 "}}}
 
 " Git plugin"{{{
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mattn/gist-vim'
-"}}}
-
-" Paste to paste.pocoo.org"{{{
-"NeoBundle 'claytron/lodgeit-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/gist-vim'
 "}}}
 
 " Encryption plugins"{{{
-NeoBundle 'vim-scripts/openssl.vim', {'type': 'nosync'}
-" NeoBundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+Plug 'vim-scripts/openssl.vim', {'type': 'nosync'}
 "}}}
 
 " Visual related plugins"{{{
-" NeoBundle 'godlygeek/csapprox'
-NeoBundle 'godlygeek/colorchart'
-NeoBundle 'vim-scripts/Color-Sampler-Pack'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'noahfrederick/Hemisu'
-NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'mattn/mahjong-vim'
-" NeoBundle 'mattn/hahhah-vim'
-" NeoBundle 'mitsuhide/nyan-modoki.vim'
-" NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'tpope/vim-afterimage'
-NeoBundle 'Rykka/colorv.vim'
+Plug 'godlygeek/colorchart'
+Plug 'vim-scripts/Color-Sampler-Pack'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'noahfrederick/Hemisu'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-afterimage'
+Plug 'Rykka/colorv.vim'
 "}}}
 
-" Load pathogen bundles"{{{
-"call pathogen#infect()
-"call pathogen#helptags()
-"}}}
-
-call neobundle#end()
+call plug#end()
 
 " End plugin loading"}}}
 
@@ -514,10 +347,6 @@ vnoremap <leader>do :diffget<CR>
 
 " Encrypt the current file with vimcrypt."{{{
 noremap <leader>cr :X<CR>
-"}}}
-
-" A shortcut to override supertabs"{{{
-"inoremap <c-l> <c-x><c-n>
 "}}}
 
 " Toggle the colorcolumn shortcut."{{{
@@ -634,87 +463,101 @@ endif
 " }}}
 
 " Plugin keybindings."{{{
+" Plug keybindings."{{{
+noremap <leader>pi :PlugInstall<CR>
+"}}}
 
 " Neocomplcache keybindings"{{{
-inoremap <expr><C-d>l neocomplcache#toggle_lock()."\<C-h>"
-imap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
-smap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
-" smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
-"inoremap <silent>G     <Plug>(neocomplcache_snippets_force_expand)
-"inoremap <expr><C-j> neocomplcache#sources#snippets_complete#expandable() ?
- "\ "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" Check if neocomplcache is loaded.
+if &rtp=~'neocomplcache'
+    inoremap <expr><C-d>l neocomplcache#toggle_lock()."\<C-h>"
+    imap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+    smap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+    " smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
+    "inoremap <silent>G     <Plug>(neocomplcache_snippets_force_expand)
+    "inoremap <expr><C-j> neocomplcache#sources#snippets_complete#expandable() ?
+    "\ "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+    " Recommended key-mappings.
+    " <CR>: close popup and save indent.
+    inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    " <TAB>: completion.
+    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-" For cursor moving in insert mode(Not recommended)
-inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+    " For cursor moving in insert mode(Not recommended)
+    inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+    inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+    inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+    inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+endif
 "}}}
 
 " Unite keybindings."{{{
 " The prefix key.
-nnoremap    [unite]   <nop>
-xnoremap    [unite]   <nop>
-nmap    <leader>u [unite]
-xmap    <leader>u [unite]
+if &rtp=~'unite'
+    nnoremap    [unite]   <nop>
+    xnoremap    [unite]   <nop>
+    nmap    <leader>u [unite]
+    xmap    <leader>u [unite]
 
-nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]fb  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]b  :<C-u>Unite -buffer-name=buffers buffer<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+    nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+    nnoremap <silent> [unite]fb  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+    nnoremap <silent> [unite]b  :<C-u>Unite -buffer-name=buffers buffer<CR>
+    nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+    nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 
-nnoremap  [unite]s  :<C-u>Unite source<CR>
+    nnoremap  [unite]s  :<C-u>Unite source<CR>
 
-nnoremap <silent> [unite]h :<C-u>Unite help<CR>
+    nnoremap <silent> [unite]h :<C-u>Unite help<CR>
 
-nnoremap [unite]i :<C-u>Unite neobundle/install:
+    nnoremap [unite]a :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h")<CR>
+    nnoremap [unite]a* :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(expand('<cword>'),' :\')<CR>
+    xnoremap <space>a "vy :exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(@v,' :\')<CR>
+    nnoremap [unite]A :<C-u>UniteResume ack<CR>
 
-nnoremap [unite]a :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h")<CR>
-nnoremap [unite]a* :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(expand('<cword>'),' :\')<CR>
-xnoremap <space>a "vy :exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(@v,' :\')<CR>
-nnoremap [unite]A :<C-u>UniteResume ack<CR>
+    nnoremap [unite]g :<C-u>exe "Unite -buffer-name=grep grep:".expand("%:h")<CR>
+    nnoremap [unite]G :<C-u>UniteResume grep<CR>
 
-nnoremap [unite]g :<C-u>exe "Unite -buffer-name=grep grep:".expand("%:h")<CR>
-nnoremap [unite]G :<C-u>UniteResume grep<CR>
+    nnoremap [unite]rm :<C-u>exe "Unite -buffer-name=ref-man ref/man"<CR>
 
-nnoremap [unite]rm :<C-u>exe "Unite -buffer-name=ref-man ref/man"<CR>
-
-" nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux"<CR>
-" nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux tmux::0:$"<CR>
-" xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux::'<:'>"<CR>
-nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes"<CR>
-nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::0:$"<CR>
-xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::'<:'>"<CR>
+    " nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux"<CR>
+    " nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux tmux::0:$"<CR>
+    " xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux::'<:'>"<CR>
+    nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes"<CR>
+    nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::0:$"<CR>
+    xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::'<:'>"<CR>
+endif
 " }}}
 
 " VimFiler keybindings."{{{
-noremap <leader>vf :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle<CR>
+if &rtp=~'vimfiler'
+    noremap <leader>vf :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle<CR>
+endif
 " }}}
 
 " VimShell keybindings."{{{
-noremap <leader>vs :VimShellPop<CR>
+if &rtp=~'vimshell'
+    noremap <leader>vs :VimShellPop<CR>
+endif
 " }}}
 
 " ConqueTerm keybindings."{{{
-noremap <leader>cb :ConqueTermSplit /bin/bash<CR>
-noremap <leader>cp :ConqueTermSplit /usr/bin/python<CR>
+if &rtp=~'vim-conque'
+    noremap <leader>cb :ConqueTermSplit /bin/bash<CR>
+    noremap <leader>cp :ConqueTermSplit /usr/bin/python<CR>
+endif
 " }}}
 
 " EchoDoc keybindings."{{{
-nnoremap <leader>ee :EchoDocEnable<CR>
-nnoremap <leader>ed :EchoDocDisable<CR>
+if &rtp=~'echodoc'
+    nnoremap <leader>ee :EchoDocEnable<CR>
+    nnoremap <leader>ed :EchoDocDisable<CR>
+endif
 " }}}
 
 " Arpeggio keybindings."{{{
@@ -725,61 +568,67 @@ endif
 " }}}
 
 " Ref keybindings."{{{
-noremap <leader>rm* :<C-u>exe "Ref man " . escape(expand('<cword>'), ' :\')<CR>
+if &rtp=~'vim-ref'
+    noremap <leader>rm* :<C-u>exe "Ref man " . escape(expand('<cword>'), ' :\')<CR>
+endif
 " }}}
 
 " Smartword keybindings"{{{
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
-noremap ,w  w
-noremap ,b  b
-noremap ,e  e
-noremap ,ge  ge
+if &rtp=~'vim-smartword'
+    map w  <Plug>(smartword-w)
+    map b  <Plug>(smartword-b)
+    map e  <Plug>(smartword-e)
+    map ge  <Plug>(smartword-ge)
+    noremap ,w  w
+    noremap ,b  b
+    noremap ,e  e
+    noremap ,ge  ge
+endif
 " }}}
 
 " Narrow Region keybindings."{{{
 " The prefix key.
-nnoremap    [nrrwgn]   <nop>
-nmap    <leader>n [nrrwgn]
+if &rtp=~'NrrwRgn'
+    nnoremap    [nrrwgn]   <nop>
+    nmap    <leader>n [nrrwgn]
 
-" Mappings
-" xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<C-R>
-" nnoremap <silent> [nrrwgn]w  :exe ":" . "NarrowWindow"<CR>
-" nnoremap <silent> [nrrwgn]rv :exe ":" . "NRV"<CR>
-" nnoremap <silent> [nrrwgn]rp :exe ":" . "NRPrepare"<CR>
-" nnoremap <silent> [nrrwgn]rm :exe ":" . "NRMulti"<CR>
-xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<CR>
-nnoremap <silent> [nrrwgn]w  :<C-u>NarrowWindow<CR>
-nnoremap <silent> [nrrwgn]rv :<C-u>NRV<CR>
-nnoremap <silent> [nrrwgn]rp :<C-u>NRPrepare<CR>
-nnoremap <silent> [nrrwgn]rm :<C-u>NRMulti<CR>
-" }}}
-
-" FuzzyFinder keybindings."{{{
-nnoremap <silent> <leader>ff :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> <leader>fb :FufBuffer<CR>
-nnoremap <silent> <leader>ft :FufTag<CR>
-nnoremap <silent> <leader>fh :FufHelp<CR>
-nnoremap <silent> <leader>fl :FufLine<CR>
+    " Mappings
+    " xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<C-R>
+    " nnoremap <silent> [nrrwgn]w  :exe ":" . "NarrowWindow"<CR>
+    " nnoremap <silent> [nrrwgn]rv :exe ":" . "NRV"<CR>
+    " nnoremap <silent> [nrrwgn]rp :exe ":" . "NRPrepare"<CR>
+    " nnoremap <silent> [nrrwgn]rm :exe ":" . "NRMulti"<CR>
+    xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<CR>
+    nnoremap <silent> [nrrwgn]w  :<C-u>NarrowWindow<CR>
+    nnoremap <silent> [nrrwgn]rv :<C-u>NRV<CR>
+    nnoremap <silent> [nrrwgn]rp :<C-u>NRPrepare<CR>
+    nnoremap <silent> [nrrwgn]rm :<C-u>NRMulti<CR>
+endif
 " }}}
 
 " Gundo keybindings."{{{
-noremap <leader>g :GundoToggle<CR>
+if &rtp=~'gundo'
+    noremap <leader>g :GundoToggle<CR>
+endif
 " }}}
 
 " TagBar keybindings."{{{
-noremap <leader>tb :TagbarToggle<CR>
+if &rtp=~'tagbar'
+    noremap <leader>tb :TagbarToggle<CR>
+endif
 " }}}
 
 " Yankstack keybindings."{{{
-nmap <C-P> <Plug>yankstack_substitute_older_paste
-nmap <C-N> <Plug>yankstack_substitute_newer_paste
+if &rtp=~'vim-yankstack'
+    nmap <C-P> <Plug>yankstack_substitute_older_paste
+    nmap <C-N> <Plug>yankstack_substitute_newer_paste
+endif
 " }}}
 
 " Syntastic keybindings."{{{
-noremap <leader>s :SyntasticCheck<CR>
+if &rtp=~'syntastic'
+    noremap <leader>s :SyntasticCheck<CR>
+endif
 " }}}
 
 " Vundle keybindings."{{{
@@ -787,45 +636,36 @@ noremap <leader>s :SyntasticCheck<CR>
 " }}}
 
 " CommandT keybindings."{{{
-" noremap <silent> <Leader>tf :CommandTFlush<CR>
-" }}}
-
-" Ack keybindings."{{{
-noremap <leader>a <Esc>:Ack! 
+if &rtp=~'Command-T'
+    noremap <silent> <Leader>tf :CommandTFlush<CR>
+endif
 " }}}
 
 " CTRL-P keybindings."{{{
-" nnoremap <silent> <c-p>b :CtrlPBuffer<CR>
-" }}}
-
-" Nerdtree keybindings."{{{
-" noremap <leader>nt  :NERDTreeToggle<CR> 
-" }}}
-
-" Taglist keybindings."{{{
-" noremap <leader>tl :TlistToggle<CR>
+if &rtp=~'ctrlp.vim'
+    nnoremap <silent> <c-p>b :CtrlPBuffer<CR>
+endif
 " }}}
 
 " Excite Translate keybindings."{{{
-vnoremap <leader>et :ExciteTranslate<CR>
-nnoremap <leader>eta :1,$call ExciteTranslateBuffer()<CR>
+if &rtp=~'excitetranslate-vim'
+    vnoremap <leader>et :ExciteTranslate<CR>
+    nnoremap <leader>eta :1,$call ExciteTranslateBuffer()<CR>
+endif
 " }}}
-
-" Google Translate keybindings."{{{
-nnoremap <leader>gta :call GoogTransBlock()<CR>
-" }}}
-
-" GoldenRatio keybindings."{{{
-map <leader><leader>r <Plug>(golden_ratio_toggle)
-" }}}
-
-" Post to paste.pocoo.org"{{{
-"noremap <leader>li :LodgeIt<CR>
-"}}}
 
 " IndentGuides keybindings."{{{
-noremap <leader><leader>i :IndentGuidesToggle<CR>
+if &rtp=~'vim-indent-guides'
+    noremap <leader><leader>i :IndentGuidesToggle<CR>
+endif
 "}}}
+
+" Caw commenter plugin settings."{{{
+if &rtp=~'caw.vim'
+    map <Plug>(caw:prefix)<Space> <Plug>(caw:i:toggle)
+endif
+" }}}
+
 " end plugin keybindings }}}
 "}}}
 
@@ -938,50 +778,16 @@ augroup python_filetype
     "}}}
 
     " Add python paths for completion."{{{
-    autocmd FileType python setlocal path+=/usr/lib/python3.3
-    autocmd FileType python setlocal path+=/usr/lib/python3.3/site-packages
+    autocmd FileType python setlocal path+=/usr/lib/python3.5
+    autocmd FileType python setlocal path+=/usr/lib/python3.5/site-packages
     autocmd FileType python setlocal path+=/usr/lib/python2.7
     autocmd FileType python setlocal path+=/usr/lib/python2.7/site-packages
     "}}}
-
-    " Python vim-rope-omni setup"{{{
-    let $PYTHONPATH .= ':' . expand("~/.vim/ftplugin/python/")
-    fun! s:ToggleOmniFunc()
-        if !exists("s:old_omnifunc")
-            let s:old_omnifunc = &omnifunc
-        endif
-
-        if s:old_omnifunc == &omnifunc
-            " Use the ropevim completion.
-            setlocal omnifunc=RopeCompleteFunc
-        else
-            let &omnifunc = s:old_omnifunc
-        endif
-    endfun
-
-    autocmd FileType python noremap <buffer> <localleader>ro :call <SID>ToggleOmniFunc()<CR>
-    " }}}
-
-    " Python vim-rope setup"{{{
-    fun! s:LoadRope()
-        " Add ropevim to the runtimepath.
-        setlocal rtp+=~/.vim/python_bundle/ropevim
-        " Source the ropevim plugin.
-        runtime ftplugin/python/ropevim.vim
-
-        " Add keybindings for ropevim.
-        noremap <buffer> <localleader>j :RopeGotoDefinition<CR>
-        noremap <buffer> <localleader>r :RopeRename<CR>
-        inoremap <c-f> <C-R>=RopeCodeAssistInsertMode()<CR>
-    endfun
-
-    autocmd FileType python noremap <buffer> <localleader>rv :call <SID>LoadRope()<CR>
-"}}}
 augroup END
 "}}}
 
-" PKBUILD"{{{
-augroup PKBUILD_filetype
+" PKGBUILD"{{{
+augroup PKGBUILD_filetype
     autocmd!
     autocmd FileType PKGBUILD setlocal commentstring=#%s
 augroup END
@@ -1116,81 +922,82 @@ endif
 " }}}
 
 " NeoComplCache settings"{{{
+if &rtp=~'neocomplcache'
+    " NeoComplCache options."{{{
+    " Use neocomplcache#
+    let g:neocomplcache_enable_at_startup = 1
+    " let g:neocomplcache_disable_auto_complete = 1
+    " Use smartcase.
+    let g:neocomplcache_enable_smart_case = 1
+    " Use camel case completion.
+    let g:neocomplcache_enable_camel_case_completion = 1
+    " Use underbar completion.
+    let g:neocomplcache_enable_underbar_completion = 1
+    let g:neocomplcache_enable_auto_delimiter = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplcache_min_syntax_length = 3
+    " Make it auto select the first item.
+    let g:neocomplcache_enable_auto_select = 0
+    " let g:neocomplcache_ctags_program = 'anjuta-tags'
+    let g:neocomplcache_ctags_program = 'ctags'
+    let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+    let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate-snippets/snippets/'
+    let g:neocomplcache_force_overwrite_completefunc = 1
+    " }}}
 
-" NeoComplCache options."{{{
-" Use neocomplcache#
-let g:neocomplcache_enable_at_startup = 1
-" let g:neocomplcache_disable_auto_complete = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-" Make it auto select the first item.
-let g:neocomplcache_enable_auto_select = 0
-" let g:neocomplcache_ctags_program = 'anjuta-tags'
-let g:neocomplcache_ctags_program = 'ctags'
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate-snippets/snippets/'
-let g:neocomplcache_force_overwrite_completefunc = 1
-" }}}
+    " Define dictionary."{{{
+    let g:neocomplcache_dictionary_filetype_lists = {
+        \ 'default' : '',
+        \ }
+    " \ 'python'  : $HOME . '/.vim/bundle/pydiction/complete-dict',
+    if !exists('g:neocomplcache_dictionary_patterns')
+    let g:neocomplcache_dictionary_patterns = {}
+    endif
+    " works well for the pydiction.vim dictionary file(complete-dict)
+    " let g:neocomplcache_dictionary_patterns.python = '\(\h\w*[.(]\?\)\+'
+    " }}}
 
-" Define dictionary."{{{
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ }
-" \ 'python'  : $HOME . '/.vim/bundle/pydiction/complete-dict',
-if !exists('g:neocomplcache_dictionary_patterns')
-  let g:neocomplcache_dictionary_patterns = {}
+    " Define omni functions dictionary."{{{
+    let g:neocomplcache_omni_functions = {
+                \ 'javascript' : 'javascriptcomplete#Complete',
+                \ 'java'       : 'javacomplete#Complete',
+                \ 'go'         : 'gocomplete#Complete',
+                \ 'perl'       : 'PerlComplete',
+                \ 'ada'        : 'adacomplete#Complete',
+                \ }
+    "}}}
+
+    " Enable heavy omni completion."{{{
+    if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+    endif
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.java = '[^. *\t]\.\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.perl = '[^. *\t]->\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+    let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.go = '[^. *\t]\.\w*\|\h\w*::'
+    "}}}
+
+    " use neocomplcache & clang_complete."{{{
+
+    " add neocomplcache option
+
+    " add clang_complete option
+    let g:neocomplcache_clang_use_library = 1
+    let g:neocomplcache_clang_library_path='/usr/lib/llvm/'
+    " let g:neocomplcache_clang_user_options =
+    " \ '-I /usr/include '.
+    " \ '-fms-extensions -fgnu-runtime '.
+    " \ '-include malloc.h '
+
+    " let g:clang_complete_auto=1
+    " let g:clang_use_library = 1
+    " let g:clang_library_path='/usr/lib/llvm/'
+    " let g:clang_auto_select = 1
+    " }}}
 endif
-" works well for the pydiction.vim dictionary file(complete-dict)
-" let g:neocomplcache_dictionary_patterns.python = '\(\h\w*[.(]\?\)\+'
-" }}}
-
-" Define omni functions dictionary."{{{
-let g:neocomplcache_omni_functions = {
-            \ 'javascript' : 'javascriptcomplete#Complete',
-            \ 'java'       : 'javacomplete#Complete',
-            \ 'go'         : 'gocomplete#Complete',
-            \ 'perl'       : 'PerlComplete',
-            \ 'ada'        : 'adacomplete#Complete',
-            \ }
-"}}}
-
-" Enable heavy omni completion."{{{
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.java = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.perl = '[^. *\t]->\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.go = '[^. *\t]\.\w*\|\h\w*::'
-"}}}
-
-" use neocomplcache & clang_complete."{{{
-
-" add neocomplcache option
-
-" add clang_complete option
-let g:neocomplcache_clang_use_library = 1
-let g:neocomplcache_clang_library_path='/usr/lib/llvm/'
-" let g:neocomplcache_clang_user_options =
-" \ '-I /usr/include '.
-" \ '-fms-extensions -fgnu-runtime '.
-" \ '-include malloc.h '
-
-" let g:clang_complete_auto=1
-" let g:clang_use_library = 1
-" let g:clang_library_path='/usr/lib/llvm/'
-" let g:clang_auto_select = 1
-" }}}
 "}}}
 
 " Unite settings."{{{
@@ -1209,7 +1016,7 @@ endif
 " Custom filters."{{{
 if &rtp=~'unite.vim'
     " call unite#custom_filters('file,buffer,file_rec', ['flexmatcher', 'sorter_default', 'converter_default'])
-    call unite#custom_filters('file,buffer,file_rec', ['matcher_fuzzy', 'sorter_default', 'converter_default'])
+    call unite#custom_source('file,buffer,file_rec', 'matchers', ['matcher_fuzzy', 'sorter_default', 'converter_default'])
 endif
 " }}}
 " }}}
@@ -1267,10 +1074,6 @@ let g:ConqueTerm_CWInsert = 1
 "let g:ConqueTerm_TERM = 'xterm'
 "}}}
 
-" Caw commenter plugin settings."{{{
-map <Plug>(caw:prefix)<Space> <Plug>(caw:i:toggle)
-" }}}
-
 " Zencoding plugin settings. "{{{
 let g:user_zen_leader_key = '<leader>z'
 "}}}
@@ -1298,38 +1101,6 @@ let g:tagbar_type_freebasic = {
             \]
         \}
 "}}}
-" Vala {{{
-" let g:tagbar_type_vala = {
-"             \ 'ctagstype': 'vala',
-"             \ 'kinds': [
-"                 \ 'c:classes',
-"                 \ 'd:delegates',
-"                 \ 'e:enumerations',
-"                 \ 'E:error domains',
-"                 \ 'f:fields',
-"                 \ 'i:interfaces',
-"                 \ 'm:methods',
-"                 \ 'p:properties',
-"                 \ 'r:error codes',
-"                 \ 's:structures',
-"                 \ 'S:signals',
-"                 \ 'v:enumeration values'
-"             \ ],
-"             \ 'sro': '.',
-"             \ 'kind2scope': {
-"                 \ 'i': 'interface',
-"                 \ 'c': 'class',
-"                 \ 's': 'structure',
-"                 \ 'e': 'enum'
-"             \ },
-"             \ 'scope2kind': {
-"                 \ 'interface': 'i',
-"                 \ 'class': 'c',
-"                 \ 'struct': 's',
-"                 \ 'enum': 'e'
-"             \ }
-"         \ }
-"}}}
 "}}}
 
 " Preview settings."{{{
@@ -1339,15 +1110,6 @@ let $PATH=$PATH . ':' . $HOME . '/.gem/ruby/1.9.1/bin/'
 
 " Mkdpreview settings."{{{
 let g:mkdpreview_python_path='/usr/bin/python'
-" }}}
-
-" Translate settings."{{{
-let g:goog_user_conf = {
-            \ 'langpair': 'ja|en',
-            \ 'v_key': 'T',
-            \ 'cmd': 'lua',
-            \ 'charset': 'utf-8'
-            \ }
 " }}}
 
 " DumbBuf settings."{{{
@@ -1459,13 +1221,6 @@ let g:pylint_error_numbers = 1  " Show the python error numbers.
 let g:pylint_onwrite = 0       " Do not check code on save.
 let g:pylint_command = 'pylint'
 "}}}
-
-" Rope-vim settings."{{{
-let ropevim_guess_project = 1
-let ropevim_vim_completion = 1
-let ropevim_extended_complete = 1
-" let g:ropevim_autoimport_modules = ["os.*","traceback","xml.etree"]
-" }}}
 
 " Rsense settings."{{{
 let g:rsenseHome = expand("~/.vim/rsense-0.3/")
@@ -1593,8 +1348,10 @@ set fillchars+=stl:\ ,stlnc:\
 " Enable list and set the list chars.
 set list
 if &term !~ 'linux'
-    set listchars=tab:»\ ,trail:⋅,extends:»,precedes:«
-    set showbreak=↪\ 
+    " set listchars=tab:»\ ,trail:⋅,extends:»,precedes:«
+    " set showbreak=↪\ 
+    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
+    set showbreak=...\ 
 else
     " :help digraph to find what characters look best.
 
@@ -1602,9 +1359,11 @@ else
     " set listchars=tab:»\ ,trail:∙,extends:»,precedes:«
 
     " Works with Lat2-Terminus16 console font.
-    set listchars=tab:»\ ,trail:●,extends:»,precedes:«
+    " set listchars=tab:»\ ,trail:●,extends:»,precedes:«
+    " set showbreak=└▶\ 
 
-    set showbreak=└▶\ 
+    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
+    set showbreak=...\ 
 endif
 " Make :help the default keywordprg
 set keywordprg=:help
@@ -1655,7 +1414,7 @@ set history=1000
 " Make buffers hidden instead of closing them.
 set hidden
 
-" Split new windows below for to the right the current one.
+" Split new windows below or to the right the current one.
 set splitbelow
 set splitright
 " Don't make windows the same size on split or unsplit.

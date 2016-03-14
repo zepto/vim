@@ -1,6 +1,7 @@
 # Include everything
 !*
 # Except ...
+dein/*
 yankring_history_v2.txt
 *.swp
 *.swo
