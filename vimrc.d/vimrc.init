@@ -1,0 +1,75 @@
+" File: .vimrc
+" Author: Josiah Gordon
+" Last Modified: March 14, 2016
+" License:  The MIT License {{{
+" Permission is hereby granted, free of charge, to any person obtaining a copy
+" of this software and associated documentation files (the "Software"), to deal
+" in the Software without restriction, including without limitation the rights
+" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+" copies of the Software, and to permit persons to whom the Software is
+" furnished to do so, subject to the following conditions:
+"
+" The above copyright notice and this permission notice shall be included in
+" all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+" OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+" THE SOFTWARE.
+" }}}
+
+" Initialize."{{{
+" Macros and other options that need to go first."{{{
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+if &compatible
+    set nocompatible
+endif
+
+" Load shell menu for shellscripts
+runtime! macros/shellmenu.vim
+
+" Load extended matching with '%'
+runtime! macros/matchit.vim
+runtime! macros/editexisting.vim
+"}}}
+
+" Set global variables"{{{
+
+" Set leader
+let maplocalleader = ";"
+let mapleader = ","
+
+" Make vim more posix compliant.
+let g:is_posix=1
+
+" End global variables"}}}
+
+" Initial settings."{{{
+" Encoding settings."{{{
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Reference: https://github.com/Shougo/config/blob/master/vimrc
+if $ENV_ACCESS ==# 'linux'
+    set termencoding=euc-jp
+elseif $ENV_ACCESS ==# 'colinux'
+    set termencoding=utf-8
+else  " fallback
+    set termencoding=  " same as 'encoding'
+endif
+set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,ucs-bom,cp932,default,latin1,cp1253
+" }}}
+
+" Fileformat settings."{{{
+set fileformat=unix
+" Detect other fileformats.
+set fileformats=unix,dos,mac
+" }}}
+" }}}
+" }}}
+
+" vim: fdm=marker:fdl=0:fmr={{{,}}}

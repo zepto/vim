@@ -22,8 +22,55 @@
 " }}}
 
 " Initialize."{{{
-runtime! vimrc.d/vimrc.init
+" Macros and other options that need to go first."{{{
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+if &compatible
+    set nocompatible
+endif
+
+" Load shell menu for shellscripts
+runtime! macros/shellmenu.vim
+
+" Load extended matching with '%'
+runtime! macros/matchit.vim
+runtime! macros/editexisting.vim
 "}}}
+
+" Set global variables"{{{
+
+" Set leader
+let maplocalleader = ";"
+let mapleader = ","
+
+" Make vim more posix compliant.
+let g:is_posix=1
+
+" End global variables"}}}
+
+" Initial settings."{{{
+" Encoding settings."{{{
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Reference: https://github.com/Shougo/config/blob/master/vimrc
+if $ENV_ACCESS ==# 'linux'
+    set termencoding=euc-jp
+elseif $ENV_ACCESS ==# 'colinux'
+    set termencoding=utf-8
+else  " fallback
+    set termencoding=  " same as 'encoding'
+endif
+set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,ucs-bom,cp932,default,latin1,cp1253
+" }}}
+
+" Fileformat settings."{{{
+set fileformat=unix
+" Detect other fileformats.
+set fileformats=unix,dos,mac
+" }}}
+" }}}
+" }}}
 
 " Load plugins."{{{
 
@@ -239,6 +286,8 @@ Plug 'Rykka/colorv.vim'
 
 call plug#end()
 
+" End plugin loading"}}}
+
 " Turn filtype settings and syntax back on."{{{
 " Turn on filetype detection and other options.
 filetype plugin indent on
@@ -247,9 +296,123 @@ filetype plugin indent on
 syntax on
 " }}}
 
-" End plugin loading"}}}
-
 " Keybindings"{{{
+
+" Misc."{{{
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" Toggle showing list chars
+noremap <leader>l :set invlist<CR>
+
+" Save file if it has changes.
+noremap <leader>x :update<CR>
+
+" Re-source vimrc
+noremap <leader>sv :source $MYVIMRC<CR>
+
+" Edit vimrc
+noremap <leader>ev :tabe $MYVIMRC<CR>
+
+" Tmux shortcuts."{{{
+noremap <leader>tp :TmuxSelectPane<CR>
+noremap <leader>tt :TmuxSendCommand<CR>
+noremap <leader>cc :TmuxChangeCommand<CR>
+
+nnoremap <leader>ts :TmuxSend<CR>
+nnoremap <leader>tsa :1,$TmuxSend<CR>
+xnoremap <leader>ts :TmuxSend<CR>
+" }}}
+"}}}
+
+" Moving in insert mode."{{{
+" Reference: https://github.com/kana/config/blob/master/vim/personal/dot.vimrc
+" inoremap <Esc>h  <Left>
+" inoremap <Esc>j  <Down>
+" inoremap <Esc>k  <Up>
+" inoremap <Esc>l  <Right>
+
+inoremap <Esc>w  <C-Right>
+inoremap <Esc>b  <C-Left>
+inoremap <Esc>e  <C-o>e
+inoremap <Esc>W  <C-o>W
+inoremap <Esc>B  <C-o>B
+inoremap <Esc>E  <C-o>E
+" }}}
+
+" Diff keybindings."{{{
+vnoremap <leader>dp :diffput<CR>
+vnoremap <leader>do :diffget<CR>
+" }}}
+
+" Encrypt the current file with vimcrypt."{{{
+noremap <leader>cr :X<CR>
+"}}}
+
+" Toggle the colorcolumn shortcut."{{{
+let s:l_cc = &cc
+fun! s:ToggleColorColumn()
+    if s:l_cc == 0
+        setlocal colorcolumn=+1
+        let s:l_cc = 1
+    else
+        setlocal colorcolumn=0
+        let s:l_cc = 0
+    endif
+endfun
+noremap <leader><leader>c :call <SID>ToggleColorColumn()<CR>
+" }}}
+
+" Turn off the highlighting (nohl) shortcut."{{{
+nnoremap <leader>/ :nohl<CR>
+" }}}
+
+" Quick spell check toggle."{{{
+noremap <leader>ss :setlocal spell!<CR>
+"}}}
+
+" Window and Tab movement keys."{{{
+" Tab related shortcuts.
+noremap <leader>tc :tabclose<CR>
+noremap <leader>wt <C-W>T
+
+" Switch windows quickly
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+"}}}
+
+" Close current window."{{{
+noremap <leader>q :quit!<CR>
+"}}}
+
+" Open and close the list window."{{{
+noremap <leader>lo :lopen<CR>
+noremap <leader>lc :lclose<CR>
+" }}}
+
+" Visual star search keybindings."{{{
+" Reference: https://github.com/ujihisa/config/blob/master/_vimrc#L1494
+" vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>")
+"}}}
+
+" Vim command line keybindings."{{{
+cmap <C-A> <Home>
+cmap <C-E> <End>
+cmap <C-D> <Del>
+cmap <C-B> <Left>
+cmap <C-F> <Right>
+"}}}
+
+" Golden Ratio resize."{{{
+" Reference: https://github.com/ujihisa/config/blob/master/_vimrc#L1494
+command! -nargs=0 GoldenRatioVirtical execute 'vertical resize' &columns * 5/8
+command! -nargs=0 GoldenRatio execute 'resize' &lines * 5/8
+nnoremap <leader>rv :<C-u> GoldenRatioVirtical<CR>
+nnoremap <leader>rh :<C-u> GoldenRatio<CR>
+"}}}
 
 " Plugin keybindings."{{{
 
@@ -506,6 +669,239 @@ endif
 " }}}
 
 " end plugin keybindings }}}
+"}}}
+
+" Autocommands and filetype settings."{{{
+
+" all files.{{{
+augroup all_filetypes
+    autocmd!
+    " Reference: http://stackoverflow.com/questions/2182427/right-margin-in-vim
+    " autocmd BufWinEnter <buffer> if empty(&buftype) && &l:textwidth > 0 |
+    "             \ call matchadd('ErrorMsg', '\%>'.&l:textwidth.'v.\+', -1) |
+    "             \ endif
+    autocmd FileType python if &l:textwidth > 0 |
+                \ call matchadd('ErrorMsg', '\%>'.&l:textwidth.'v.\+', -1) |
+                \ endif
+    " autocmd BufWinEnter * if &filetype == 'unite' | setlocal nowrap | endif
+    " Reference: http://vim.wikia.com/wiki/Keep_folds_closed_while_inserting_text
+    " Don't screw up folds when inserting text that might affect them, until
+    " leaving insert mode. Foldmethod is local to the window.
+    autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
+    autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+
+    " Reference: vimrc_example.vim
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+
+    autocmd FileType * setlocal formatoptions-=t |
+                \ setlocal formatoptions-=r |
+                \ setlocal formatoptions-=o |
+                \ setlocal formatoptions+=cmM
+
+    " Statusline coloring."{{{
+    " Reference: http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
+    function! InsertStatuslineColor(mode)
+        if  a:mode == 'r'
+            hi statusline ctermbg=darkred guibg=#DE6951
+        elseif a:mode == 'i'
+            hi statusline ctermbg=darkblue guibg=#2187F6
+        endif
+    endfunction
+
+    au InsertEnter * call InsertStatuslineColor(v:insertmode)
+    au InsertLeave * hi statusline ctermbg=darkcyan guibg=#4390B1
+    " }}}
+augroup END
+" }}}
+
+" Vim Help."{{{
+augroup vim_help_filetype
+    autocmd!
+    autocmd Filetype help noremap <buffer> q <C-W>q
+augroup END
+"}}}
+
+" vim"{{{
+augroup vim_filetype
+    autocmd!
+    autocmd FileType vim setlocal keywordprg=:help
+augroup END
+"}}}
+
+" tmux.conf"{{{
+augroup tmux_filetype
+    autocmd!
+    autocmd FileType tmux setlocal commentstring=#%s
+augroup END
+" }}}
+
+" text."{{{
+augroup text_filetype
+    autocmd!
+    " Set the vim dictionary
+    au Filetype text setlocal dictionary+=/usr/share/dict/words
+
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+augroup END
+" }}}
+
+" python"{{{
+augroup python_filetype
+    autocmd!
+
+    let python_highlight_all=1
+
+    au FileType python noremap <buffer> <localleader>f :call Pyflakes()<CR>
+    au FileType python noremap <buffer> <localleader>8 :call Pep8()<CR>
+    au FileType python noremap <buffer> <localleader>f8 :call Flake8()<CR>
+    au FileType python noremap <buffer> <localleader>l :Pylint<CR>
+    if has('python3')
+        au FileType python setlocal omnifunc=python3complete#Complete
+    elseif has('python')
+        au FileType python setlocal omnifunc=pythoncomplete#Complete
+    endif
+
+
+    " Python Fold setup"{{{
+    "autocmd FileType python setlocal foldopen=all
+    " autocmd FileType python setlocal foldclose=all
+    autocmd FileType python setlocal foldmethod=indent
+    autocmd FileType python setlocal foldlevel=20000
+    autocmd FileType python setlocal foldcolumn=3
+    "}}}
+
+    " Add python paths for completion."{{{
+    autocmd FileType python setlocal path+=/usr/lib/python3.5
+    autocmd FileType python setlocal path+=/usr/lib/python3.5/site-packages
+    autocmd FileType python setlocal path+=/usr/lib/python2.7
+    autocmd FileType python setlocal path+=/usr/lib/python2.7/site-packages
+    "}}}
+augroup END
+"}}}
+
+" PKGBUILD"{{{
+augroup PKGBUILD_filetype
+    autocmd!
+    autocmd FileType PKGBUILD setlocal commentstring=#%s
+augroup END
+"}}}
+
+" freebasic"{{{
+augroup freebasic_filetype
+    autocmd!
+    autocmd FileType freebasic setlocal commentstring='%s
+augroup END
+"}}}
+
+" golang"{{{
+augroup go_filetype
+    autocmd!
+    set rtp+=/usr/share/go/misc/vim
+    autocmd FileType go setlocal commentstring=//%s
+augroup END
+"}}}
+
+" Java"{{{
+augroup java_filetype
+    autocmd!
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+augroup END
+"}}}
+
+" php"{{{
+augroup php_filetype
+    autocmd!
+    autocmd FileType php setlocal omnifunc=phpcomplete#Complete
+augroup END
+"}}}
+
+" html"{{{
+augroup html_filetype
+    autocmd!
+    autocmd FileType html,html5 setlocal omnifunc=htmlcomplete#CompleteTags
+    " au FileType html,html5 call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+augroup END
+
+" Preview html."{{{
+" Reference: http://vim.wikia.com/wiki/Preview_HTML_files_quickly
+function! ViewHtmlText(url)
+  if !empty(a:url)
+    new
+    setlocal buftype=nofile bufhidden=hide noswapfile
+    " Using lynx.
+    " execute 'r !lynx ' . a:url . ' -dump -nolist -underscore -width ' . winwidth(0)
+    " Using elinks.
+    execute 'r !elinks ' . a:url . ' -dump -dump-width ' . winwidth(0)
+    0d
+  endif
+endfunction
+" Save and view text for current html file.
+nnoremap <Leader>H :update<Bar>:call ViewHtmlText(expand('%:p'))<CR>
+" View text for visually selected url.
+vnoremap <Leader>h "ey:call ViewHtmlText(@e)<CR>
+" View text for url from Linux or Windows clipboard
+" (on Linux, @* is the current selection; use @+ for text in clipboard).
+nnoremap <Leader>h :call ViewHtmlText(@*)<CR>
+"}}}
+"}}}
+
+" ruby"{{{
+augroup ruby_filetype
+    autocmd!
+    " autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType ruby,eruby setlocal foldmethod=syntax
+    autocmd FileType ruby,eruby setlocal foldlevel=20000
+    "autocmd FileType ruby,eruby setlocal keywordprg=ri
+    "let g:rubycomplete_buffer_loading = 1
+    "let g:rubycomplete_rails = 1
+    "let g:rubycomplete_classes_in_global = 1
+augroup END
+"}}}
+
+" Vala"{{{
+augroup vala_filetype
+    autocmd!
+
+    " Disable valadoc syntax highlight
+    "let vala_ignore_valadoc = 1
+
+    " Enable comment strings
+    let vala_comment_strings = 1
+
+    " Highlight space errors
+    let vala_space_errors = 1
+
+    " Disable trailing space errors
+    let vala_no_trail_space_error = 1
+
+    " Disable space-tab-space errors
+    let vala_no_tab_space_error = 1
+
+    " Minimum lines used for comment syncing (default 50)
+    "let vala_minlines = 120
+augroup END
+
+" End vala stuff"}}}
+
+" Markdown."{{{
+augroup markdown_filetype
+    autocmd!
+    " Reference: http://learnvimscriptthehardway.stevelosh.com/chapters/16.html
+    autocmd Filetype markdown onoremap <buffer> ih :<C-U>execute
+                \ "normal! ?^==\\\|--\\+$\r:nohlsearch\rkvg_"<CR>
+    autocmd Filetype markdown onoremap <buffer> ah :<C-U>execute
+                \ "normal! ?^==\\\|--\\+$\r:nohlsearch\rg_vk0"<CR>
+augroup END
+"}}}
 
 "}}}
 
@@ -870,10 +1266,354 @@ let g:rainbow_operators = 1
 
 " end plugin options"}}}
 
+" Status line settings."{{{
+" Mode function for status line."{{{
+fun! s:GetMode()
+    let l:mode_l = mode()
+    if l:mode_l == 'n'
+        let l:mode_l='NORMAL'
+    elseif l:mode_l == 'no'
+        let l:mode_l='OPERATOR-PENDING'
+    elseif l:mode_l == 'i'
+        let l:mode_l='INSERT'
+    elseif l:mode_l == 'v'
+        let l:mode_l='VISUAL (character)'
+    elseif l:mode_l == 'V'
+        let l:mode_l='VISUAL (line)'
+    elseif l:mode_l == ''
+        let l:mode_l='VISUAL (block)'
+    elseif l:mode_l == 's'
+        let l:mode_l='SELECT (character)'
+    elseif l:mode_l == 'S'
+        let l:mode_l='SELECT (line)'
+    elseif l:mode_l == '<C-S>'
+        let l:mode_l='SELECT (block)'
+    elseif l:mode_l == 'R'
+        let l:mode_l='REPLACE'
+    elseif l:mode_l == 'Rv'
+        let l:mode_l='REPLACE (virtual)'
+    elseif l:mode_l == 'c'
+        let l:mode_l='COMMAND-LINE'
+    elseif l:mode_l == 'cv'
+        let l:mode_l='EX (vim)'
+    elseif l:mode_l == 'ce'
+        let l:mode_l='EX (normal)'
+    elseif l:mode_l == 'r'
+        let l:mode_l='PROMPT (enter)'
+    elseif l:mode_l == 'rm'
+        let l:mode_l='PROMPT (more)'
+    elseif l:mode_l == 'r?'
+        let l:mode_l='PROMPT (confirm)'
+    elseif l:mode_l == '!'
+        let l:mode_l='SHELL'
+    endif
+    return l:mode_l
+endfun
+" }}}
+
+" Reference: https://raw.github.com/niw/profiles/master/.vimrc
+" Status line
+let &statusline = ''
+" let &statusline .= '  %{ l:GetMode() } |'     " Buffer number
+let &statusline .= ' %3n '     " Buffer number
+let &statusline .= '%m%r%h%w%q' " Modified flag, Readonly flag, Preview flag,
+                                " and Quickfix flag
+if &rtp=~'fugitive'
+    let &statusline .= ' | %<%{fugitive#statusline()} '   " Git branch
+endif
+let &statusline .= ' | %<%f '   " Filename
+let &statusline .= '%='         " Spaces
+let &statusline .= '%{" | " . (&fileencoding != "" ? &fileencoding : &encoding) . " | " . &fileformat . " | " . &filetype }'
+let &statusline .= ' |%4P'      " Percentage through file of displayed window.
+let &statusline .= ' | LN%7l C%3c '  " Line number, Column number, Virtual
+                                     " column number
+" let &statusline = '%{g:HahHah()}' 
+
+" Show the statusline
+set laststatus=2
+
+" Show the cursor position all the time
+set ruler		
+
+" Set the fill chars for the statusline
+set fillchars+=stl:\ ,stlnc:\ 
+" }}}
+
+" Misc settings."{{{
+" Set the cursor.
+" Reference: http://vim.wikia.com/wiki/Non-blinking_block_cursor_in_a_Linux_console
+" if &term =~ 'linux'
+    " Make the cursor a solid white non-blinking block.
+    " set t_ve+=[?81;0;112c
+" endif
+
+" Enable list and set the list chars.
+set list
+if &term !~ 'linux'
+    " set listchars=tab:»\ ,trail:⋅,extends:»,precedes:«
+    " set showbreak=↪\ 
+    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
+    set showbreak=...\ 
+else
+    " :help digraph to find what characters look best.
+
+    " Works with ter-v16n console font.
+    " set listchars=tab:»\ ,trail:∙,extends:»,precedes:«
+
+    " Works with Lat2-Terminus16 console font.
+    " set listchars=tab:»\ ,trail:●,extends:»,precedes:«
+    " set showbreak=└▶\ 
+
+    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
+    set showbreak=...\ 
+endif
+" Make :help the default keywordprg
+set keywordprg=:help
+
+" Don't use input methods.
+set iminsert=0
+set imsearch=0
+
+" Include the current directory and /usr/include for searching.
+set path+=.,,/usr/include
+
+" Only keep a backup when writing.
+set nobackup
+set writebackup
+
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Turn on autoindent
+set autoindent
+
+" Add extra keywords
+set iskeyword+=.
+
+" Show line numbers.
+" set number
+" Show line number relative to the current line.
+set relativenumber
+
+" Make tilde an operator so it can be used with movement (e.g. ~w)
+set tildeop
+
+" Set the escape timeout.
+set timeout ttimeout timeoutlen=600 ttimeoutlen=0
+
+" Make Visual Block mode able to select past the end of lines.
+set virtualedit=block
+
+" Try to keep the cursor on the same column.
+set nostartofline
+
+" Show as much of long lines as will fit on the screen not just @'s.
+set display+=lastline
+
+" Keep more command line history.
+set history=1000
+
+" Make buffers hidden instead of closing them.
+set hidden
+
+" Split new windows below or to the right the current one.
+set splitbelow
+set splitright
+" Don't make windows the same size on split or unsplit.
+set noequalalways
+
+" Display incomplete commands
+set showcmd		
+
+" Enable mouse.
+set mouse=a
+
+" Allways show the tabline.
+set showtabline=2
+
+" Report all changes.
+set report=0
+
+" Don't redraw while performing non-typed actions.
+set lazyredraw 
+
+" Set the help window height.
+set helpheight=10
+
+" Set preview window height.
+set previewheight=8
+
+" Make the command line 2 lines height to avoid "hit enter" prompts.
+set cmdheight=2
+
+" }}}
+
+" Showmatch."{{{
+" Show matching braces etc.
+set showmatch
+
+" Highlight <>.
+set matchpairs+=<:>
+
+" Wait half a second for showmatch or until a key is pressed.
+set cpoptions-=m
+"}}}
+
+" Search options."{{{
+" Also switch on highlighting the last used search pattern.
+set hlsearch
+" Do incremental searching
+set incsearch		
+"}}}
+
+" Set completion options"{{{
+set complete=.,w,b,u,t,i,d,],k,kspell
+set completeopt=menuone
+"}}}
+
+" Set encryption options"{{{
+set cryptmethod=blowfish2
+"}}}
+
+" Set tab preferences."{{{
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set shiftround
+set softtabstop=4
+"}}}
+
+" wildmenu options."{{{
+" Turn on wild menu and make its tab completion like the shells.
+set nowildmenu
+set wildmode=list:longest
+" }}}
+
+" Undo and backup settings."{{{
+" Make vim keep an undo file.
+set undofile
+let &undodir=expand('~/.vim/tmp')
+set undolevels=1000
+au BufWritePre /tmp/* setlocal noundofile
+
+" Don't create backups when editing a file.
+set nobackup
+" }}}
+
+" Line (wrap, textwidth, context, etc...) settings."{{{
+" Turn on line wrap.
+set wrap
+
+" Set the textwidth to 79 for terminals that are 80.
+set textwidth=79
+
+" Set the vertical scrolling context to three lines.
+set scrolloff=3
+" Set the horizontal scrolling context to three characters.
+set sidescrolloff=3
+" }}}
+
+" Formatoptions."{{{
+set formatexpr&
+set formatoptions-=t
+set formatoptions-=r
+set formatoptions-=o
+set formatoptions+=cmM
+" }}}
+
+" Set folding options"{{{
+set foldmethod=marker
+set foldcolumn=3
+"}}}
+
+" Conceal level."{{{
+if has('conceal')
+  set conceallevel=2 concealcursor=iv
+endif
+"}}}
+
 " End vim options"}}}
 
-" Finalize."{{{
-runtime! vimrc.d/vimrc.end
+" Setup vim colorscheme."{{{
+
+" Set the colorscheme to ir_black.
+" colorscheme ir_black
+colorscheme zepto_dark
+
+" Try to make the colorscheme look the same in all terminal instances
+" including the console at 16 colors.
+" CSApprox settings."{{{
+if &term!="linux" && &term!="screen.linux"
+    " We are in a xterm compatible terminal so we probably have 256 colors.
+    set t_Co=256
+    let g:CSApprox_ir_black_hook_post = 
+                \ ['hi Normal ctermbg=NONE ctermfg=NONE',  
+                \ 'hi NonText ctermbg=NONE ctermfg=NONE', 
+                \ 'hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=green', 
+                \ 'hi LineNr cterm=NONE ctermbg=NONE',
+                \ 'hi DiffDelete ctermfg=white',
+                \ 'hi DiffChange ctermfg=grey',
+                \ 'hi VertSplit ctermfg=darkgrey ctermbg=grey',
+                \ 'hi ModeMsg cterm=BOLD ctermfg=darkgrey ctermbg=NONE',
+                \ 'hi Comment ctermfg=darkgrey',
+                \ 'hi LineNr cterm=NONE ctermfg=darkgrey ctermbg=NONE',
+                \ 'hi MatchParen cterm=NONE ctermfg=white ctermbg=cyan',
+                \ 'hi Normal ctermfg=NONE ctermbg=NONE',
+                \ 'hi Visual ctermfg=white ctermbg=green',
+                \ 'hi NonText ctermfg=NONE ctermbg=NONE',
+                \ 'hi FoldColumn cterm=NONE ctermfg=green ctermbg=NONE',
+                \ 'hi SignColumn cterm=NONE ctermfg=red  ctermbg=NONE',
+                \ 'hi Pmenu ctermfg=black ctermbg=grey',
+                \ 'hi PmenuSel ctermbg=darkyellow',
+                \ 'hi EasyMotionTarget ctermfg=green ctermbg=none',
+                \ 'hi EasyMotionShade ctermfg=darkgrey ctermbg=none',
+                \ 'hi String ctermfg=green',
+                \ 'hi Number ctermfg=magenta',
+                \ 'hi Keyword ctermfg=blue',
+                \ 'hi PreProc ctermfg=blue',
+                \ 'hi Conditional ctermfg=blue',
+                \ 'hi Constant ctermfg=cyan',
+                \ 'hi Identifier ctermfg=cyan',
+                \ 'hi Function ctermfg=darkyellow',
+                \ 'hi Type ctermfg=yellow',
+                \ 'hi Statement ctermfg=lightblue',
+                \ 'hi Special ctermfg=white',
+                \ 'hi Delimiter ctermfg=cyan',
+                \ 'hi Operator  ctermfg=white',
+                \ 'hi Folded ctermfg=lightgrey ctermbg=NONE',
+                \ ]
+    let g:CSApprox_loaded = 1
+else
+    " Don't load CSApprox plugin.
+    let g:CSApprox_loaded = 1
+endif
+" }}}
+
+" fbpad colorscheme setup."{{{
+if &term=='fbpad-256'
+    colorscheme fbpad
+endif
+"}}}
+
+" End setting up colorscheme"}}}
+
+" Set gui options"{{{
+
+if has('gui_running')
+    set guifont=Ricty\ 12
+    " set guifont=Droid\ Sans\ Mono\ 10
+    " set guifont=DejaVu\ Sans\ Mono\ 10
+
+    " Hide menu and toolbar.
+    set guioptions=cMg
+    set ch=1		" Make command line one lines high
+
+    set mousehide		" Hide the mouse when typing text
+
+    " Make shift-insert work like in Xterm
+    noremap <S-Insert> <MiddleMouse>
+    noremap! <S-Insert> <MiddleMouse>
+endif
 "}}}
 
 set secure

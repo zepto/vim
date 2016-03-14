@@ -403,7 +403,6 @@ NeoBundleCheck
 " End plugin loading"}}}
 
 " Keybindings"{{{
-
 " Plugin keybindings."{{{
 
 " Neocomplcache keybindings"{{{
@@ -667,7 +666,6 @@ endif
 " }}}
 
 " end plugin keybindings }}}
-
 "}}}
 
 " Options."{{{
