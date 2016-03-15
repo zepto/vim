@@ -230,7 +230,6 @@ augroup python_filetype
         au FileType python setlocal omnifunc=pythoncomplete#Complete
     endif
 
-
     " Python Fold setup"{{{
     "autocmd FileType python setlocal foldopen=all
     " autocmd FileType python setlocal foldclose=all
@@ -369,7 +368,7 @@ augroup END
 
 " Status line settings."{{{
 " Mode function for status line."{{{
-fun! s:GetMode()
+fun! GetMode()
     let l:mode_l = mode()
     if l:mode_l == 'n'
         let l:mode_l='NORMAL'
@@ -415,7 +414,7 @@ endfun
 " Reference: https://raw.github.com/niw/profiles/master/.vimrc
 " Status line
 let &statusline = ''
-" let &statusline .= '  %{ l:GetMode() } |'     " Buffer number
+" let &statusline .= '  %{ GetMode() } |'     " Buffer number
 let &statusline .= ' %3n '     " Buffer number
 let &statusline .= '%m%r%h%w%q' " Modified flag, Readonly flag, Preview flag,
                                 " and Quickfix flag
@@ -450,24 +449,11 @@ set fillchars+=stl:\ ,stlnc:\
 
 " Enable list and set the list chars.
 set list
-if &term !~ 'linux'
-    " set listchars=tab:»\ ,trail:⋅,extends:»,precedes:«
-    " set showbreak=↪\ 
-    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
-    set showbreak=...\ 
-else
-    " :help digraph to find what characters look best.
 
-    " Works with ter-v16n console font.
-    " set listchars=tab:»\ ,trail:∙,extends:»,precedes:«
+" :help digraph to find what characters look best.
+set listchars=tab:»\ ,trail:·,extends:»,precedes:«
+set showbreak=...\ 
 
-    " Works with Lat2-Terminus16 console font.
-    " set listchars=tab:»\ ,trail:●,extends:»,precedes:«
-    " set showbreak=└▶\ 
-
-    set listchars=tab:»\ ,trail:·,extends:»,precedes:«
-    set showbreak=...\ 
-endif
 " Make :help the default keywordprg
 set keywordprg=:help
 
@@ -491,8 +477,6 @@ set autoindent
 " Add extra keywords
 set iskeyword+=.
 
-" Show line numbers.
-" set number
 " Show line number relative to the current line.
 set relativenumber
 
@@ -520,6 +504,7 @@ set hidden
 " Split new windows below or to the right the current one.
 set splitbelow
 set splitright
+
 " Don't make windows the same size on split or unsplit.
 set noequalalways
 
@@ -536,7 +521,7 @@ set showtabline=2
 set report=0
 
 " Don't redraw while performing non-typed actions.
-set lazyredraw 
+set lazyredraw
 
 " Set the help window height.
 set helpheight=10

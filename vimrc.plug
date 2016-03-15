@@ -162,7 +162,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 't9md/vim-textmanip'
 Plug 'Rykka/easydigraph.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/Rainbow-Parentheses-Improved-and2'
+Plug 'luochen1990/rainbow'
 Plug 'yuroyoro/monday'
 Plug 'taku-o/vim-toggle'
 Plug 'vim-scripts/camelcasemotion'
@@ -188,7 +188,6 @@ Plug 'greyblake/vim-preview'
 " }}}
 
 " Markdown plugins."{{{
-Plug 'hallison/vim-markdown'
 Plug 'mattn/mkdpreview-vim'
 " }}}
 
@@ -255,6 +254,8 @@ syntax on
 
 " Plug keybindings."{{{
 noremap <leader>pi :PlugInstall<CR>
+noremap <leader>pu :PlugUpgrade<CR>
+noremap <leader>pd :PlugUpdate<CR>
 "}}}
 
 " Neocomplcache keybindings"{{{
@@ -336,13 +337,6 @@ if &rtp=~'vimshell'
 endif
 " }}}
 
-" ConqueTerm keybindings."{{{
-if &rtp=~'vim-conque'
-    noremap <leader>cb :ConqueTermSplit /bin/bash<CR>
-    noremap <leader>cp :ConqueTermSplit /usr/bin/python<CR>
-endif
-" }}}
-
 " EchoDoc keybindings."{{{
 if &rtp=~'echodoc'
     nnoremap <leader>ee :EchoDocEnable<CR>
@@ -412,28 +406,6 @@ endif
 if &rtp=~'vim-yankstack'
     nmap <C-P> <Plug>yankstack_substitute_older_paste
     nmap <C-N> <Plug>yankstack_substitute_newer_paste
-endif
-" }}}
-
-" Syntastic keybindings."{{{
-if &rtp=~'syntastic'
-    noremap <leader>s :SyntasticCheck<CR>
-endif
-" }}}
-
-" Vundle keybindings."{{{
-" noremap <leader>bs :BundleSearch 
-" }}}
-
-" CommandT keybindings."{{{
-if &rtp=~'Command-T'
-    noremap <silent> <Leader>tf :CommandTFlush<CR>
-endif
-" }}}
-
-" CTRL-P keybindings."{{{
-if &rtp=~'ctrlp.vim'
-    nnoremap <silent> <c-p>b :CtrlPBuffer<CR>
 endif
 " }}}
 
@@ -674,12 +646,6 @@ let g:vimshell_execute_file_list['py'] = 'python'
 let g:vimshell_popup_height = 35
 "}}}
 
-" ConqueTerm Settings"{{{
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_CWInsert = 1
-"let g:ConqueTerm_TERM = 'xterm'
-"}}}
-
 " Zencoding plugin settings. "{{{
 let g:user_zen_leader_key = '<leader>z'
 "}}}
@@ -781,46 +747,9 @@ let g:autodate_keyword_pre = 'Last Modified:'
 let g:autodate_keyword_post = '$'
 " }}}
 
-" Eskk settings."{{{
-" let g:eskk#large_dictionary = {
-"             \ 'path': expand('~/.vim/dict/SKK-JISYO.XL'),
-"             \ 'sorted': 1,
-"             \ 'encoding': 'euc-jp',
-"             \ }
-let g:eskk#large_dictionary = {
-\	'path': "/usr/share/skk/SKK-JISYO.L",
-\	'sorted': 1,
-\	'encoding': 'euc-jp',
-\}
-" }}}
-
-" Skk settings."{{{
-let skk_jisyo = '~/vim-skk-jisyo.utf8'
-let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
-
-let skk_auto_save_jisyo = 1 " don't ask if save
-let skk_keep_state = 0
-let skk_kutouten_type = 'en'
-let skk_egg_like_newline = 1
-let skk_show_annotation = 1
-let skk_use_face = 1
-" }}}
-
-" Vim-Slime settings."{{{
-let g:slime_target='tmux'
-" }}}
-
 " Screen settings."{{{
 let g:ScreenImpl="Tmux"
 " }}}
-
-" Syntastic settings."{{{
-let g:syntastic_python_checker = 'pylint'       " pyflakes for python 3
-" Don't check on save.
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': ['ruby', 'php', 'puppet'] }
-"}}}
 
 " Set the pylint settings."{{{
 let g:pylint_error_numbers = 1  " Show the python error numbers.
@@ -832,36 +761,6 @@ let g:pylint_command = 'pylint'
 let g:rsenseHome = expand("~/.vim/rsense-0.3/")
 let g:rsenseUseOmniFunc = 1
 " }}}
-
-" Set the bash-support plugins leader."{{{
-let g:BASH_MapLeader='\'
-"}}}
-
-" Setup SuperTab"{{{
-let g:SuperTabMappingTabLiteral = "<C-i>"
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabRetainCompletionDuration = "completion"
-let g:SuperTabNoCompleteBefore = []
-" Set no tab completion after 'spaces,' 'commas,' and 'quotes.'
-let g:SuperTabNoCompleteAfter = ['\s', '[:blank:]', '[:space:]', "'", ",", '"']
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1      " Pre highlight the first item 
-                                        " in the list.
-
-" Close the preview window when <cr> is pressed.
-let g:SuperTabCrClosePreview=1
-"}}}
-
-" Powerline customizations."{{{
-"let g:Powerline_colorscheme='test'
-"let g:Powerline_symbols='fancy'
-"}}}
-
-" UltiSnips settings"{{{
-let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-g>"
-"}}}
 
 " Rainbow Parenthesis Improved settings"{{{
 let g:rainbow_active = 1

@@ -46,204 +46,202 @@ call dein#add('Shougo/dein.vim')
 "}}}
 
 " Vim related plugins"{{{
-call dein#add( 'kana/vim-submode')
-call dein#add( 'kana/vim-arpeggio')
-call dein#add( 'kana/vim-smartchr')
-call dein#add( 'kana/vim-altercmd')
-call dein#add( 'kana/vim-skeleton')
-call dein#add( 'kana/vim-gf-user')
-call dein#add( 'kana/vim-gf-diff')
-call dein#add( 'Shougo/vimproc', {'do': 'make'})
-call dein#add( 'Shougo/echodoc')
-call dein#add( 'mattn/webapi-vim')
-call dein#add( 'mattn/benchvimrc-vim')
-call dein#add( 'ujihisa/nclipper.vim')
-call dein#add( 'vim-jp/vital.vim')
-call dein#add( 'tyru/DumbBuf.vim')
-call dein#add( 'thinca/vim-singleton')
-call dein#add( 'tpope/vim-repeat')
-call dein#add( 'pydave/AsyncCommand')
-call dein#add( 'sickill/vim-pasta')
-call dein#add( 'vim-scripts/autodate.vim')
-call dein#add( 'maxbrunsfeld/vim-yankstack')
-call dein#add( 'godlygeek/tabular')
-call dein#add( 'airblade/vim-gitgutter')
+call dein#add('kana/vim-submode')
+call dein#add('kana/vim-arpeggio')
+call dein#add('kana/vim-smartchr')
+call dein#add('kana/vim-altercmd')
+call dein#add('kana/vim-skeleton')
+call dein#add('kana/vim-gf-user')
+call dein#add('kana/vim-gf-diff')
+call dein#add('Shougo/vimproc', {'do': 'make'})
+call dein#add('Shougo/echodoc')
+call dein#add('mattn/webapi-vim')
+call dein#add('mattn/benchvimrc-vim')
+call dein#add('ujihisa/nclipper.vim')
+call dein#add('vim-jp/vital.vim')
+call dein#add('tyru/DumbBuf.vim')
+call dein#add('thinca/vim-singleton')
+call dein#add('tpope/vim-repeat')
+call dein#add('pydave/AsyncCommand')
+call dein#add('sickill/vim-pasta')
+call dein#add('vim-scripts/autodate.vim')
+call dein#add('maxbrunsfeld/vim-yankstack')
+call dein#add('godlygeek/tabular')
+call dein#add('airblade/vim-gitgutter')
 "}}}
 
 " Unite plugins"{{{
-call dein#add( 'Shougo/unite.vim')
-call dein#add( 'Shougo/neomru.vim')
-call dein#add( 'ujihisa/unite-locate')
-call dein#add( 'ujihisa/unite-colorscheme')
-call dein#add( 'ujihisa/quicklearn')
-call dein#add( 't9md/vim-unite-ack')
-call dein#add( 'sgur/unite-qf')
-call dein#add( 'h1mesuke/vim-alignta')
-call dein#add( 'tsukkee/unite-help')
-call dein#add( 'tsukkee/unite-tag')
-call dein#add( 'tacroe/unite-mark')
-call dein#add( 'thinca/vim-unite-history')
-call dein#add( 'soh335/unite-qflist')
-call dein#add( 'natsumesou/unite-flexmatcher')
-call dein#add( 'zepto/unite-tmux')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('ujihisa/unite-locate')
+call dein#add('ujihisa/unite-colorscheme')
+call dein#add('ujihisa/quicklearn')
+call dein#add('t9md/vim-unite-ack')
+call dein#add('sgur/unite-qf')
+call dein#add('h1mesuke/vim-alignta')
+call dein#add('tsukkee/unite-help')
+call dein#add('tsukkee/unite-tag')
+call dein#add('tacroe/unite-mark')
+call dein#add('thinca/vim-unite-history')
+call dein#add('soh335/unite-qflist')
+call dein#add('natsumesou/unite-flexmatcher')
+call dein#add('zepto/unite-tmux')
 " }}}
 
 " Vim-ref plugins"{{{
-call dein#add( 'mfumi/ref-dicts-en')
-call dein#add( 'thinca/vim-ref')
+call dein#add('mfumi/ref-dicts-en')
+call dein#add('thinca/vim-ref')
 " }}}
 
 " Operator plugins"{{{
-call dein#add( 'tyru/operator-html-escape.vim')
-call dein#add( 'tyru/operator-camelize.vim')
-call dein#add( 'tyru/operator-star.vim')
-call dein#add( 'kana/vim-operator-user')
-call dein#add( 'kana/vim-operator-replace')
-call dein#add( 'emonkak/vim-operator-comment')
-call dein#add( 'emonkak/vim-operator-sort')
-call dein#add( 'thinca/vim-operator-sequence')
+call dein#add('tyru/operator-html-escape.vim')
+call dein#add('tyru/operator-camelize.vim')
+call dein#add('tyru/operator-star.vim')
+call dein#add('kana/vim-operator-user')
+call dein#add('kana/vim-operator-replace')
+call dein#add('emonkak/vim-operator-comment')
+call dein#add('emonkak/vim-operator-sort')
+call dein#add('thinca/vim-operator-sequence')
 " }}}
 
 " Vim textobj plugins."{{{
-call dein#add( 'kana/vim-textobj-user')
-call dein#add( 'kana/vim-textobj-indent')
-call dein#add( 'kana/vim-textobj-line')
-call dein#add( 'kana/vim-textobj-syntax')
-call dein#add( 'kana/vim-textobj-lastpat')
-call dein#add( 'kana/vim-textobj-function')
-call dein#add( 'kana/vim-textobj-entire')
-call dein#add( 'kana/vim-textobj-fold')
-call dein#add( 'kana/vim-textobj-datetime')
-call dein#add( 'thinca/vim-textobj-comment')
-call dein#add( 'sgur/vim-textobj-parameter')
-call dein#add( 'mattn/vim-textobj-url')
-call dein#add( 't9md/vim-textobj-function-ruby')
-call dein#add( 'nelstrom/vim-textobj-rubyblock')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('kana/vim-textobj-line')
+call dein#add('kana/vim-textobj-syntax')
+call dein#add('kana/vim-textobj-lastpat')
+call dein#add('kana/vim-textobj-function')
+call dein#add('kana/vim-textobj-entire')
+call dein#add('kana/vim-textobj-fold')
+call dein#add('kana/vim-textobj-datetime')
+call dein#add('thinca/vim-textobj-comment')
+call dein#add('sgur/vim-textobj-parameter')
+call dein#add('mattn/vim-textobj-url')
+call dein#add('t9md/vim-textobj-function-ruby')
+call dein#add('nelstrom/vim-textobj-rubyblock')
 " }}}
 
 " Metarw plugins."{{{
-call dein#add( 'kana/vim-metarw')
-call dein#add( 'kana/vim-metarw-git')
-call dein#add( 'mattn/vim-metarw-simplenote')
-call dein#add( 'emonkak/vim-metarw-gist')
+call dein#add('kana/vim-metarw')
+call dein#add('kana/vim-metarw-git')
+call dein#add('mattn/vim-metarw-simplenote')
+call dein#add('emonkak/vim-metarw-gist')
 " }}}
 
 " Vimshell plugins."{{{
-call dein#add( 'Shougo/vimshell')
-call dein#add( 'ujihisa/vimshell-ssh')
+call dein#add('Shougo/vimshell')
+call dein#add('ujihisa/vimshell-ssh')
 " }}}
 
 " neocomplcache completion."{{{
-call dein#add( 'Shougo/neocomplcache')
-call dein#add( 'ujihisa/neco-ruby')
-call dein#add( 'ujihisa/neco-look')
-call dein#add( 'ujihisa/neco-drikin')
-call dein#add( 'ujihisa/neco-rake')
-call dein#add( 'Shougo/neosnippet')
-call dein#add( 'Shougo/neosnippet-snippets')
+call dein#add('Shougo/neocomplcache')
+call dein#add('ujihisa/neco-ruby')
+call dein#add('ujihisa/neco-look')
+call dein#add('ujihisa/neco-rake')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
 "}}}
 
 " Surround and surround like plugins."{{{
-call dein#add( 'tpope/vim-surround')
-call dein#add( 't9md/vim-surround_custom_mapping')
+call dein#add('tpope/vim-surround')
+call dein#add('t9md/vim-surround_custom_mapping')
 " NeoBundle 'kana/vim-surround'
 " }}}
 
 " Language Related plugins."{{{
-call dein#add( 'mattn/excitetranslate-vim')
+call dein#add('mattn/excitetranslate-vim')
 " }}}
 
 " File related plugins"{{{
-call dein#add( 'vim-scripts/pdftotext')
-call dein#add( 'Shougo/vimfiler')
+call dein#add('vim-scripts/pdftotext')
+call dein#add('Shougo/vimfiler')
 "}}}
 
 " Editing related plugins"{{{
-call dein#add( 'chrisbra/NrrwRgn')
-call dein#add( 'chrisbra/unicode.vim')
-call dein#add( 'kana/vim-smartword')
-call dein#add( 'kana/vim-grex')
-call dein#add( 'thinca/vim-qfreplace')
-call dein#add( 'thinca/vim-visualstar')
-call dein#add( 'sjl/gundo.vim')
-call dein#add( 'Lokaltog/vim-easymotion')
-call dein#add( 'Lokaltog/vim-easymotion')
-call dein#add( 't9md/vim-textmanip')
-call dein#add( 'Rykka/easydigraph.vim')
-call dein#add( 'nathanaelkane/vim-indent-guides')
-call dein#add( 'vim-scripts/Rainbow-Parentheses-Improved-and2')
-call dein#add( 'yuroyoro/monday')
-call dein#add( 'taku-o/vim-toggle')
-call dein#add( 'vim-scripts/camelcasemotion')
-call dein#add( 'tobyS/vmustache')
+call dein#add('chrisbra/NrrwRgn')
+call dein#add('chrisbra/unicode.vim')
+call dein#add('kana/vim-smartword')
+call dein#add('kana/vim-grex')
+call dein#add('thinca/vim-qfreplace')
+call dein#add('thinca/vim-visualstar')
+call dein#add('sjl/gundo.vim')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('t9md/vim-textmanip')
+call dein#add('Rykka/easydigraph.vim')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('luochen1990/rainbow')
+call dein#add('yuroyoro/monday')
+call dein#add('taku-o/vim-toggle')
+call dein#add('vim-scripts/camelcasemotion')
+call dein#add('tobyS/vmustache')
 "}}}
 
 " Programming related plugins"{{{
-call dein#add( 'majutsushi/tagbar')
-call dein#add( 'othree/html5.vim')
-call dein#add( 'thinca/vim-quickrun')
-call dein#add( 'tyru/caw.vim')
-call dein#add( 'honza/vim-snippets')
-call dein#add( 'c9s/cascading.vim')
-call dein#add( 'semmons99/vim-ruby-matchit')
+call dein#add('majutsushi/tagbar')
+call dein#add('othree/html5.vim')
+call dein#add('thinca/vim-quickrun')
+call dein#add('tyru/caw.vim')
+call dein#add('honza/vim-snippets')
+call dein#add('c9s/cascading.vim')
+call dein#add('semmons99/vim-ruby-matchit')
 
 " Perl plugins."{{{
-call dein#add( 'c9s/perlomni.vim')
+call dein#add('c9s/perlomni.vim')
 " }}}
 
 " Textile plugins."{{{
-call dein#add( 'timcharper/textile.vim')
-call dein#add( 'greyblake/vim-preview')
+call dein#add('timcharper/textile.vim')
+call dein#add('greyblake/vim-preview')
 " }}}
 
 " Markdown plugins."{{{
-call dein#add( 'hallison/vim-markdown')
-call dein#add( 'mattn/mkdpreview-vim')
+call dein#add('mattn/mkdpreview-vim')
 " }}}
 
 " Json plugins"{{{
-call dein#add( 'rogerz/vim-json')
+call dein#add('rogerz/vim-json')
 "}}}
 
 " Python related plugins."{{{
-call dein#add( 'jmcantrell/vim-virtualenv')
-call dein#add( 'jimf/vim-pep8-text-width')
-" call dein#add( 'nvie/vim-pep8', {'type': 'nosync'})
-" call dein#add( 'nvie/vim-pyflakes', {'type': 'nosync'})
-call dein#add( 'nvie/vim-flake8')
+call dein#add('jmcantrell/vim-virtualenv')
+call dein#add('jimf/vim-pep8-text-width')
+" call dein#add('nvie/vim-pep8', {'type': 'nosync'})
+" call dein#add('nvie/vim-pyflakes', {'type': 'nosync'})
+call dein#add('nvie/vim-flake8')
 
 " My modified pylint plugin.
-" call dein#add( 'vim-pylint', {'type': 'nosync'})
+" call dein#add('vim-pylint', {'type': 'nosync'})
 "}}}
 
 " Java related plugins."{{{
-call dein#add( 'vim-scripts/javacomplete')
+call dein#add('vim-scripts/javacomplete')
 " }}}
 
 " Ruby related plugins."{{{
-call dein#add( 'Bogdanp/rbrepl.vim')
+call dein#add('Bogdanp/rbrepl.vim')
 " }}}
 "}}}
 
 " Git plugin"{{{
-call dein#add( 'tpope/vim-fugitive')
-call dein#add( 'mattn/gist-vim')
+call dein#add('tpope/vim-fugitive')
+call dein#add('mattn/gist-vim')
 "}}}
 
 " Encryption plugins"{{{
-" call dein#add( 'vim-scripts/openssl.vim', {'type': 'nosync'})
+" call dein#add('vim-scripts/openssl.vim', {'type': 'nosync'})
 "}}}
 
 " Visual related plugins"{{{
-call dein#add( 'godlygeek/colorchart')
-call dein#add( 'vim-scripts/Color-Sampler-Pack')
-call dein#add( 'chriskempson/vim-tomorrow-theme')
-call dein#add( 'tomasr/molokai')
-call dein#add( 'nanotech/jellybeans.vim')
-call dein#add( 'noahfrederick/Hemisu')
-call dein#add( 'altercation/vim-colors-solarized')
-call dein#add( 'tpope/vim-afterimage')
-call dein#add( 'Rykka/colorv.vim')
+call dein#add('godlygeek/colorchart')
+call dein#add('vim-scripts/Color-Sampler-Pack')
+call dein#add('chriskempson/vim-tomorrow-theme')
+call dein#add('tomasr/molokai')
+call dein#add('nanotech/jellybeans.vim')
+call dein#add('noahfrederick/Hemisu')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('tpope/vim-afterimage')
+call dein#add('Rykka/colorv.vim')
 "}}}
 
 call dein#end()
@@ -268,253 +266,195 @@ endif
 " Plugin keybindings."{{{
 
 " Neocomplcache keybindings"{{{
-" Check if neocomplcache is loaded.
-if &rtp=~'neocomplcache'
-    inoremap <expr><C-d>l neocomplcache#toggle_lock()."\<C-h>"
-    imap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
-    smap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
-    " smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
-    "inoremap <silent>G     <Plug>(neocomplcache_snippets_force_expand)
-    "inoremap <expr><C-j> neocomplcache#sources#snippets_complete#expandable() ?
-    "\ "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-d>l neocomplcache#toggle_lock()."\<C-h>"
+imap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <silent><C-l>     <Plug>(neosnippet_expand_or_jump)
+" smap <silent><C-l>     <Plug>(neocomplcache_snippets_jump)
+"inoremap <silent>G     <Plug>(neocomplcache_snippets_force_expand)
+"inoremap <expr><C-j> neocomplcache#sources#snippets_complete#expandable() ?
+"\ "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
-    " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-    " <TAB>: completion.
-    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-y>  neocomplcache#close_popup()
-    inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-    " For cursor moving in insert mode(Not recommended)
-    inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-    inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-    inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-    inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-endif
+" For cursor moving in insert mode(Not recommended)
+inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 "}}}
 
 " Unite keybindings."{{{
 " The prefix key.
-if &rtp=~'unite'
-    nnoremap    [unite]   <nop>
-    xnoremap    [unite]   <nop>
-    nmap    <leader>u [unite]
-    xmap    <leader>u [unite]
+nnoremap    [unite]   <nop>
+xnoremap    [unite]   <nop>
+nmap    <leader>u [unite]
+xmap    <leader>u [unite]
 
-    nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-    nnoremap <silent> [unite]fb  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
-    nnoremap <silent> [unite]b  :<C-u>Unite -buffer-name=buffers buffer<CR>
-    nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-    nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]f  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]fb  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 
-    nnoremap  [unite]s  :<C-u>Unite source<CR>
+nnoremap  [unite]s  :<C-u>Unite source<CR>
 
-    nnoremap <silent> [unite]h :<C-u>Unite help<CR>
+nnoremap <silent> [unite]h :<C-u>Unite help<CR>
 
-    " nnoremap [unite]i :<C-u>Unite neobundle/install:
+" nnoremap [unite]i :<C-u>Unite neobundle/install:
 
-    nnoremap [unite]a :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h")<CR>
-    nnoremap [unite]a* :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(expand('<cword>'),' :\')<CR>
-    xnoremap <space>a "vy :exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(@v,' :\')<CR>
-    nnoremap [unite]A :<C-u>UniteResume ack<CR>
+nnoremap [unite]a :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h")<CR>
+nnoremap [unite]a* :<C-u>exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(expand('<cword>'),' :\')<CR>
+xnoremap <space>a "vy :exe "Unite -buffer-name=ack ack:".expand("%:h").":".escape(@v,' :\')<CR>
+nnoremap [unite]A :<C-u>UniteResume ack<CR>
 
-    nnoremap [unite]g :<C-u>exe "Unite -buffer-name=grep grep:".expand("%:h")<CR>
-    nnoremap [unite]G :<C-u>UniteResume grep<CR>
+nnoremap [unite]g :<C-u>exe "Unite -buffer-name=grep grep:".expand("%:h")<CR>
+nnoremap [unite]G :<C-u>UniteResume grep<CR>
 
-    nnoremap [unite]rm :<C-u>exe "Unite -buffer-name=ref-man ref/man"<CR>
+nnoremap [unite]rm :<C-u>exe "Unite -buffer-name=ref-man ref/man"<CR>
 
-    " nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux"<CR>
-    " nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux tmux::0:$"<CR>
-    " xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux::'<:'>"<CR>
-    nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes"<CR>
-    nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::0:$"<CR>
-    xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::'<:'>"<CR>
-endif
+" nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux"<CR>
+" nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux tmux::0:$"<CR>
+" xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux tmux::'<:'>"<CR>
+nnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes"<CR>
+nnoremap [unite]tsa :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::0:$"<CR>
+xnoremap [unite]ts :<C-u>exe "Unite -buffer-name=tmux -default-action=send tmux/panes::'<:'>"<CR>
 " }}}
 
 " VimFiler keybindings."{{{
-if &rtp=~'vimfiler'
-    noremap <leader>vf :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle<CR>
-endif
+noremap <leader>vf :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle<CR>
 " }}}
 
 " VimShell keybindings."{{{
-if &rtp=~'vimshell'
-    noremap <leader>vs :VimShellPop<CR>
-endif
+noremap <leader>vs :VimShellPop<CR>
 " }}}
 
 " ConqueTerm keybindings."{{{
-if &rtp=~'vim-conque'
-    noremap <leader>cb :ConqueTermSplit /bin/bash<CR>
-    noremap <leader>cp :ConqueTermSplit /usr/bin/python<CR>
-endif
+noremap <leader>cb :ConqueTermSplit /bin/bash<CR>
+noremap <leader>cp :ConqueTermSplit /usr/bin/python<CR>
 " }}}
 
 " EchoDoc keybindings."{{{
-if &rtp=~'echodoc'
-    nnoremap <leader>ee :EchoDocEnable<CR>
-    nnoremap <leader>ed :EchoDocDisable<CR>
-endif
+nnoremap <leader>ee :EchoDocEnable<CR>
+nnoremap <leader>ed :EchoDocDisable<CR>
 " }}}
 
 " Arpeggio keybindings."{{{
-if &rtp=~'vim-arpeggio'
-    call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-    call arpeggio#map('v', '', 0, 'jk', '<Esc>')
-endif
+silent! call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+silent! call arpeggio#map('v', '', 0, 'jk', '<Esc>')
 " }}}
 
 " Ref keybindings."{{{
-if &rtp=~'vim-ref'
-    noremap <leader>rm* :<C-u>exe "Ref man " . escape(expand('<cword>'), ' :\')<CR>
-endif
+noremap <leader>rm* :<C-u>exe "Ref man " . escape(expand('<cword>'), ' :\')<CR>
 " }}}
 
 " Smartword keybindings"{{{
-if &rtp=~'vim-smartword'
-    map w  <Plug>(smartword-w)
-    map b  <Plug>(smartword-b)
-    map e  <Plug>(smartword-e)
-    map ge  <Plug>(smartword-ge)
-    noremap ,w  w
-    noremap ,b  b
-    noremap ,e  e
-    noremap ,ge  ge
-endif
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge  <Plug>(smartword-ge)
+noremap ,w  w
+noremap ,b  b
+noremap ,e  e
+noremap ,ge  ge
 " }}}
 
 " Narrow Region keybindings."{{{
 " The prefix key.
-if &rtp=~'NrrwRgn'
-    nnoremap    [nrrwgn]   <nop>
-    nmap    <leader>n [nrrwgn]
+nnoremap    [nrrwgn]   <nop>
+nmap    <leader>n [nrrwgn]
 
-    " Mappings
-    " xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<C-R>
-    " nnoremap <silent> [nrrwgn]w  :exe ":" . "NarrowWindow"<CR>
-    " nnoremap <silent> [nrrwgn]rv :exe ":" . "NRV"<CR>
-    " nnoremap <silent> [nrrwgn]rp :exe ":" . "NRPrepare"<CR>
-    " nnoremap <silent> [nrrwgn]rm :exe ":" . "NRMulti"<CR>
-    xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<CR>
-    nnoremap <silent> [nrrwgn]w  :<C-u>NarrowWindow<CR>
-    nnoremap <silent> [nrrwgn]rv :<C-u>NRV<CR>
-    nnoremap <silent> [nrrwgn]rp :<C-u>NRPrepare<CR>
-    nnoremap <silent> [nrrwgn]rm :<C-u>NRMulti<CR>
-endif
+" Mappings
+" xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<C-R>
+" nnoremap <silent> [nrrwgn]w  :exe ":" . "NarrowWindow"<CR>
+" nnoremap <silent> [nrrwgn]rv :exe ":" . "NRV"<CR>
+" nnoremap <silent> [nrrwgn]rp :exe ":" . "NRPrepare"<CR>
+" nnoremap <silent> [nrrwgn]rm :exe ":" . "NRMulti"<CR>
+xnoremap <silent> [nrrwgn]r  :<C-u>NarrowRegion<CR>
+nnoremap <silent> [nrrwgn]w  :<C-u>NarrowWindow<CR>
+nnoremap <silent> [nrrwgn]rv :<C-u>NRV<CR>
+nnoremap <silent> [nrrwgn]rp :<C-u>NRPrepare<CR>
+nnoremap <silent> [nrrwgn]rm :<C-u>NRMulti<CR>
 " }}}
 
 " Gundo keybindings."{{{
-if &rtp=~'gundo'
-    noremap <leader>g :GundoToggle<CR>
-endif
+noremap <leader>g :GundoToggle<CR>
 " }}}
 
 " TagBar keybindings."{{{
-if &rtp=~'tagbar'
-    noremap <leader>tb :TagbarToggle<CR>
-endif
+noremap <leader>tb :TagbarToggle<CR>
 " }}}
 
 " Yankstack keybindings."{{{
-if &rtp=~'vim-yankstack'
-    nmap <C-P> <Plug>yankstack_substitute_older_paste
-    nmap <C-N> <Plug>yankstack_substitute_newer_paste
-endif
-" }}}
-
-" Syntastic keybindings."{{{
-if &rtp=~'syntastic'
-    noremap <leader>s :SyntasticCheck<CR>
-endif
-" }}}
-
-" Vundle keybindings."{{{
-" noremap <leader>bs :BundleSearch 
-" }}}
-
-" CommandT keybindings."{{{
-if &rtp=~'Command-T'
-    noremap <silent> <Leader>tf :CommandTFlush<CR>
-endif
-" }}}
-
-" CTRL-P keybindings."{{{
-if &rtp=~'ctrlp.vim'
-    nnoremap <silent> <c-p>b :CtrlPBuffer<CR>
-endif
+nmap <C-P> <Plug>yankstack_substitute_older_paste
+nmap <C-N> <Plug>yankstack_substitute_newer_paste
 " }}}
 
 " Excite Translate keybindings."{{{
-if &rtp=~'excitetranslate-vim'
-    vnoremap <leader>et :ExciteTranslate<CR>
-    nnoremap <leader>eta :1,$call ExciteTranslateBuffer()<CR>
-endif
+vnoremap <leader>et :ExciteTranslate<CR>
+nnoremap <leader>eta :1,$call ExciteTranslateBuffer()<CR>
 " }}}
 
 " IndentGuides keybindings."{{{
-if &rtp=~'vim-indent-guides'
-    noremap <leader><leader>i :IndentGuidesToggle<CR>
-endif
+noremap <leader><leader>i :IndentGuidesToggle<CR>
 "}}}
 
 " Caw commenter plugin settings."{{{
-if &rtp=~'caw.vim'
-    map <Plug>(caw:prefix)<Space> <Plug>(caw:i:toggle)
-endif
+map <Plug>(caw:prefix)<Space> <Plug>(caw:i:toggle)
 " }}}
 
 " Submodes and submode options."{{{
-" Make sure submode is loaded.
-if &rtp=~'vim-submode'
-    " Textmanip submode"{{{
-    " Reference: https://github.com/tsukkee/config/blob/master/vimrc
-    call submode#enter_with('textmanip', 'v', 'r', '<C-t>h', '<Plug>(textmanip-move-left)')
-    call submode#enter_with('textmanip', 'v', 'r', '<C-t>l', '<Plug>(textmanip-move-right)')
-    call submode#enter_with('textmanip', 'v', 'r', '<C-t>j', '<Plug>(textmanip-move-down)')
-    call submode#enter_with('textmanip', 'v', 'r', '<C-t>k', '<Plug>(textmanip-move-up)')
-    call submode#leave_with('textmanip', 'v', '', '<Esc>')
-    call submode#map('textmanip', 'v', 'r', 'h', '<Plug>(textmanip-move-left)')
-    call submode#map('textmanip', 'v', 'r', 'l', '<Plug>(textmanip-move-right)')
-    call submode#map('textmanip', 'v', 'r', 'j', '<Plug>(textmanip-move-down)')
-    call submode#map('textmanip', 'v', 'r', 'k', '<Plug>(textmanip-move-up)')
-    "}}}
+" Textmanip submode"{{{
+" Reference: https://github.com/tsukkee/config/blob/master/vimrc
+silent! call submode#enter_with('textmanip', 'v', 'r', '<C-t>h', '<Plug>(textmanip-move-left)')
+silent! call submode#enter_with('textmanip', 'v', 'r', '<C-t>l', '<Plug>(textmanip-move-right)')
+silent! call submode#enter_with('textmanip', 'v', 'r', '<C-t>j', '<Plug>(textmanip-move-down)')
+silent! call submode#enter_with('textmanip', 'v', 'r', '<C-t>k', '<Plug>(textmanip-move-up)')
+silent! call submode#leave_with('textmanip', 'v', '', '<Esc>')
+silent! call submode#map('textmanip', 'v', 'r', 'h', '<Plug>(textmanip-move-left)')
+silent! call submode#map('textmanip', 'v', 'r', 'l', '<Plug>(textmanip-move-right)')
+silent! call submode#map('textmanip', 'v', 'r', 'j', '<Plug>(textmanip-move-down)')
+silent! call submode#map('textmanip', 'v', 'r', 'k', '<Plug>(textmanip-move-up)')
+"}}}
 
-    " Tab switching submode."{{{
-    " Reference: http://www.github.com/choplin vimrc
-    " call submode#enter_with('tabnext', 'n', '', '<Tab>', ':<C-u>tabnext<CR>')
-    call submode#enter_with('tabnext', 'n', '', 'gt', ':<C-u>tabnext<CR>')
-    " call submode#enter_with('tabnext', 'n', '', '<S-Tab>', ':<C-u>tabprevious<CR>')
-    call submode#enter_with('tabnext', 'n', '', 'gT', ':<C-u>tabprevious<CR>')
-    call submode#leave_with('tabnext', 'n', '', '<Esc>')
-    call submode#map('tabnext', 'n', '', 'l', ':<C-u>tabnext<CR>')
-    call submode#map('tabnext', 'n', '', 'h', ':<C-u>tabprevious<CR>')
-    " }}}
+" Tab switching submode."{{{
+" Reference: http://www.github.com/choplin vimrc
+" call submode#enter_with('tabnext', 'n', '', '<Tab>', ':<C-u>tabnext<CR>')
+silent! call submode#enter_with('tabnext', 'n', '', 'gt', ':<C-u>tabnext<CR>')
+" call submode#enter_with('tabnext', 'n', '', '<S-Tab>', ':<C-u>tabprevious<CR>')
+silent! call submode#enter_with('tabnext', 'n', '', 'gT', ':<C-u>tabprevious<CR>')
+silent! call submode#leave_with('tabnext', 'n', '', '<Esc>')
+silent! call submode#map('tabnext', 'n', '', 'l', ':<C-u>tabnext<CR>')
+silent! call submode#map('tabnext', 'n', '', 'h', ':<C-u>tabprevious<CR>')
+" }}}
 
-    " Undo/Redo submode."{{{
-    call submode#enter_with('undo/redo', 'n', '', 'g-', 'g-')
-    call submode#enter_with('undo/redo', 'n', '', 'g+', 'g+')
-    call submode#leave_with('undo/redo', 'n', '', '<Esc>')
-    call submode#map('undo/redo', 'n', '', '-', 'g-')
-    call submode#map('undo/redo', 'n', '', '+', 'g+')
-    " }}}
+" Undo/Redo submode."{{{
+silent! call submode#enter_with('undo/redo', 'n', '', 'g-', 'g-')
+silent! call submode#enter_with('undo/redo', 'n', '', 'g+', 'g+')
+silent! call submode#leave_with('undo/redo', 'n', '', '<Esc>')
+silent! call submode#map('undo/redo', 'n', '', '-', 'g-')
+silent! call submode#map('undo/redo', 'n', '', '+', 'g+')
+" }}}
 
-    " Window resize submode."{{{
-    " Reference: https://github.com/tsukkee/config/blob/master/vimrc
-    call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
-    call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
-    call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
-    call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
-    call submode#map('winsize', 'n', '', '>', '<C-w>>')
-    call submode#map('winsize', 'n', '', '<', '<C-w><')
-    call submode#map('winsize', 'n', '', '+', '<C-w>+')
-    call submode#map('winsize', 'n', '', '-', '<C-w>-')
-    " }}}
-endif
+" Window resize submode."{{{
+" Reference: https://github.com/tsukkee/config/blob/master/vimrc
+silent! call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+silent! call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+silent! call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+silent! call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+silent! call submode#map('winsize', 'n', '', '>', '<C-w>>')
+silent! call submode#map('winsize', 'n', '', '<', '<C-w><')
+silent! call submode#map('winsize', 'n', '', '+', '<C-w>+')
+silent! call submode#map('winsize', 'n', '', '-', '<C-w>-')
+" }}}
 " }}}
 
 " end plugin keybindings }}}
@@ -533,10 +473,8 @@ endif
 " }}}
 
 " Singleton."{{{
-if &rtp=~'vim-singleton'
-    " Start singleton.
-    call singleton#enable()
-endif
+" Start singleton.
+call singleton#enable()
 " }}}
 
 " NeoComplCache settings"{{{
@@ -671,10 +609,6 @@ let g:vimfiler_marked_file_icon = '*'
 "}}}
 "}}}
 
-" Vinarise settings"{{{
-let g:vinarise_enable_auto_detect = 0
-"}}}
-
 " VimShell settings"{{{
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt = '% '
@@ -684,12 +618,6 @@ let g:vimshell_execute_file_list['rb'] = 'ruby'
 let g:vimshell_execute_file_list['pl'] = 'perl'
 let g:vimshell_execute_file_list['py'] = 'python'
 let g:vimshell_popup_height = 35
-"}}}
-
-" ConqueTerm Settings"{{{
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_CWInsert = 1
-"let g:ConqueTerm_TERM = 'xterm'
 "}}}
 
 " Zencoding plugin settings. "{{{
@@ -793,46 +721,9 @@ let g:autodate_keyword_pre = 'Last Modified:'
 let g:autodate_keyword_post = '$'
 " }}}
 
-" Eskk settings."{{{
-" let g:eskk#large_dictionary = {
-"             \ 'path': expand('~/.vim/dict/SKK-JISYO.XL'),
-"             \ 'sorted': 1,
-"             \ 'encoding': 'euc-jp',
-"             \ }
-let g:eskk#large_dictionary = {
-\	'path': "/usr/share/skk/SKK-JISYO.L",
-\	'sorted': 1,
-\	'encoding': 'euc-jp',
-\}
-" }}}
-
-" Skk settings."{{{
-let skk_jisyo = '~/vim-skk-jisyo.utf8'
-let skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
-
-let skk_auto_save_jisyo = 1 " don't ask if save
-let skk_keep_state = 0
-let skk_kutouten_type = 'en'
-let skk_egg_like_newline = 1
-let skk_show_annotation = 1
-let skk_use_face = 1
-" }}}
-
-" Vim-Slime settings."{{{
-let g:slime_target='tmux'
-" }}}
-
 " Screen settings."{{{
 let g:ScreenImpl="Tmux"
 " }}}
-
-" Syntastic settings."{{{
-let g:syntastic_python_checker = 'pylint'       " pyflakes for python 3
-" Don't check on save.
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': ['ruby', 'php', 'puppet'] }
-"}}}
 
 " Set the pylint settings."{{{
 let g:pylint_error_numbers = 1  " Show the python error numbers.
@@ -847,32 +738,6 @@ let g:rsenseUseOmniFunc = 1
 
 " Set the bash-support plugins leader."{{{
 let g:BASH_MapLeader='\'
-"}}}
-
-" Setup SuperTab"{{{
-let g:SuperTabMappingTabLiteral = "<C-i>"
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabRetainCompletionDuration = "completion"
-let g:SuperTabNoCompleteBefore = []
-" Set no tab completion after 'spaces,' 'commas,' and 'quotes.'
-let g:SuperTabNoCompleteAfter = ['\s', '[:blank:]', '[:space:]', "'", ",", '"']
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1      " Pre highlight the first item 
-                                        " in the list.
-
-" Close the preview window when <cr> is pressed.
-let g:SuperTabCrClosePreview=1
-"}}}
-
-" Powerline customizations."{{{
-"let g:Powerline_colorscheme='test'
-"let g:Powerline_symbols='fancy'
-"}}}
-
-" UltiSnips settings"{{{
-let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-g>"
 "}}}
 
 " Rainbow Parenthesis Improved settings"{{{

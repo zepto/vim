@@ -260,13 +260,11 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 't9md/vim-textmanip'
 NeoBundle 'Rykka/easydigraph.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" NeoBundle 'Phize/vim-rainbow_pairs'
-NeoBundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
+NeoBundle 'luochen1990/rainbow'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'vim-scripts/camelcasemotion'
 NeoBundle 'tobyS/vmustache'
-" NeoBundle 'ujihisa/shadow.vim'
 "}}}
 
 " Programming related plugins"{{{
@@ -308,7 +306,7 @@ NeoBundle 'greyblake/vim-preview'
 " }}}
 
 " Markdown plugins."{{{
-NeoBundle 'hallison/vim-markdown'
+" NeoBundle 'hallison/vim-markdown'
 NeoBundle 'mattn/mkdpreview-vim'
 " }}}
 
@@ -371,18 +369,6 @@ NeoBundle 'vim-scripts/openssl.vim', {'type': 'nosync'}
 "}}}
 
 " Visual related plugins"{{{
-" NeoBundle 'godlygeek/csapprox'
-NeoBundle 'godlygeek/colorchart'
-NeoBundle 'vim-scripts/Color-Sampler-Pack'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'noahfrederick/Hemisu'
-NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'mattn/mahjong-vim'
-" NeoBundle 'mattn/hahhah-vim'
-" NeoBundle 'mitsuhide/nyan-modoki.vim'
-" NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tpope/vim-afterimage'
 NeoBundle 'Rykka/colorv.vim'
 "}}}

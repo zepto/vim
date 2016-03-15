@@ -109,7 +109,11 @@ NeoBundle 'vim-scripts/camelcasemotion'
 " Programming related plugins"{{{
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tyru/caw.vim'
-NeoBundle 'c9s/cascading.vim'
+
+" Python related plugins."{{{
+NeoBundle 'jimf/vim-pep8-text-width'
+"}}}
+
 "}}}
 
 " Git plugin"{{{
