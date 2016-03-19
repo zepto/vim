@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 14, 2016
+" Last Modified: March 17, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -69,7 +69,7 @@ NeoBundle 'vim-jp/vital.vim'
 NeoBundle 'tyru/DumbBuf.vim'
 " NeoBundle 'thinca/vim-openbuf'
 " NeoBundle 'thinca/vim-scouter'
-NeoBundle 'thinca/vim-singleton'
+" NeoBundle 'thinca/vim-singleton'
 " NeoBundle 'pocket7878/curses-vim'
 " NeoBundle 'pocket7878/presen-vim'
 " NeoBundle 'tpope/vim-speeddating'
@@ -331,9 +331,14 @@ NeoBundle 'nvie/vim-flake8'
 " NeoBundle 'Bogdanp/pyrepl.vim'
 " NeoBundle 'rkulla/pydiction'
 " NeoBundle 'nvie/vim-pyunit'
+" NeoBundle 'davidhalter/jedi-vim'
 
 " My modified pylint plugin.
 NeoBundle 'vim-pylint', {'type': 'nosync'}
+"}}}
+
+" Rust related plugins.{{{
+NeoBundle 'rust-lang/rust.vim'
 "}}}
 
 " Coffee-script related plugins."{{{
@@ -1013,6 +1018,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-g>"
 " Rainbow Parenthesis Improved settings"{{{
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
+"}}}
+
+" Rust settings{{{
+" Auto format when saving rust file.
+" let g:rustfmt_autosave = 1
+"}}}
+
+" Jedi settings{{{
+
 "}}}
 
 " end plugin options"}}}
