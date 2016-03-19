@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 14, 2016
+" Last Modified: March 19, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -170,7 +170,7 @@ call dein#add('Lokaltog/vim-easymotion')
 call dein#add('t9md/vim-textmanip')
 call dein#add('Rykka/easydigraph.vim')
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('luochen1990/rainbow')
+" call dein#add('luochen1990/rainbow')
 call dein#add('yuroyoro/monday')
 call dein#add('taku-o/vim-toggle')
 call dein#add('vim-scripts/camelcasemotion')
