@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: July 15, 2021
+" Last Modified: July 16, 2021
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -38,203 +38,196 @@ call plug#begin('~/.vim/bundle')
 
 " Vim related plugins"{{{
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'kana/vim-submode'
-Plug 'kana/vim-arpeggio'
-Plug 'kana/vim-smartchr'
-Plug 'kana/vim-altercmd'
-Plug 'kana/vim-skeleton'
-Plug 'kana/vim-gf-user'
-Plug 'kana/vim-gf-diff'
-Plug 'Shougo/vimproc', {'do': 'make'}
-Plug 'Shougo/echodoc'
-Plug 'mattn/webapi-vim'
-Plug 'mattn/benchvimrc-vim'
-Plug 'ujihisa/nclipper.vim'
-Plug 'vim-jp/vital.vim'
-Plug 'tyru/DumbBuf.vim'
-Plug 'thinca/vim-singleton'
-Plug 'tpope/vim-repeat'
-Plug 'pydave/AsyncCommand'
-Plug 'sickill/vim-pasta'
-Plug 'vim-scripts/autodate.vim'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'godlygeek/tabular'
+" Plug 'kana/vim-submode'
+" Plug 'kana/vim-arpeggio'
+" Plug 'kana/vim-smartchr'
+" Plug 'kana/vim-altercmd'
+" Plug 'kana/vim-skeleton'
+" Plug 'kana/vim-gf-user'
+" Plug 'kana/vim-gf-diff'
+" Plug 'Shougo/vimproc', {'do': 'make'}
+" Plug 'Shougo/echodoc'
+" Plug 'mattn/webapi-vim'
+" Plug 'mattn/benchvimrc-vim'
+" Plug 'ujihisa/nclipper.vim'
+" Plug 'vim-jp/vital.vim'
+" Plug 'tyru/DumbBuf.vim'
+" Plug 'thinca/vim-singleton'
+" Plug 'tpope/vim-repeat'
+" Plug 'pydave/AsyncCommand'
+" Plug 'sickill/vim-pasta'
+" Plug 'vim-scripts/autodate.vim'
+" Plug 'maxbrunsfeld/vim-yankstack'
+" Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'
 "}}}
 
 " Unite plugins"{{{
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'ujihisa/unite-locate'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'ujihisa/quicklearn'
-Plug 't9md/vim-unite-ack'
-Plug 'sgur/unite-qf'
-Plug 'h1mesuke/vim-alignta'
-Plug 'tsukkee/unite-help'
-Plug 'tsukkee/unite-tag'
-Plug 'tacroe/unite-mark'
-Plug 'thinca/vim-unite-history'
-Plug 'soh335/unite-qflist'
-Plug 'natsumesou/unite-flexmatcher'
-Plug 'zepto/unite-tmux'
+" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/neomru.vim'
+" Plug 'ujihisa/unite-locate'
+" Plug 'ujihisa/unite-colorscheme'
+" Plug 'ujihisa/quicklearn'
+" Plug 't9md/vim-unite-ack'
+" Plug 'sgur/unite-qf'
+" Plug 'h1mesuke/vim-alignta'
+" Plug 'tsukkee/unite-help'
+" Plug 'tsukkee/unite-tag'
+" Plug 'tacroe/unite-mark'
+" Plug 'thinca/vim-unite-history'
+" Plug 'soh335/unite-qflist'
+" Plug 'natsumesou/unite-flexmatcher'
+" Plug 'zepto/unite-tmux'
 " }}}
 
 " Vim-ref plugins"{{{
-Plug 'mfumi/ref-dicts-en'
-Plug 'thinca/vim-ref'
+" Plug 'mfumi/ref-dicts-en'
+" Plug 'thinca/vim-ref'
 " }}}
 
 " Operator plugins"{{{
-Plug 'tyru/operator-html-escape.vim'
-Plug 'tyru/operator-camelize.vim'
-Plug 'tyru/operator-star.vim'
-Plug 'kana/vim-operator-user'
-Plug 'kana/vim-operator-replace'
-Plug 'emonkak/vim-operator-comment'
-Plug 'emonkak/vim-operator-sort'
-Plug 'thinca/vim-operator-sequence'
+" Plug 'tyru/operator-html-escape.vim'
+" Plug 'tyru/operator-camelize.vim'
+" Plug 'tyru/operator-star.vim'
+" Plug 'kana/vim-operator-user'
+" Plug 'kana/vim-operator-replace'
+" Plug 'emonkak/vim-operator-comment'
+" Plug 'emonkak/vim-operator-sort'
+" Plug 'thinca/vim-operator-sequence'
 " }}}
 
 " Vim textobj plugins."{{{
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-syntax'
-Plug 'kana/vim-textobj-lastpat'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-fold'
-Plug 'kana/vim-textobj-datetime'
-Plug 'thinca/vim-textobj-comment'
-Plug 'sgur/vim-textobj-parameter'
-Plug 'mattn/vim-textobj-url'
-Plug 't9md/vim-textobj-function-ruby'
-Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'kana/vim-textobj-user'
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-line'
+" Plug 'kana/vim-textobj-syntax'
+" Plug 'kana/vim-textobj-lastpat'
+" Plug 'kana/vim-textobj-function'
+" Plug 'kana/vim-textobj-entire'
+" Plug 'kana/vim-textobj-fold'
+" Plug 'kana/vim-textobj-datetime'
+" Plug 'thinca/vim-textobj-comment'
+" Plug 'sgur/vim-textobj-parameter'
+" Plug 'mattn/vim-textobj-url'
+" Plug 't9md/vim-textobj-function-ruby'
+" Plug 'nelstrom/vim-textobj-rubyblock'
 " }}}
 
 " Metarw plugins."{{{
-Plug 'kana/vim-metarw'
-Plug 'kana/vim-metarw-git'
-Plug 'mattn/vim-metarw-simplenote'
-Plug 'emonkak/vim-metarw-gist'
+" Plug 'kana/vim-metarw'
+" Plug 'kana/vim-metarw-git'
+" Plug 'mattn/vim-metarw-simplenote'
+" Plug 'emonkak/vim-metarw-gist'
 " }}}
 
 " Vimshell plugins."{{{
-Plug 'Shougo/vimshell'
-Plug 'ujihisa/vimshell-ssh'
+" Plug 'Shougo/vimshell'
+" Plug 'ujihisa/vimshell-ssh'
 " }}}
 
 " neocomplcache completion."{{{
-Plug 'Shougo/neocomplcache'
-Plug 'ujihisa/neco-ruby'
-Plug 'ujihisa/neco-look'
-Plug 'ujihisa/neco-drikin'
-Plug 'ujihisa/neco-rake'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neocomplcache'
+" Plug 'ujihisa/neco-ruby'
+" Plug 'ujihisa/neco-look'
+" Plug 'ujihisa/neco-drikin'
+" Plug 'ujihisa/neco-rake'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 "}}}
 
 " Surround and surround like plugins."{{{
-Plug 'tpope/vim-surround'
-Plug 't9md/vim-surround_custom_mapping'
+" Plug 'tpope/vim-surround'
+" Plug 't9md/vim-surround_custom_mapping'
 " NeoBundle 'kana/vim-surround'
 " }}}
 
 " Language Related plugins."{{{
-Plug 'mattn/excitetranslate-vim'
+" Plug 'mattn/excitetranslate-vim'
 " }}}
 
 " File related plugins"{{{
-Plug 'vim-scripts/pdftotext'
-Plug 'Shougo/vimfiler'
+" Plug 'vim-scripts/pdftotext'
+" Plug 'Shougo/vimfiler'
 "}}}
 
 " Editing related plugins"{{{
-Plug 'chrisbra/NrrwRgn'
-Plug 'chrisbra/unicode.vim'
-Plug 'kana/vim-smartword'
-Plug 'kana/vim-grex'
-Plug 'thinca/vim-qfreplace'
-Plug 'thinca/vim-visualstar'
-Plug 'sjl/gundo.vim'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'Lokaltog/vim-easymotion'
-Plug 't9md/vim-textmanip'
-Plug 'Rykka/easydigraph.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'luochen1990/rainbow'
-Plug 'yuroyoro/monday'
-Plug 'taku-o/vim-toggle'
-Plug 'vim-scripts/camelcasemotion'
-Plug 'tobyS/vmustache'
+" Plug 'chrisbra/NrrwRgn'
+" Plug 'chrisbra/unicode.vim'
+" Plug 'kana/vim-smartword'
+" Plug 'kana/vim-grex'
+" Plug 'thinca/vim-qfreplace'
+" Plug 'thinca/vim-visualstar'
+" Plug 'sjl/gundo.vim'
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 't9md/vim-textmanip'
+" Plug 'Rykka/easydigraph.vim'
+" Plug 'nathanaelkane/vim-indent-guides'
+" " Plug 'luochen1990/rainbow'
+" Plug 'yuroyoro/monday'
+" Plug 'taku-o/vim-toggle'
+" Plug 'vim-scripts/camelcasemotion'
+" Plug 'tobyS/vmustache'
 "}}}
 
 " Programming related plugins"{{{
 Plug 'majutsushi/tagbar'
-Plug 'othree/html5.vim'
-Plug 'thinca/vim-quickrun'
+" Plug 'othree/html5.vim'
+" Plug 'thinca/vim-quickrun'
 Plug 'tyru/caw.vim'
-Plug 'honza/vim-snippets'
-Plug 'c9s/cascading.vim'
-Plug 'semmons99/vim-ruby-matchit'
+" Plug 'honza/vim-snippets'
+" Plug 'c9s/cascading.vim'
+" Plug 'semmons99/vim-ruby-matchit'
 
 " Perl plugins."{{{
-Plug 'c9s/perlomni.vim'
+" Plug 'c9s/perlomni.vim'
 " }}}
 
 " Textile plugins."{{{
-Plug 'timcharper/textile.vim'
-Plug 'greyblake/vim-preview'
+" Plug 'timcharper/textile.vim'
+" Plug 'greyblake/vim-preview'
 " }}}
 
 " Markdown plugins."{{{
-Plug 'mattn/mkdpreview-vim'
+" Plug 'mattn/mkdpreview-vim'
 " }}}
 
 " Json plugins"{{{
-Plug 'rogerz/vim-json'
+" Plug 'rogerz/vim-json'
 "}}}
 
 " Python related plugins."{{{
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'jimf/vim-pep8-text-width'
-Plug 'nvie/vim-pep8', {'type': 'nosync'}
-Plug 'nvie/vim-pyflakes', {'type': 'nosync'}
-Plug 'nvie/vim-flake8'
-
-" My modified pylint plugin.
-Plug 'vim-pylint', {'type': 'nosync'}
+" Plug 'jmcantrell/vim-virtualenv'
 "}}}
 
 " Java related plugins."{{{
-Plug 'vim-scripts/javacomplete'
+" Plug 'vim-scripts/javacomplete'
 " }}}
 
 " Ruby related plugins."{{{
-Plug 'Bogdanp/rbrepl.vim'
+" Plug 'Bogdanp/rbrepl.vim'
 " }}}
 "}}}
 
 " Git plugin"{{{
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/gist-vim'
+" Plug 'mattn/gist-vim'
 "}}}
 
 " Encryption plugins"{{{
-Plug 'vim-scripts/openssl.vim', {'type': 'nosync'}
+" Plug 'vim-scripts/openssl.vim', {'type': 'nosync'}
 "}}}
 
 " Visual related plugins"{{{
-Plug 'godlygeek/colorchart'
-Plug 'vim-scripts/Color-Sampler-Pack'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'tomasr/molokai'
-Plug 'nanotech/jellybeans.vim'
-Plug 'noahfrederick/Hemisu'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-afterimage'
-Plug 'Rykka/colorv.vim'
+" Plug 'godlygeek/colorchart'
+" Plug 'vim-scripts/Color-Sampler-Pack'
+" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'tomasr/molokai'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'noahfrederick/Hemisu'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'tpope/vim-afterimage'
+" Plug 'Rykka/colorv.vim'
 "}}}
 
 call plug#end()
@@ -481,8 +474,6 @@ endif
 " end plugin keybindings }}}
 
 "}}}
-
-" Options."{{{
 
 " Plugin options"{{{
 
@@ -752,25 +743,12 @@ let g:autodate_keyword_post = '$'
 let g:ScreenImpl="Tmux"
 " }}}
 
-" Set the pylint settings."{{{
-let g:pylint_error_numbers = 1  " Show the python error numbers.
-let g:pylint_onwrite = 0       " Do not check code on save.
-let g:pylint_command = 'pylint'
-"}}}
-
-" Rsense settings."{{{
-let g:rsenseHome = expand("~/.vim/rsense-0.3/")
-let g:rsenseUseOmniFunc = 1
-" }}}
-
 " Rainbow Parenthesis Improved settings"{{{
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
 "}}}
 
 " end plugin options"}}}
-
-" End vim options"}}}
 
 " Finalize."{{{
 runtime! vimrc.d/vimrc.end

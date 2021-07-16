@@ -37,8 +37,6 @@ syntax on
 
 "}}}
 
-" Options."{{{
-
 " Plugin options"{{{
 
 " TagBar settings"{{{
@@ -74,11 +72,11 @@ let g:coc_global_extensions = [
             \ "coc-explorer"]
 "}}}
 
+" Python-syntax settings"{{{
+let g:python_highlight_all = 1
 "}}}
 
 " end plugin options"}}}
-
-" End vim options"}}}
 
 " Finalize."{{{
 runtime! vimrc.d/vimrc.end
