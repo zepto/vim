@@ -5,7 +5,7 @@
     "python.formatting.provider": "autopep8",
     "python.analysis.autoImportCompletions": true,
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": false,
+    "python.linting.flake8Enabled": true,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.pydocstyleEnabled": false,
     "pyright.completion.snippetSupport": false,
@@ -39,7 +39,11 @@
         "venv"
     ],
     "diagnostic-languageserver.filetypes": {
-        "python": ["flake8"]
+        "python": ["pyright"],
+        "vim": "vint",
+        "sh": "shellcheck",
+        "email": "languagetool",
+        "txt": "languagetool"
     },
     "diagnostic-languageserver.linters": {
         "flake8": {
@@ -107,7 +111,8 @@
         }
     },
     "diagnostic-languageserver.formatFiletypes": {
-        "python": ["autopep8", "black", "isort", "docformatter"]
+        "python": ["autopep8", "black", "isort", "docformatter"],
+        "sh": "shfmt"
     },
     "diagnostic-languageserver.formatters": {
         "autopep8": {
@@ -139,13 +144,13 @@
             "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
             "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         },
-        "efm": {
-            "command": "efm-langserver",
-            "args": [],
-            // custom config path
-            // "args": ["-c", "/path/to/your/config.yaml"],
-            "filetypes": ["vim"]
-        },
+        //"efm": {
+        //    "command": "efm-langserver",
+        //    "args": [],
+        //    // custom config path
+        //    // "args": ["-c", "/path/to/your/config.yaml"],
+        //    "filetypes": ["vim"]
+        //},
         //"python": {
         //    "command": "jedi-language-server",
         //    "filetypes": ["python"],

@@ -35,7 +35,6 @@ syntax on
 
 " Keybindings"{{{
 
-
 "}}}
 
 " Options."{{{
@@ -71,11 +70,8 @@ let g:coc_global_extensions = [
             \ 'coc-markdownlint',
             \ "coc-html",
             \ "coc-css",
-            \ "coc-tsserver"]
-"}}}
-
-" LSC settings"{{{
-let g:lsc_server_commands = {'python': 'jedi-language-server'}
+            \ "coc-tsserver",
+            \ "coc-explorer"]
 "}}}
 
 "}}}

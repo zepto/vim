@@ -178,6 +178,9 @@ if &rtp=~'coc.nvim'
     nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list.
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+    " coc-explorer keybinding
+    nnoremap <space>e :CocCommand explorer --toggle<CR>
 endif
 " }}}
 
