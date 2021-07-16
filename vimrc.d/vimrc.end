@@ -1,6 +1,5 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 21, 2017
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -220,10 +219,6 @@ augroup python_filetype
 
     let python_highlight_all=1
 
-    au FileType python noremap <buffer> <localleader>f :call Pyflakes()<CR>
-    au FileType python noremap <buffer> <localleader>8 :call Pep8()<CR>
-    au FileType python noremap <buffer> <localleader>f8 :call Flake8()<CR>
-    au FileType python noremap <buffer> <localleader>l :Pylint<CR>
     if has('python3')
         au FileType python setlocal omnifunc=python3complete#Complete
     elseif has('python')
@@ -241,8 +236,8 @@ augroup python_filetype
     " Add python paths for completion."{{{
     autocmd FileType python setlocal path+=/usr/lib/python3.5
     autocmd FileType python setlocal path+=/usr/lib/python3.5/site-packages
-    autocmd FileType python setlocal path+=/usr/lib/python2.7
-    autocmd FileType python setlocal path+=/usr/lib/python2.7/site-packages
+    "autocmd FileType python setlocal path+=/usr/lib/python2.7
+    "autocmd FileType python setlocal path+=/usr/lib/python2.7/site-packages
     "}}}
 augroup END
 "}}}
@@ -475,7 +470,7 @@ set backspace=indent,eol,start
 set autoindent
 
 " Add extra keywords
-set iskeyword+=.
+" set iskeyword+=.
 
 " Show line number relative to the current line.
 set relativenumber
@@ -686,7 +681,9 @@ endif
 " Set gui options"{{{
 
 if has('gui_running')
-    set guifont=Inconsolata\ 12
+    set guifont=Sarasa\ Mono\ J\ 12
+    " set guifont=Fantasque\ Sans\ Mono\ 12
+    " set guifont=Inconsolata\ 12
     " set guifont=Droid\ Sans\ Mono\ 10
     " set guifont=DejaVu\ Sans\ Mono\ 10
 
@@ -701,6 +698,12 @@ if has('gui_running')
     noremap! <S-Insert> <MiddleMouse>
 endif
 "}}}
+
+" Load all packs so they will be in runtimepath for helptags.
+packloadall
+
+" Load all helptags
+silent! helptags ALL
 
 set secure
 " vim: fdm=marker:fdl=0:fmr={{{,}}}

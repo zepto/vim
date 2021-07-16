@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 19, 2016
+" Last Modified: July 15, 2021
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -32,11 +32,12 @@ runtime! vimrc.d/vimrc.init
 " Turn off filetype detection (for plugin manager)
 filetype plugin indent off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 
 " }}}
 
 " Vim related plugins"{{{
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kana/vim-submode'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-smartchr'

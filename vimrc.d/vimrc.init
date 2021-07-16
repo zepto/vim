@@ -1,6 +1,5 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: April 04, 2016
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -35,6 +34,15 @@ runtime! macros/shellmenu.vim
 " Load extended matching with '%'
 runtime! macros/matchit.vim
 " runtime! macros/editexisting.vim
+
+" Set short update time so completion menu will be fast.
+set updatetime=300
+
+" Dont show ins-completion-menu messages.
+set shortmess+=c
+
+" Show signs in the numbercolumn.
+set signcolumn=number
 "}}}
 
 " Set global variables"{{{

@@ -1,6 +1,6 @@
 " File: .vimrc
 " Author: Josiah Gordon
-" Last Modified: March 19, 2016
+" Last Modified: July 14, 2021
 " License:  The MIT License {{{
 " Permission is hereby granted, free of charge, to any person obtaining a copy
 " of this software and associated documentation files (the "Software"), to deal
@@ -37,7 +37,7 @@ if has('vim_starting')
     set rtp^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 endif
 
-call dein#begin(expand('~/.vim/dein'))
+call dein#begin(expand('~/.vim/bundle'))
 
 " }}}
 
