@@ -5,7 +5,7 @@
 " Console to gui color table: {{{
 " Black:
 "       Darkgray:    #6c6c6c
-"       Black:       #3d3d3d
+"       Black:       #2d2d2d
 " Red:
 "       DarkRed:     #DE6951
 "       Red:         #c56a47
@@ -81,7 +81,7 @@ hi SpellLocal ctermfg=white ctermbg=cyan guifg=#FFFFFF guibg=#276CC2
 
 " Vim 700 colors.
 if version >= 700
-    hi Pmenu ctermfg=darkgrey ctermbg=NONE guifg=#6C6C6C guibg=#3d3d3d
+    hi Pmenu ctermfg=grey ctermbg=black guifg=#6C6C6C guibg=#3d3d3d
     hi PmenuSel ctermfg=white ctermbg=green guifg=#FFFFFF guibg=#9dbf60
     hi PmenuSbar ctermfg=NONE ctermbg=NONE guifg=#3d3d3d guibg=#3d3d3d
     hi PmenuThumb ctermfg=grey ctermbg=NONE guifg=#d2d2d2 guibg=#3d3d3d

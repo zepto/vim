@@ -39,7 +39,7 @@
         "venv"
     ],
     "diagnostic-languageserver.filetypes": {
-        "python": ["pyright"],
+        "python": ["flake8"],
         "vim": "vint",
         "sh": "shellcheck",
         "email": "languagetool",
