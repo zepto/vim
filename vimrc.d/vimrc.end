@@ -45,18 +45,14 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 "}}}
 
 " Moving in insert mode."{{{
-" Reference: https://github.com/kana/config/blob/master/vim/personal/dot.vimrc
-" inoremap <Esc>h  <Left>
-" inoremap <Esc>j  <Down>
-" inoremap <Esc>k  <Up>
-" inoremap <Esc>l  <Right>
-
-inoremap <Esc>w  <C-Right>
-inoremap <Esc>b  <C-Left>
-inoremap <Esc>e  <C-o>e
-inoremap <Esc>W  <C-o>W
-inoremap <Esc>B  <C-o>B
-inoremap <Esc>E  <C-o>E
+inoremap <C-h>  <Left>
+inoremap <C-j>  <C-o>gj
+inoremap <C-k>  <C-o>gk
+inoremap <C-l>  <Right>
+cnoremap <C-h>  <Left>
+cnoremap <C-j>  <C-o>gj
+cnoremap <C-k>  <C-o>gk
+cnoremap <C-l>  <Right>
 " }}}
 
 " Diff keybindings."{{{
@@ -65,7 +61,7 @@ vnoremap <leader>do :diffget<CR>
 " }}}
 
 " Encrypt the current file with vimcrypt."{{{
-noremap <leader>cr :X<CR>
+noremap <leader>ef :X<CR>
 "}}}
 
 " Toggle the colorcolumn shortcut."{{{

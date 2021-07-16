@@ -33,10 +33,6 @@ syntax on
 
 "}}}
 
-" Keybindings"{{{
-
-"}}}
-
 " Plugin options"{{{
 
 " TagBar settings"{{{
@@ -69,11 +65,21 @@ let g:coc_global_extensions = [
             \ "coc-html",
             \ "coc-css",
             \ "coc-tsserver",
-            \ "coc-explorer"]
+            \ "coc-explorer",
+            \ "coc-spell-checker"]
 "}}}
 
 " Python-syntax settings"{{{
 let g:python_highlight_all = 1
+"}}}
+
+" Vista settings"{{{
+" Open vista tagbar on the left.
+let g:vista_sidebar_position = "vertical topleft"
+" Don't delay the tag preview.
+let g:vista_cursor_delay = 0
+" Update on text change.
+let g:vista_update_on_text_changed = 1
 "}}}
 
 " end plugin options"}}}

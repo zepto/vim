@@ -53,15 +53,15 @@ if &rtp=~'coc.nvim'
     inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
 
     " Use <c-space> to trigger completion.
     if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
+        inoremap <silent><expr> <c-space> coc#refresh()
     else
-    inoremap <silent><expr> <c-@> coc#refresh()
+        inoremap <silent><expr> <c-@> coc#refresh()
     endif
 
     " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -84,13 +84,13 @@ if &rtp=~'coc.nvim'
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+        else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+        endif
     endfunction
 
     " Highlight the symbol and its references when holding the cursor.
@@ -104,11 +104,11 @@ if &rtp=~'coc.nvim'
     nmap <leader>f  <Plug>(coc-format-selected)
 
     augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        autocmd!
+        " Setup formatexpr specified filetype(s).
+        autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+        " Update signature help on jump placeholder.
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
 
     " Applying codeAction to the selected region.
@@ -134,12 +134,12 @@ if &rtp=~'coc.nvim'
 
     " Remap <C-f> and <C-b> for scroll float windows/popups.
     if has('nvim-0.4.0') || has('patch-8.2.0750')
-    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+        nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+        inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+        inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+        vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
     endif
 
     " Use CTRL-S for selections ranges.
@@ -180,7 +180,24 @@ if &rtp=~'coc.nvim'
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
     " coc-explorer keybinding
-    nnoremap <space>e :CocCommand explorer --toggle<CR>
+    nnoremap <leader>e :CocCommand explorer --toggle<CR>
+
+    nnoremap <silent><nowait> <leader>ts :call CocActionAsync('toggleExtension', 'coc-spell-checker')<CR>
+endif
+" }}}
+
+" Clap keybindings."{{{
+if &rtp=~'vim-clap'
+    noremap <leader>cb :Clap buffers!<CR>
+    noremap <leader>cf :Clap filer!<CR>
+    noremap <leader>cr :Clap registers!<CR>
+    noremap <leader>ct :Clap tags!<CR>
+endif
+" }}}
+
+" Vista keybindings."{{{
+if &rtp=~'vista.vim'
+    noremap <leader>vb :Vista!!<CR>
 endif
 " }}}
 

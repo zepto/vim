@@ -1,6 +1,9 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
 
+    "cSpell.enabled": true,
+    "cSpell.showStatus": false,
+
     "pyright.enable": false,
     "python.formatting.provider": "autopep8",
     "python.analysis.autoImportCompletions": true,
