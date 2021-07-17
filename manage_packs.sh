@@ -8,8 +8,8 @@ function add_plugin()
     else
         echo "Adding plugin $2 into $3..."
         git submodule init
-        git submodule add "$1" "$2"
-        git add .gitmodules "$2"
+        git submodule add "$2" "$3"
+        git add .gitmodules "$3"
         echo "Done."
         git commit
     fi

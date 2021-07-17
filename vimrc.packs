@@ -62,11 +62,11 @@ let g:coc_global_extensions = [
             \ 'coc-jedi',
             \ 'coc-solargraph',
             \ 'coc-markdownlint',
-            \ "coc-html",
-            \ "coc-css",
-            \ "coc-tsserver",
-            \ "coc-explorer",
-            \ "coc-spell-checker"]
+            \ 'coc-html',
+            \ 'coc-css',
+            \ 'coc-tsserver',
+            \ 'coc-explorer',
+            \ 'coc-spell-checker']
 "}}}
 
 " Python-syntax settings"{{{
