@@ -34,3 +34,6 @@
 [submodule "pack/plugins/opt/auto-pairs"]
 	path = pack/plugins/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/plugins/start/vim-lsp-cxx-highlight"]
+	path = pack/plugins/start/vim-lsp-cxx-highlight
+	url = https://github.com/jackguo380/vim-lsp-cxx-highlight
