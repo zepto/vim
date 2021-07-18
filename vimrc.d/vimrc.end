@@ -45,6 +45,9 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " Open netrw in virtical split.
 nnoremap <leader>fe :Vexplore<CR>
 
+" Open wildmenu with list of buffers.
+nnoremap <leader>wb :b <C-Z>
+
 "}}}
 
 " Moving in insert mode."{{{
@@ -587,6 +590,8 @@ set softtabstop=4
 " Turn on wild menu and make its tab completion like the shells.
 set nowildmenu
 set wildmode=list:longest
+set wildchar=<Tab>
+set wildcharm=<C-Z>
 " }}}
 
 " Undo and backup settings."{{{

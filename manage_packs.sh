@@ -8,8 +8,8 @@ function add_plugin()
     else
         echo "Adding plugin $2 into $3..."
         git submodule init
-        git submodule add "$2" "$3"
-        git add .gitmodules "$3"
+        git submodule add "$2" "$3" || { echo 'Failed at git submodule add.'; exit; }
+        git add .gitmodules "$3" || { echo 'Failed at git add .gitmodules.'; exit; }
         echo "Done."
         git commit
     fi
@@ -22,8 +22,8 @@ function remove_plugin()
         echo "Usage $0 remove <destination>"
     else
         echo "Removing $2..."
-        git submodule deinit -f "$2" || exit #'Failed at git submodule deinit.' && exit
-        git rm -f "$2" || exit #echo 'Failed at git rm.' && exit
+        git submodule deinit -f "$2" || { echo 'Failed at git submodule deinit.'; exit; }
+        git rm -f "$2" || { echo 'Failed at git rm.'; exit; }
         rm -rf ".git/modules/vim/$2"
         echo "Done."
         git commit
@@ -33,7 +33,7 @@ function remove_plugin()
 function update_plugins()
 {
     echo "Updating all plugins..."
-    git submodule update --remote --merge
+    git submodule update --remote --merge || { echo 'Failed to update.'; exit; }
     echo "Done."
     git commit
 }
