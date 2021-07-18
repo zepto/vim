@@ -45,9 +45,6 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " Open netrw in virtical split.
 nnoremap <leader>fe :Vexplore<CR>
 
-" Open wildmenu with list of buffers.
-nnoremap <leader>wb :b <C-Z>
-
 "}}}
 
 " Moving in insert mode."{{{
@@ -70,18 +67,16 @@ vnoremap <leader>do :diffget<CR>
 noremap <leader>ef :X<CR>
 "}}}
 
-" Toggle the colorcolumn shortcut."{{{
-let s:l_cc = &cc
+" Toggle the colorcolumn cursorcolumn cursorline shortcuts."{{{
 fun! s:ToggleColorColumn()
-    if s:l_cc == 0
-        setlocal colorcolumn=+1
-        let s:l_cc = 1
+    if &colorcolumn == '+1'
+        setlocal colorcolumn=
     else
-        setlocal colorcolumn=0
-        let s:l_cc = 0
+        setlocal colorcolumn=+1
     endif
 endfun
 noremap <leader><leader>c :call <SID>ToggleColorColumn()<CR>
+noremap <leader><leader>cl :set cursorcolumn!<Bar>set cursorline!<CR>
 " }}}
 
 " Turn off the highlighting (nohl) shortcut."{{{
@@ -95,6 +90,7 @@ noremap <leader>ss :setlocal spell!<CR>
 " Window and Tab movement keys."{{{
 " Tab related shortcuts.
 noremap <leader>tc :tabclose<CR>
+" Open window in its own tab.
 noremap <leader>wt <C-W>T
 
 " Switch windows quickly
@@ -102,10 +98,18 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
+
+" Open wildmenu with list of buffers.
+nnoremap <leader>wb :b <C-Z>
+
+" Open all buffers in tabs.
+nnoremap <leader>bt :tab sball<CR>
 "}}}
 
 " Close current window."{{{
-noremap <leader>q :quit!<CR>
+noremap <nowait> <leader>q :quit!<CR>
+" Close vim without saving
+" noremap <nowait> <leader>qa :qall!<CR>
 "}}}
 
 " Open and close the list window."{{{
@@ -174,9 +178,9 @@ augroup all_filetypes
     " Statusline coloring."{{{
     " Reference: http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
     function! InsertStatuslineColor(mode)
-        if  a:mode == 'r'
+        if  &readonly || !&modifiable
             hi statusline ctermbg=darkred guibg=#DE6951
-        elseif a:mode == 'i'
+        else
             hi statusline ctermbg=darkblue guibg=#2187F6
         endif
     endfunction
@@ -256,10 +260,10 @@ augroup END
 "}}}
 
 " PKGBUILD"{{{
-augroup PKGBUILD_filetype
-    autocmd!
-    autocmd FileType PKGBUILD setlocal commentstring=#%s
-augroup END
+" augroup PKGBUILD_filetype
+"     autocmd!
+"     autocmd FileType PKGBUILD setlocal commentstring=#%s
+" augroup END
 "}}}
 
 " freebasic"{{{

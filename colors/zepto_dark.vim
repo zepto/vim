@@ -81,14 +81,14 @@ hi SpellLocal ctermfg=white ctermbg=darkblue guifg=#FFFFFF guibg=#276CC2
 
 " Vim 700 colors.
 if version >= 700
-    hi Pmenu ctermfg=grey ctermbg=NONE guifg=#6C6C6C guibg=#3d3d3d
+    hi Pmenu ctermfg=grey ctermbg=darkmagenta guifg=#6C6C6C guibg=#3d3d3d
     hi PmenuSel ctermfg=black ctermbg=green guifg=#d5d5d5 guibg=#9dbf60
     hi PmenuSbar ctermfg=NONE ctermbg=NONE guifg=#3d3d3d guibg=#3d3d3d
     hi PmenuThumb ctermfg=grey ctermbg=NONE guifg=#d2d2d2 guibg=#3d3d3d
 
-    hi CursorColumn cterm=BOLD ctermfg=NONE ctermbg=NONE gui=BOLD
-    hi CursorLine cterm=BOLD ctermfg=NONE ctermbg=NONE gui=BOLD
-    hi ColorColumn ctermfg=NONE ctermbg=cyan guifg=NONE guibg=#276CC2
+    hi CursorColumn cterm=BOLD ctermfg=NONE ctermbg=darkmagenta gui=BOLD
+    hi CursorLine cterm=BOLD ctermfg=NONE ctermbg=darkmagenta gui=BOLD
+    hi ColorColumn cterm=BOLD ctermfg=NONE ctermbg=darkcyan gui=BOLD guifg=NONE guibg=#276CC2
 endif
 
 hi TabLine cterm=NONE ctermfg=white ctermbg=grey gui=NONE guifg=#ffffff guibg=#d2d2d2
@@ -101,7 +101,7 @@ hi Normal ctermfg=NONE ctermbg=NONE guifg=#d2d2d2 guibg=#3d3d3d
 
 " Syntax highlighting."{{{
 hi Comment     cterm=italic ctermfg=darkgrey   gui=italic   guifg=#6C6C6C
-hi Constant    cterm=NONE ctermfg=darkblue       ctermbg=NONE guifg=#276CC2
+hi Constant    cterm=NONE ctermfg=darkcyan       ctermbg=NONE guifg=#276CC2
 hi Special     cterm=NONE ctermfg=white      ctermbg=NONE guifg=#FFFFFF
 hi Identifier  cterm=NONE ctermfg=darkblue       ctermbg=NONE guifg=#276CC2
 hi Statement   cterm=NONE ctermfg=lightblue  ctermbg=NONE guifg=#5FD5FC

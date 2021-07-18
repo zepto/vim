@@ -23,7 +23,7 @@ function remove_plugin()
     else
         echo "Removing $2..."
         git submodule deinit -f "$2" || { echo 'Failed at git submodule deinit.'; exit; }
-        git rm -f "$2" || { echo 'Failed at git rm.'; exit; }
+        git rm -rf "$2" || { echo 'Failed at git rm.'; exit; }
         rm -rf ".git/modules/vim/$2"
         echo "Done."
         git commit
