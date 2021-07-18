@@ -80,12 +80,32 @@ let g:vista_sidebar_position = "vertical topleft"
 let g:vista_cursor_delay = 0
 " Update on text change.
 let g:vista_update_on_text_changed = 1
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'coc'
+" The default icons can't be suitable for all the filetypes, you can extend it
+" as you wish.
+" let g:vista#renderer#icons = {
+"            \   "function": "F",
+"            \   "variable": "V",
+"            \  }
+" let g:vista_fold_toggle_icons = ['▼', '▶']
+" let g:vista_icon_indent = ['└ ', '│ ']
+" let g:vista_fold_toggle_icons = ['v', '>']
+" let g:vista_icon_indent = ['- ', '| ']
+let g:vista#renderer#enable_icon=0
 "}}}
 
 " end plugin options"}}}
 
 " Finalize."{{{
 runtime! vimrc.d/vimrc.end
+
+" Load all packs so they will be in runtimepath for helptags.
+packloadall
+
+" Load all helptags
+silent! helptags ALL
 "}}}
 
 set secure

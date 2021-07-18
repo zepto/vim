@@ -22,8 +22,8 @@ function remove_plugin()
         echo "Usage $0 remove <destination>"
     else
         echo "Removing $2..."
-        git submodule deinit "$2"
-        git rm "$2"
+        git submodule deinit -f "$2" || exit #'Failed at git submodule deinit.' && exit
+        git rm -f "$2" || exit #echo 'Failed at git rm.' && exit
         rm -rf ".git/modules/vim/$2"
         echo "Done."
         git commit
@@ -71,12 +71,14 @@ case $1 in
         remove_plugin $@
         ;;
     "update")
-        update_plugins $@
+        update_plugins
         ;;
     "init")
-        init_plugins $@
+        init_plugins
         ;;
     *)
-        echo "Usage: $0 add|remove|update|init <git_url> [destination]"
+        usage
         ;;
 esac
+
+# vim: ft=bash:fdm=marker:fdl=0:fmr={{{,}}}

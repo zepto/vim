@@ -42,6 +42,9 @@ noremap <leader>ev :tabe $MYVIMRC<CR>
 " List contents of all registers (that typically contain pasteable text).
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 
+" Open netrw in virtical split.
+nnoremap <leader>fe :Vexplore<CR>
+
 "}}}
 
 " Moving in insert mode."{{{
@@ -195,6 +198,13 @@ augroup vim_filetype
 augroup END
 "}}}
 
+" Netrw "{{{
+augroup vim_netrw_filetyp
+    autocmd!
+    autocmd Filetype netrw noremap <buffer> q <C-W>q
+augroup END
+" }}}
+
 " tmux.conf"{{{
 augroup tmux_filetype
     autocmd!
@@ -219,11 +229,11 @@ augroup python_filetype
 
     let python_highlight_all=1
 
-    if has('python3')
-        au FileType python setlocal omnifunc=python3complete#Complete
-    elseif has('python')
-        au FileType python setlocal omnifunc=pythoncomplete#Complete
-    endif
+    " if has('python3')
+    "     au FileType python setlocal omnifunc=python3complete#Complete
+    " elseif has('python')
+    "     au FileType python setlocal omnifunc=pythoncomplete#Complete
+    " endif
 
     " Python Fold setup"{{{
     "autocmd FileType python setlocal foldopen=all
@@ -383,6 +393,8 @@ fun! GetMode()
         let l:mode_l='SELECT (line)'
     elseif l:mode_l == '<C-S>'
         let l:mode_l='SELECT (block)'
+    elseif l:mode_l == 't'
+        let l:mode_l='TERMINAL'
     elseif l:mode_l == 'R'
         let l:mode_l='REPLACE'
     elseif l:mode_l == 'Rv'
@@ -409,18 +421,21 @@ endfun
 " Reference: https://raw.github.com/niw/profiles/master/.vimrc
 " Status line
 let &statusline = ''
-" let &statusline .= '  %{ GetMode() } |'     " Buffer number
+" let &statusline .= '%#StatusLine#'
+" let &statusline .= '  %{ GetMode() } │'
+" set statusline+=%#IncSearch#
 let &statusline .= ' %3n '     " Buffer number
 let &statusline .= '%m%r%h%w%q' " Modified flag, Readonly flag, Preview flag,
                                 " and Quickfix flag
-if &rtp=~'fugitive'
-    let &statusline .= ' | %<%{fugitive#statusline()} '   " Git branch
+if &rtp=~'vim-fugitive'
+    let &statusline .= ' │ %<%{fugitive#statusline()} '   " Git branch
 endif
-let &statusline .= ' | %<%f '   " Filename
+let &statusline .= ' │ %<%f '   " Filename
+
 let &statusline .= '%='         " Spaces
-let &statusline .= '%{" | " . (&fileencoding != "" ? &fileencoding : &encoding) . " | " . &fileformat . " | " . &filetype }'
-let &statusline .= ' |%4P'      " Percentage through file of displayed window.
-let &statusline .= ' | LN%7l C%3c '  " Line number, Column number, Virtual
+let &statusline .= '%{" │ " . (&fileencoding != "" ? &fileencoding : &encoding) . " │ " . &fileformat . " │ " . &filetype }'
+let &statusline .= ' │%4P'      " Percentage through file of displayed window.
+let &statusline .= ' │ LN%7l C%3c '  " Line number, Column number, Virtual
                                      " column number
 " let &statusline = '%{g:HahHah()}' 
 
@@ -447,7 +462,11 @@ set list
 
 " :help digraph to find what characters look best.
 set listchars=tab:»\ ,trail:·,extends:»,precedes:«
-set showbreak=...\ 
+" set showbreak=...\ 
+set showbreak=└→\ 
+
+" Set some other characters.
+set fillchars=vert:│,fold:·,foldopen:-,foldsep:│,foldclose:+
 
 " Make :help the default keywordprg
 set keywordprg=:help
@@ -617,63 +636,14 @@ endif
 
 " Setup vim colorscheme."{{{
 
-" Set the colorscheme to ir_black.
-" colorscheme ir_black
+" Set the colorscheme to zepto_dark.
 colorscheme zepto_dark
 
-" Try to make the colorscheme look the same in all terminal instances
-" including the console at 16 colors.
-" CSApprox settings."{{{
 if &term!="linux" && &term!="screen.linux"
     " We are in a xterm compatible terminal so we probably have 256 colors.
     set t_Co=256
-    let g:CSApprox_ir_black_hook_post = 
-                \ ['hi Normal ctermbg=NONE ctermfg=NONE',  
-                \ 'hi NonText ctermbg=NONE ctermfg=NONE', 
-                \ 'hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=green', 
-                \ 'hi LineNr cterm=NONE ctermbg=NONE',
-                \ 'hi DiffDelete ctermfg=white',
-                \ 'hi DiffChange ctermfg=grey',
-                \ 'hi VertSplit ctermfg=darkgrey ctermbg=grey',
-                \ 'hi ModeMsg cterm=BOLD ctermfg=darkgrey ctermbg=NONE',
-                \ 'hi Comment ctermfg=darkgrey',
-                \ 'hi LineNr cterm=NONE ctermfg=darkgrey ctermbg=NONE',
-                \ 'hi MatchParen cterm=NONE ctermfg=white ctermbg=cyan',
-                \ 'hi Normal ctermfg=NONE ctermbg=NONE',
-                \ 'hi Visual ctermfg=white ctermbg=green',
-                \ 'hi NonText ctermfg=NONE ctermbg=NONE',
-                \ 'hi FoldColumn cterm=NONE ctermfg=green ctermbg=NONE',
-                \ 'hi SignColumn cterm=NONE ctermfg=red  ctermbg=NONE',
-                \ 'hi Pmenu ctermfg=black ctermbg=grey',
-                \ 'hi PmenuSel ctermbg=darkyellow',
-                \ 'hi EasyMotionTarget ctermfg=green ctermbg=none',
-                \ 'hi EasyMotionShade ctermfg=darkgrey ctermbg=none',
-                \ 'hi String ctermfg=green',
-                \ 'hi Number ctermfg=magenta',
-                \ 'hi Keyword ctermfg=blue',
-                \ 'hi PreProc ctermfg=blue',
-                \ 'hi Conditional ctermfg=blue',
-                \ 'hi Constant ctermfg=cyan',
-                \ 'hi Identifier ctermfg=cyan',
-                \ 'hi Function ctermfg=darkyellow',
-                \ 'hi Type ctermfg=yellow',
-                \ 'hi Statement ctermfg=lightblue',
-                \ 'hi Special ctermfg=white',
-                \ 'hi Delimiter ctermfg=cyan',
-                \ 'hi Operator  ctermfg=white',
-                \ 'hi Folded ctermfg=lightgrey ctermbg=NONE',
-                \ ]
-    let g:CSApprox_loaded = 1
-else
-    " Don't load CSApprox plugin.
-    let g:CSApprox_loaded = 1
 endif
-" }}}
 
-" fbpad colorscheme setup."{{{
-if &term=='fbpad-256'
-    colorscheme fbpad
-endif
 "}}}
 
 " End setting up colorscheme"}}}
@@ -683,9 +653,6 @@ endif
 if has('gui_running')
     set guifont=Sarasa\ Mono\ J\ 12
     " set guifont=Fantasque\ Sans\ Mono\ 12
-    " set guifont=Inconsolata\ 12
-    " set guifont=Droid\ Sans\ Mono\ 10
-    " set guifont=DejaVu\ Sans\ Mono\ 10
 
     " Hide menu and toolbar.
     set guioptions=cMg
@@ -698,12 +665,6 @@ if has('gui_running')
     noremap! <S-Insert> <MiddleMouse>
 endif
 "}}}
-
-" Load all packs so they will be in runtimepath for helptags.
-packloadall
-
-" Load all helptags
-silent! helptags ALL
 
 set secure
 " vim: fdm=marker:fdl=0:fmr={{{,}}}

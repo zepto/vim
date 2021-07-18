@@ -1,4 +1,8 @@
 {
+//    "diagnostic.errorSign": "▶",
+    "diagnostic.warningSign": ">>",
+//    "diagnostic.infoSign": "i",
+
     "coc.preferences.extensionUpdateCheck": "daily",
 
     "cSpell.enabled": true,
@@ -45,6 +49,7 @@
         "python": ["flake8"],
         "vim": "vint",
         "sh": "shellcheck",
+        "bash": "shellcheck",
         "email": "languagetool",
         "txt": "languagetool"
     },
@@ -115,7 +120,8 @@
     },
     "diagnostic-languageserver.formatFiletypes": {
         "python": ["autopep8", "black", "isort", "docformatter"],
-        "sh": "shfmt"
+        "sh": "shfmt",
+        "bash": "shfmt"
     },
     "diagnostic-languageserver.formatters": {
         "autopep8": {
@@ -139,7 +145,7 @@
         "bash": {
             "command": "bash-language-server",
             "args": ["start"],
-            "filetypes": ["sh"],
+            "filetypes": ["sh", "bash"],
             "ignoredRootPaths": ["~"]
         },
         "clangd": {
