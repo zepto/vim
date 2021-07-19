@@ -37,3 +37,6 @@
 [submodule "pack/plugins/start/vim-lsp-cxx-highlight"]
 	path = pack/plugins/start/vim-lsp-cxx-highlight
 	url = https://github.com/jackguo380/vim-lsp-cxx-highlight
+[submodule "pack/plugins/start/vim-snippets"]
+	path = pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
