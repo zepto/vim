@@ -84,9 +84,9 @@ if &rtp=~'coc.nvim'
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
-        if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        elseif (coc#rpc#ready())
+        " if (index(['vim','help'], &filetype) >= 0)
+        "     execute 'h '.expand('<cword>')
+        if (coc#rpc#ready())
             call CocActionAsync('doHover')
         else
             execute '!' . &keywordprg . " " . expand('<cword>')
@@ -116,10 +116,13 @@ if &rtp=~'coc.nvim'
     xmap <leader>a  <Plug>(coc-codeaction-selected)
     nmap <leader>a  <Plug>(coc-codeaction-selected)
 
+    " Code action at the current cursor position.
+    nmap <leader>al  <Plug>(coc-codeaction-cursor)
+
     " Remap keys for applying codeAction to the current buffer.
     nmap <leader>ac  <Plug>(coc-codeaction)
     " Apply AutoFix to problem on the current line.
-    nmap <leader>cqf  <Plug>(coc-fix-current)
+    nmap <leader>af  <Plug>(coc-fix-current)
 
     " Map function and class text objects
     " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -178,11 +181,40 @@ if &rtp=~'coc.nvim'
     nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list.
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+    " Resume latest coc list.
+    nnoremap <silent><nowait> <space>r  :<C-u>CocList registers<CR>
 
-    " coc-explorer keybinding
+" coc-snippets keybindings "{{{
+    inoremap <silent><expr> <TAB>
+        \ pumvisible() ? coc#_select_confirm() :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+" }}}
+
+" coc-explorer keybinding "{{{
     nnoremap <leader>e :CocCommand explorer --toggle<CR>
+    " Use preset argument to open it
+    nnoremap <leader>ed :CocCommand explorer --preset .vim<CR>
+    if has('nvim')
+        nnoremap <leader>ef :CocCommand explorer --preset floating<CR>
+    endif
+    nnoremap <leader>ec :CocCommand explorer --preset cocConfig<CR>
+    nnoremap <leader>eb :CocCommand explorer --preset buffer<CR>
+" }}}
 
+" coc-spell-ckecker keybinding "{{{
     nnoremap <silent><nowait> <leader>ts :call CocActionAsync('toggleExtension', 'coc-spell-checker')<CR>
+" }}}
+
+    " Set doq for coc-pydocstring plugin.
+    let home=environ()['HOME']
+    call coc#config('pydocstring.doqPath', home.'/.local/bin/doq')
 endif
 " }}}
 

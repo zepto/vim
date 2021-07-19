@@ -1,25 +1,37 @@
 {
 //    "diagnostic.errorSign": "▶",
-    "diagnostic.warningSign": ">>",
+    "diagnostic.warningSign": "!!",
 //    "diagnostic.infoSign": "i",
 
     "coc.preferences.extensionUpdateCheck": "daily",
-    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnType": false,
+    "suggest.noselect": false,
 
     "cSpell.enabled": true,
     "cSpell.showStatus": false,
 
+    "explorer.quitOnOpen": true,
+
+    "solargraph.formatting": true,
+    "solargraph.diagnostics": true,
+
+    "clangd.enabled": true,
+    "clangd.semanticHighlighting": true,
+
+//    "pydocstring.doqPath": "$HOME/.local/bin/doq",
+    "pydocstring.formatter": "google",
+
     "pyright.enable": true,
-    "pyright.disableLanguageServices": false,
+    "pyright.disableLanguageServices": true,
     "python.formatting.provider": "autopep8",
     "python.analysis.autoImportCompletions": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.pycodestyleEnabled": false,
-    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pydocstyleEnabled": true,
     "pyright.completion.snippetSupport": true,
 
-    "jedi.enable": false,
+    "jedi.enable": true,
     "jedi.startupMessage": false,
     "jedi.markupKindPreferred": "markdown",
     "jedi.trace.server": "off",
@@ -39,7 +51,7 @@
     "jedi.hover.disable.keyword.names": [],
     "jedi.hover.disable.keyword.fullNames": [],
     "jedi.workspace.extraPaths": [],
-    "jedi.workspace.symbols.maxSymbols": 20,
+    "jedi.workspace.symbols.maxSymbols": 200,
     "jedi.workspace.symbols.ignoreFolders": [
         ".nox",
         ".tox",
@@ -48,7 +60,7 @@
         "venv"
     ],
     "diagnostic-languageserver.filetypes": {
-        "python": ["flake8"],
+        "python": ["flake8", "pycodestyle", "pyright"],
         "vim": "vint",
         "sh": "shellcheck",
         "bash": "shellcheck",
@@ -150,11 +162,11 @@
             "filetypes": ["sh", "bash"],
             "ignoredRootPaths": ["~"]
         },
-        "clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-        },
+        //"clangd": {
+        //    "command": "clangd",
+        //    "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+        //    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        //},
         //"efm": {
         //    "command": "efm-langserver",
         //    "args": [],
@@ -162,6 +174,10 @@
         //    // "args": ["-c", "/path/to/your/config.yaml"],
         //    "filetypes": ["vim"]
         //},
+        //"python": {
+        //    "command": "pylsp",
+        //    "filetypes": ["python"]
+        //}
         //"python": {
         //    "command": "jedi-language-server",
         //    "filetypes": ["python"],

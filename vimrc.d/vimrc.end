@@ -47,6 +47,13 @@ nnoremap <leader>fe :Vexplore<CR>
 
 "}}}
 
+" Vim Terminal "{{{
+" Open bash shell in the vim terminal.
+nnoremap <leader>bs :term bash<CR>
+" Open python shell in the vim terminal.
+nnoremap <leader>ps :term python<CR>
+"}}}
+
 " Moving in insert mode."{{{
 inoremap <C-h>  <Left>
 inoremap <C-j>  <C-o>gj
@@ -331,6 +338,9 @@ augroup ruby_filetype
     " autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType ruby,eruby setlocal foldmethod=syntax
     autocmd FileType ruby,eruby setlocal foldlevel=20000
+    autocmd FileType ruby,eruby setlocal tabstop=2
+    autocmd FileType ruby,eruby setlocal shiftwidth=2
+    autocmd FileType ruby,eruby setlocal softtabstop=2
     "autocmd FileType ruby,eruby setlocal keywordprg=ri
     "let g:rubycomplete_buffer_loading = 1
     "let g:rubycomplete_rails = 1

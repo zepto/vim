@@ -66,7 +66,60 @@ let g:coc_global_extensions = [
             \ 'coc-css',
             \ 'coc-tsserver',
             \ 'coc-explorer',
-            \ 'coc-spell-checker']
+            \ 'coc-spell-checker',
+            \ 'coc-pairs',
+            \ 'coc-clangd',
+            \ 'coc-vimlsp',
+            \ 'coc-pydocstring',
+            \ 'coc-lists']
+" coc-explorer settings "{{{
+let g:coc_explorer_global_presets = {
+            \ '.vim': {
+            \    'root-uri': '~/.vim',
+            \ },
+            \ 'cocConfig': {
+            \    'root-uri': '~/.config/coc',
+            \ },
+            \ 'tab': {
+            \    'position': 'tab',
+            \    'quit-on-open': v:true,
+            \ },
+            \ 'tab:$': {
+            \    'position': 'tab:$',
+            \    'quit-on-open': v:true,
+            \ },
+            \ 'floating': {
+            \    'position': 'floating',
+            \    'open-action-strategy': 'sourceWindow',
+            \ },
+            \ 'floatingTop': {
+            \    'position': 'floating',
+            \    'floating-position': 'center-top',
+            \    'open-action-strategy': 'sourceWindow',
+            \ },
+            \ 'floatingLeftside': {
+            \    'position': 'floating',
+            \    'floating-position': 'left-center',
+            \    'floating-width': 50,
+            \    'open-action-strategy': 'sourceWindow',
+            \ },
+            \ 'floatingRightside': {
+            \    'position': 'floating',
+            \    'floating-position': 'right-center',
+            \    'floating-width': 50,
+            \    'open-action-strategy': 'sourceWindow',
+            \ },
+            \ 'simplify': {
+            \    'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+            \ },
+            \ 'buffer': {
+            \    'sources': [{'name': 'buffer', 'expand': v:true}]
+            \ },
+            \ }
+"}}}
+" coc-snippets settings "{{{
+    let g:coc_snippet_next = '<tab>'
+"}}}
 "}}}
 
 " Python-syntax settings"{{{
@@ -96,6 +149,10 @@ let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon=0
 "}}}
 
+" Vim lsp cxx highlighting settings"{{{
+let g:lsp_cxx_hl_use_text_props = 1
+"}}}
+
 " end plugin options"}}}
 
 " Finalize."{{{
@@ -103,6 +160,7 @@ runtime! vimrc.d/vimrc.end
 
 " Load all packs so they will be in runtimepath for helptags.
 packloadall
+packadd auto-pairs
 
 " Load all helptags
 silent! helptags ALL

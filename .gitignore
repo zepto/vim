@@ -8,3 +8,5 @@ yankring_history_v2.txt
 *.pyc
 *.pyo
 tmp/*
+.ropeproject/*
+sessions*
