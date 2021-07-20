@@ -48,8 +48,8 @@ set signcolumn=number
 " Set global variables"{{{
 
 " Set leader
-let maplocalleader = ";"
-let mapleader = ","
+" let maplocalleader = ";"
+" let mapleader = ","
 
 " Make vim more posix compliant.
 let g:is_posix=1
@@ -64,9 +64,11 @@ let g:netrw_banner = 0
 " Set width to 20% of the page.
 let g:netrw_winsize = 25
 " Enable <C-Tab> key.
-let g:netrw_usetab=1
-" <cr> will open file in new tab.
-let g:netrw_browse_split=3
+let g:netrw_usetab = 1
+" <CR> will open file in new tab.
+let g:netrw_browse_split = 3
+" Show previews in a vertial split.
+" let g:netrw_preview = 1
 " }}}
 
 " End global variables"}}}
@@ -91,6 +93,9 @@ set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,ucs-bom,cp932,default,latin1,cp12
 set fileformat=unix
 " Detect other fileformats.
 set fileformats=unix,dos,mac
+" }}}
+" Diff options "{{{
+set diffopt=filler,internal,closeoff,algorithm:histogram,indent-heuristic
 " }}}
 " }}}
 " }}}

@@ -213,8 +213,7 @@ if &rtp=~'coc.nvim'
 " }}}
 
     " Set doq for coc-pydocstring plugin.
-    let home=environ()['HOME']
-    call coc#config('pydocstring.doqPath', home.'/.local/bin/doq')
+    call coc#config('pydocstring.doqPath', expand('~/.local/bin/doq'))
 endif
 " }}}
 

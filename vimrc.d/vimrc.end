@@ -45,6 +45,13 @@ nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " Open netrw in virtical split.
 nnoremap <leader>fe :Vexplore<CR>
 
+" Make macros operate in visual mode.
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 "}}}
 
 " Vim Terminal "{{{
@@ -83,7 +90,8 @@ fun! s:ToggleColorColumn()
     endif
 endfun
 noremap <leader><leader>c :call <SID>ToggleColorColumn()<CR>
-noremap <leader><leader>cl :set cursorcolumn!<Bar>set cursorline!<CR>
+noremap <leader><leader>cc :set cursorcolumn!<CR>
+noremap <leader><leader>cl :set cursorline!<CR>
 " }}}
 
 " Turn off the highlighting (nohl) shortcut."{{{
@@ -177,10 +185,10 @@ augroup all_filetypes
         \   exe "normal! g`\"" |
         \ endif
 
-    autocmd FileType * setlocal formatoptions-=t |
-                \ setlocal formatoptions-=r |
-                \ setlocal formatoptions-=o |
-                \ setlocal formatoptions+=cmM
+    " autocmd FileType * setlocal formatoptions-=t |
+    "            \ setlocal formatoptions-=r |
+    "            \ setlocal formatoptions-=o |
+    "            \ setlocal formatoptions+=cmM
 
     " Statusline coloring."{{{
     " Reference: http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
@@ -188,7 +196,7 @@ augroup all_filetypes
         if  &readonly || !&modifiable
             hi statusline ctermbg=darkred guibg=#DE6951
         else
-            hi statusline ctermbg=darkblue guibg=#2187F6
+            hi statusline ctermbg=blue guibg=#2187F6
         endif
     endfunction
 
@@ -524,7 +532,7 @@ set virtualedit=block
 set nostartofline
 
 " Show as much of long lines as will fit on the screen not just @'s.
-set display+=lastline
+set display+=lastline,uhex
 
 " Keep more command line history.
 set history=1000
@@ -585,7 +593,7 @@ set incsearch
 
 " Set completion options"{{{
 set complete=.,w,b,u,t,i,d,],k,kspell
-set completeopt=menuone
+set completeopt=menuone,popup
 "}}}
 
 " Set encryption options"{{{
@@ -637,7 +645,7 @@ set formatexpr&
 set formatoptions-=t
 set formatoptions-=r
 set formatoptions-=o
-set formatoptions+=cmM
+set formatoptions+=mMjp
 " }}}
 
 " Set folding options"{{{
