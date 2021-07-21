@@ -62,14 +62,14 @@ nnoremap <leader>ps :term python<CR>
 "}}}
 
 " Moving in insert mode."{{{
-inoremap <C-h>  <Left>
-inoremap <C-j>  <C-o>gj
-inoremap <C-k>  <C-o>gk
-inoremap <C-l>  <Right>
-cnoremap <C-h>  <Left>
-cnoremap <C-j>  <C-o>gj
-cnoremap <C-k>  <C-o>gk
-cnoremap <C-l>  <Right>
+" inoremap <C-h>  <Left>
+" inoremap <C-j>  <C-o>gj
+" inoremap <C-k>  <C-o>gk
+" inoremap <C-l>  <Right>
+" cnoremap <C-h>  <Left>
+" cnoremap <C-j>  <C-o>gj
+" cnoremap <C-k>  <C-o>gk
+" cnoremap <C-l>  <Right>
 " }}}
 
 " Diff keybindings."{{{
@@ -185,10 +185,10 @@ augroup all_filetypes
         \   exe "normal! g`\"" |
         \ endif
 
-    " autocmd FileType * setlocal formatoptions-=t |
-    "            \ setlocal formatoptions-=r |
-    "            \ setlocal formatoptions-=o |
-    "            \ setlocal formatoptions+=cmM
+    autocmd FileType * setlocal formatoptions-=t |
+               \ setlocal formatoptions-=r |
+               \ setlocal formatoptions-=o |
+               \ setlocal formatoptions+=mMjp
 
     " Statusline coloring."{{{
     " Reference: http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
