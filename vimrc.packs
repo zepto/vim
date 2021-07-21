@@ -161,6 +161,10 @@ let g:vista#renderer#enable_icon=0
 let g:lsp_cxx_hl_use_text_props = 1
 "}}}
 
+" Mundo settings "{{{
+let g:mundo_preview_height = 10
+"}}}
+
 " end plugin options"}}}
 
 " Finalize."{{{

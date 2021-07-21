@@ -28,6 +28,12 @@ if &rtp=~'undotree'
 endif
 " }}}
 
+" Mundo keybindings."{{{
+if &rtp=~'vim-mundo'
+    noremap <leader>ub :MundoToggle<CR>
+endif
+" }}}
+
 " TagBar keybindings."{{{
 if &rtp=~'tagbar'
     noremap <leader>tb :TagbarToggle<CR>
@@ -201,7 +207,7 @@ if &rtp=~'coc.nvim'
     imap <C-j> <Plug>(coc-snippets-expand-jump)
 
     " Use <leader>x for convert visual selected code to snippet
-    xmap <leader>x  <Plug>(coc-convert-snippet)
+    xmap <leader><leader>x  <Plug>(coc-convert-snippet)
 
     inoremap <silent><expr> <TAB>
         \ pumvisible() ? coc#_select_confirm() :

@@ -5,7 +5,13 @@
 
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": false,
+    "codeLens.enable": true,
     "suggest.noselect": false,
+
+    "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.inlayHints.enable": true,
+    "rust-analyzer.lens.enable": true,
 
     "cSpell.enabled": true,
     "cSpell.showStatus": false,
