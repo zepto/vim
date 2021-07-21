@@ -71,7 +71,8 @@ let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-vimlsp',
             \ 'coc-pydocstring',
-            \ 'coc-lists']
+            \ 'coc-lists',
+            \ 'coc-rust-analyzer']
 " coc-explorer settings "{{{
 let g:coc_explorer_global_presets = {
             \ '.vim': {
