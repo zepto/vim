@@ -143,6 +143,18 @@ let g:lsp_cxx_hl_use_text_props = 1
 let g:mundo_preview_height = 10
 "}}}
 
+" FZF settings "{{{
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:57%' --preview 'bat
+            \ --color=always --style=numbers --line-range :300 {}'
+            \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
+            \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
+            \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
+            \shift-up:preview-top,shift-down:preview-bottom,
+            \alt-up:half-page-up,alt-down:half-page-down"
+
+let $RIPGREP_CONFIG_PATH=expand("$HOME"). "/.ripgreprc"
+"}}}
+
 " end plugin options"}}}
 
 " Finalize."{{{
@@ -153,6 +165,7 @@ packloadall
 packadd auto-pairs
 packadd vim-sandwich
 packadd fzf.vim
+packadd vim-matchup
 " packadd lexima.vim
 
 " Load all helptags

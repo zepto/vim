@@ -46,7 +46,7 @@ if &rtp=~'caw.vim'
 endif
 " }}}
 
-" Coc plugin settings."{{{
+" Coc plugin keybindings."{{{
 if &rtp=~'coc.nvim'
     " confirms selection if any or just break line if none
     function! EnterSelect()
@@ -259,5 +259,18 @@ if &rtp=~'coc.nvim'
     call coc#config('pydocstring.doqPath', expand('~/.local/bin/doq'))
 endif
 " }}}
+
+" fzf keybindings "{{{
+if &rtp=~"fzf.vim"
+    " Open fzf buffers window.
+    nnoremap <leader>fb :Buffers<CR>
+    " Open fzf ag window.
+    nnoremap <leader>fag :Ag<CR>
+    " Open fzf rg window.
+    nnoremap <leader>frg :Rg<CR>
+    " Open fzf fzf window.
+    nnoremap <leader>ff :Files<CR>
+endif
+"}}}
 
 " end plugin keybindings }}}
