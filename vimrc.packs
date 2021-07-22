@@ -152,6 +152,7 @@ runtime! vimrc.d/vimrc.end
 packloadall
 packadd auto-pairs
 packadd vim-sandwich
+packadd fzf.vim
 " packadd lexima.vim
 
 " Load all helptags
