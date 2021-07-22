@@ -49,3 +49,6 @@
 [submodule "pack/plugins/opt/fzf.vim"]
 	path = pack/plugins/opt/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/plugins/opt/vim-matchup"]
+	path = pack/plugins/opt/vim-matchup
+	url = https://github.com/andymass/vim-matchup
