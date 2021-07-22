@@ -46,3 +46,6 @@
 [submodule "pack/plugins/opt/vim-sandwich"]
 	path = pack/plugins/opt/vim-sandwich
 	url = https://github.com/machakann/vim-sandwich
+[submodule "pack/plugins/opt/fzf.vim"]
+	path = pack/plugins/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
