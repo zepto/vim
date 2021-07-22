@@ -52,3 +52,6 @@
 [submodule "pack/plugins/opt/lexima.vim"]
 	path = pack/plugins/opt/lexima.vim
 	url = https://github.com/cohama/lexima.vim
+[submodule "pack/plugins/opt/vim-sandwich"]
+	path = pack/plugins/opt/vim-sandwich
+	url = https://github.com/machakann/vim-sandwich
