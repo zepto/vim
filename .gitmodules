@@ -25,9 +25,6 @@
 [submodule "pack/plugins/start/python-syntax"]
 	path = pack/plugins/start/python-syntax
 	url = https://github.com/vim-python/python-syntax
-[submodule "pack/plugins/start/vista.vim"]
-	path = pack/plugins/start/vista.vim
-	url = https://github.com/liuchengxu/vista.vim
 [submodule "pack/plugins/opt/auto-pairs"]
 	path = pack/plugins/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
