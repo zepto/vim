@@ -1,17 +1,16 @@
 {
-//    "diagnostic.errorSign": "▶",
+    "diagnostic.errorSign": "##",
     "diagnostic.warningSign": "!!",
-//    "diagnostic.infoSign": "i",
+    "diagnostic.infoSign": "??",
 
     "coc.preferences.extensionUpdateCheck": "daily",
-    "coc.preferences.formatOnType": false,
-    "codeLens.enable": true,
+    "coc.preferences.formatOnType": true,
     "suggest.noselect": false,
+    "suggest.removeDuplicateItems": true,
 
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "rust-analyzer.diagnostics.enable": true,
     "rust-analyzer.inlayHints.enable": true,
-    "rust-analyzer.lens.enable": true,
 
     "cSpell.enabled": true,
     "cSpell.showStatus": false,
@@ -24,18 +23,17 @@
     "clangd.enabled": true,
     "clangd.semanticHighlighting": true,
 
-//    "pydocstring.doqPath": "$HOME/.local/bin/doq",
     "pydocstring.formatter": "google",
 
     "pyright.enable": true,
-    "pyright.disableLanguageServices": true,
+    "pyright.disableLanguageServices": false,
     "python.formatting.provider": "autopep8",
     "python.analysis.autoImportCompletions": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.pycodestyleEnabled": true,
     "python.linting.pydocstyleEnabled": true,
-    "pyright.completion.snippetSupport": true,
+    "pyright.completion.snippetSupport": false,
 
     "jedi.enable": true,
     "jedi.startupMessage": false,
@@ -168,6 +166,10 @@
             "filetypes": ["sh", "bash"],
             "ignoredRootPaths": ["~"]
         },
+        //"nim": {
+        //    "command": "nimlsp",
+        //    "filetypes": ["nim"]
+        //}
         //"clangd": {
         //    "command": "clangd",
         //    "rootPatterns": ["compile_flags.txt", "compile_commands.json"],

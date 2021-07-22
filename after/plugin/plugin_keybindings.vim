@@ -48,20 +48,39 @@ endif
 
 " Coc plugin settings."{{{
 if &rtp=~'coc.nvim'
+    " confirms selection if any or just break line if none
+    function! EnterSelect()
+        " if the popup is visible and an option is not selected
+        if pumvisible() && complete_info()["selected"] == -1
+            return "\<C-y>\<CR>"
+
+        " if the pum is visible and an option is selected
+        elseif pumvisible()
+            return coc#_select_confirm()
+
+        " if the pum is not visible
+        else
+            return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+        endif
+    endfunction
+
+    " makes <CR> confirm selection if any or just break line if none
+    inoremap <silent><expr> <cr> EnterSelect()
+
     "Reference: https://github.com/neoclide/coc.nvim
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config.
-    inoremap <silent><expr> <TAB>
-       \ pumvisible() ? "\<C-n>" :
-       \ <SID>check_back_space() ? "\<TAB>" :
-       \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+    " inoremap <silent><expr> <TAB>
+    "   \ pumvisible() ? "\<C-n>" :
+    "   \ <SID>check_back_space() ? "\<TAB>" :
+    "   \ coc#refresh()
+    " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " 
+    " function! s:check_back_space() abort
+    "     let col = col('.') - 1
+    "     return !col || getline('.')[col - 1]  =~# '\s'
+    " endfunction
 
     " Use <c-space> to trigger completion.
     if has('nvim')
@@ -238,21 +257,6 @@ if &rtp=~'coc.nvim'
 
     " Set doq for coc-pydocstring plugin.
     call coc#config('pydocstring.doqPath', expand('~/.local/bin/doq'))
-endif
-" }}}
-
-" Clap keybindings."{{{
-if &rtp=~'vim-clap'
-    noremap <leader>cb :Clap buffers!<CR>
-    noremap <leader>cf :Clap filer!<CR>
-    noremap <leader>cr :Clap registers!<CR>
-    noremap <leader>ct :Clap tags!<CR>
-endif
-" }}}
-
-" Vista keybindings."{{{
-if &rtp=~'vista.vim'
-    noremap <leader>vb :Vista!!<CR>
 endif
 " }}}
 

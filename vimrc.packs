@@ -135,29 +135,6 @@ let g:markdown_fenced_languages = [
 let g:python_highlight_all = 1
 "}}}
 
-" Vista settings"{{{
-" Open vista tagbar on the left.
-let g:vista_sidebar_position = "vertical topleft"
-" Don't delay the tag preview.
-let g:vista_cursor_delay = 0
-" Update on text change.
-let g:vista_update_on_text_changed = 1
-" Executive used when opening vista sidebar without specifying it.
-" See all the avaliable executives via `:echo g:vista#executives`.
-let g:vista_default_executive = 'coc'
-" The default icons can't be suitable for all the filetypes, you can extend it
-" as you wish.
-" let g:vista#renderer#icons = {
-"            \   "function": "F",
-"            \   "variable": "V",
-"            \  }
-" let g:vista_fold_toggle_icons = ['▼', '▶']
-" let g:vista_icon_indent = ['└ ', '│ ']
-" let g:vista_fold_toggle_icons = ['v', '>']
-" let g:vista_icon_indent = ['- ', '| ']
-let g:vista#renderer#enable_icon=0
-"}}}
-
 " Vim lsp cxx highlighting settings"{{{
 let g:lsp_cxx_hl_use_text_props = 1
 "}}}
@@ -174,6 +151,8 @@ runtime! vimrc.d/vimrc.end
 " Load all packs so they will be in runtimepath for helptags.
 packloadall
 packadd auto-pairs
+packadd vim-sandwich
+" packadd lexima.vim
 
 " Load all helptags
 silent! helptags ALL
