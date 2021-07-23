@@ -36,7 +36,7 @@ runtime! macros/matchit.vim
 " runtime! macros/editexisting.vim
 
 " Set short update time so completion menu will be fast.
-set updatetime=300
+set updatetime=100
 
 " Dont show ins-completion-menu messages.
 set shortmess+=c

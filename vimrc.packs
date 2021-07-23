@@ -139,10 +139,6 @@ let g:python_highlight_all = 1
 let g:lsp_cxx_hl_use_text_props = 1
 "}}}
 
-" Mundo settings "{{{
-let g:mundo_preview_height = 10
-"}}}
-
 " FZF settings "{{{
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:57%' --preview 'bat
             \ --color=always --style=numbers --line-range :300 {}'
@@ -152,9 +148,18 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:57%' --preview 'bat
             \shift-up:preview-top,shift-down:preview-bottom,
             \alt-up:half-page-up,alt-down:half-page-down"
 
-let $RIPGREP_CONFIG_PATH=expand("$HOME"). "/.ripgreprc"
+let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
+
+" Coc-FZF settings "{{{
+" let g:coc_fzf_preview = ''
+" let g:coc_fzf_opts = []
+" }}}
 "}}}
 
+" gitgutter settings " {{{
+" Disable all gitgutter mappings.
+let g:gitgutter_map_keys = 0
+"}}}
 " end plugin options"}}}
 
 " Finalize."{{{
@@ -166,6 +171,9 @@ packadd auto-pairs
 packadd vim-sandwich
 packadd fzf.vim
 packadd vim-matchup
+packadd coc-fzf
+" packadd vim-signify
+packadd vim-gitgutter
 " packadd lexima.vim
 
 " Load all helptags
