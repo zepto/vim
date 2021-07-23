@@ -52,3 +52,6 @@
 [submodule "pack/plugins/opt/coc-fzf"]
 	path = pack/plugins/opt/coc-fzf
 	url = https://github.com/antoinemadec/coc-fzf
+[submodule "pack/plugins/opt/vim-signify"]
+	path = pack/plugins/opt/vim-signify
+	url = https://github.com/mhinz/vim-signify
