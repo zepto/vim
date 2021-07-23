@@ -52,3 +52,6 @@
 [submodule "pack/plugins/opt/vim-matchup"]
 	path = pack/plugins/opt/vim-matchup
 	url = https://github.com/andymass/vim-matchup
+[submodule "pack/plugins/opt/coc-fzf"]
+	path = pack/plugins/opt/coc-fzf
+	url = https://github.com/antoinemadec/coc-fzf
