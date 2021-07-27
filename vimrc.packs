@@ -167,6 +167,8 @@ runtime! vimrc.d/vimrc.end
 
 " Load all packs so they will be in runtimepath for helptags.
 packloadall
+packadd coc.nvim
+packadd vim-lsp-cxx-highlight
 packadd auto-pairs
 packadd vim-sandwich
 packadd fzf.vim
