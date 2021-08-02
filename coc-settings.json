@@ -34,6 +34,7 @@
     "python.linting.pycodestyleEnabled": true,
     "python.linting.pydocstyleEnabled": true,
     "pyright.completion.snippetSupport": false,
+    "python.linting.mypyEnabled": false,
 
     "jedi.enable": true,
     "jedi.startupMessage": false,
@@ -45,7 +46,7 @@
     "jedi.codeAction.nameExtractFunction": "jls_extract_def",
     "jedi.codeAction.nameExtractVariable": "jls_extract_var",
     "jedi.completion.disableSnippets": false,
-    "jedi.completion.resolveEagerly": true,
+    "jedi.completion.resolveEagerly": false,
     "jedi.diagnostics.enable": true,
     "jedi.diagnostics.didOpen": true,
     "jedi.diagnostics.didChange": true,

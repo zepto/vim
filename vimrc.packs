@@ -72,7 +72,8 @@ let g:coc_global_extensions = [
             \ 'coc-vimlsp',
             \ 'coc-pydocstring',
             \ 'coc-lists',
-            \ 'coc-rust-analyzer']
+            \ 'coc-rust-analyzer',
+            \ 'coc-snippets']
 " coc-explorer settings "{{{
 let g:coc_explorer_global_presets = {
             \ '.vim': {
@@ -140,13 +141,14 @@ let g:lsp_cxx_hl_use_text_props = 1
 "}}}
 
 " FZF settings "{{{
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:57%' --preview 'bat
-            \ --color=always --style=numbers --line-range :300 {}'
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'down' --preview '(highlight -O
+            \ ansi -l {} 2> /dev/null || bat --color=always --style=full
+            \ --line-range :300 {} || tree -C{} || echo {}) 2> /dev/null | head -200'
             \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
             \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
             \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
             \shift-up:preview-top,shift-down:preview-bottom,
-            \alt-up:half-page-up,alt-down:half-page-down"
+            \alt-up:half-page-up,alt-down:half-page-down,?:toggle-preview"
 
 let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
 

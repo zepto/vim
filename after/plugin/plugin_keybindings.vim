@@ -265,12 +265,16 @@ endif
 if &rtp=~"fzf.vim"
     " Open fzf buffers window.
     nnoremap <leader>fb :Buffers<CR>
+    " Open fzf buffer tags.
+    nnoremap <leader>fbt :BTags<CR>
     " Open fzf ag window.
     nnoremap <leader>fag :Ag<CR>
     " Open fzf rg window.
     nnoremap <leader>frg :Rg<CR>
     " Open fzf fzf window.
     nnoremap <leader>ff :Files<CR>
+    " Open fzf window list.
+    nnoremap <leader>fw :Windows<CR>
 endif
 "}}}
 

@@ -671,8 +671,6 @@ if &term!="linux" && &term!="screen.linux"
     set t_Co=256
 endif
 
-"}}}
-
 " End setting up colorscheme"}}}
 
 " Set gui options"{{{
