@@ -58,3 +58,6 @@
 [submodule "pack/plugins/opt/vim-floaterm"]
 	path = pack/plugins/opt/vim-floaterm
 	url = https://github.com/voldikss/vim-floaterm
+[submodule "pack/plugins/opt/fzf-floaterm"]
+	path = pack/plugins/opt/fzf-floaterm
+	url = https://github.com/voldikss/fzf-floaterm
