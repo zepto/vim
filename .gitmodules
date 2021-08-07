@@ -55,6 +55,3 @@
 [submodule "pack/plugins/opt/vim-gitgutter"]
 	path = pack/plugins/opt/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "pack/plugins/opt/vim-floaterm"]
-	path = pack/plugins/opt/vim-floaterm
-	url = https://github.com/voldikss/vim-floaterm
