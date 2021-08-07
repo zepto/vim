@@ -46,10 +46,10 @@ hi SpecialKey ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi NonText ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi EndOfBuffer ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi Directory cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
-hi ErrorMsg cterm=NONE ctermfg=white ctermbg=red gui=BOLD guifg=#FFFFFF guibg=#ee8870
+hi ErrorMsg cterm=NONE ctermfg=white ctermbg=darkred gui=BOLD guifg=#FFFFFF guibg=#ee8870
 
-hi IncSearch cterm=NONE ctermfg=black ctermbg=grey gui=BOLD guifg=#2b2b2b guibg=#d2d2d2
-hi Search cterm=BOLD ctermfg=white ctermbg=blue gui=underline guifg=#ffffff guibg=#2187F6
+hi IncSearch cterm=nocombine,NONE ctermfg=black ctermbg=grey gui=BOLD guifg=#2b2b2b guibg=#d2d2d2
+hi Search cterm=nocombine,NONE ctermfg=white ctermbg=darkcyan gui=underline guifg=#ffffff guibg=#2187F6
 
 hi MoreMsg ctermfg=green ctermbg=NONE guifg=#bcda55 guibg=#2b2b2b
 hi ModeMsg cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
@@ -57,30 +57,30 @@ hi LineNr cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=#6c6c6c guibg=
 hi CursorLineNr cterm=BOLD ctermfg=grey ctermbg=NONE gui=NONE guifg=#d2d2d2 guibg=#2b2b2b
 hi Question ctermfg=darkgreen ctermbg=NONE guifg=#9dbf60 guibg=#2b2b2b
 
-hi StatusLine cterm=BOLD ctermfg=white ctermbg=darkcyan gui=BOLD guifg=#ffffff guibg=#4390B1
-hi StatusLineNC cterm=BOLD ctermfg=grey ctermbg=darkblue gui=BOLD guifg=#d2d2d2 guibg=#223344
+hi StatusLine cterm=bold ctermfg=white ctermbg=darkcyan gui=BOLD guifg=#ffffff guibg=#4390B1
+hi StatusLineNC cterm=NONE ctermfg=grey ctermbg=darkblue gui=BOLD guifg=#d2d2d2 guibg=#223344
 hi StatusLineTerm cterm=NONE ctermfg=white ctermbg=darkmagenta gui=BOLD guifg=#ffffff guibg=#a85cae
 hi StatusLineTermNC cterm=NONE ctermfg=grey ctermbg=darkmagenta gui=BOLD guifg=#d2d2d2 guibg=#a85cae
 
 hi VertSplit cterm=NONE ctermfg=grey ctermbg=NONE guifg=#d2d2d2 guibg=#d2d2d2
 hi Title ctermfg=blue ctermbg=NONE guifg=#2187F6 guibg=#2b2b2b
 
-hi Visual cterm=NONE ctermfg=darkblue ctermbg=green guifg=#223344 guibg=#bcda55
+hi Visual cterm=nocombine,NONE ctermfg=black ctermbg=darkgreen guifg=#223344 guibg=#bcda55
 hi WarningMsg cterm=NONE ctermfg=darkyellow ctermbg=NONE gui=BOLD guifg=#E2A564 guibg=#2b2b2b
 
 hi Folded ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=NONE
 hi FoldColumn cterm=NONE ctermfg=green ctermbg=NONE gui=NONE guifg=#bcda55 guibg=#2b2b2b
 
-hi DiffAdd ctermfg=white ctermbg=blue guifg=#FFFFFF guibg=#2187F6
-hi DiffChange ctermfg=white ctermbg=darkmagenta guifg=#FFFFFF guibg=#a85cae
-hi DiffDelete ctermfg=white ctermbg=yellow guifg=#FFFFFF guibg=#f2c585
-hi DiffText ctermfg=white ctermbg=red guifg=#FFFFFF guibg=#ee8870
+hi DiffAdd cterm=nocombine,NONE ctermfg=white ctermbg=darkgreen guifg=#FFFFFF guibg=#2187F6
+hi DiffChange cterm=nocombine,NONE ctermfg=white ctermbg=darkmagenta guifg=#FFFFFF guibg=#a85cae
+hi DiffDelete cterm=nocombine,NONE ctermfg=white ctermbg=darkred guifg=#FFFFFF guibg=#f2c585
+hi DiffText cterm=nocombine,NONE ctermfg=white ctermbg=darkyellow guifg=#FFFFFF guibg=#ee8870
 
 hi SignColumn cterm=NONE ctermfg=red  ctermbg=NONE gui=NONE guifg=#ee8870 guibg=#2b2b2b
 
-hi SpellBad ctermfg=white ctermbg=red guifg=#FFFFFF guibg=#ee8870
-hi SpellCap ctermfg=white ctermbg=blue guifg=#FFFFFF guibg=#2187F6
-hi SpellRare ctermfg=white ctermbg=magenta guifg=#FFFFFF guibg=#E41F66
+hi SpellBad ctermfg=white ctermbg=darkred guifg=#FFFFFF guibg=#ee8870
+hi SpellCap ctermfg=white ctermbg=darkcyan guifg=#FFFFFF guibg=#2187F6
+hi SpellRare ctermfg=white ctermbg=darkyellow guifg=#FFFFFF guibg=#E41F66
 hi SpellLocal ctermfg=white ctermbg=darkmagenta guifg=#FFFFFF guibg=#a85cae
 
 " Vim 700 colors.
@@ -104,7 +104,7 @@ hi Normal cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#d2d2d2 guibg=#2b2b2b
 " }}}
 
 " Syntax highlighting."{{{
-hi Comment     cterm=italic ctermfg=darkgrey gui=italic guifg=#6c6c6c
+hi Comment     cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=italic guifg=#6c6c6c
 hi Constant    cterm=NONE ctermfg=darkcyan ctermbg=NONE guifg=#4390B1
 hi Special     cterm=BOLD ctermfg=white ctermbg=NONE guifg=#FFFFFF
 hi Identifier  cterm=NONE ctermfg=darkmagenta ctermbg=NONE guifg=#a85cae

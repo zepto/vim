@@ -73,7 +73,9 @@ let g:coc_global_extensions = [
             \ 'coc-pydocstring',
             \ 'coc-lists',
             \ 'coc-rust-analyzer',
-            \ 'coc-snippets']
+            \ 'coc-snippets',
+            \ 'coc-lua',
+            \ 'coc-go']
 " coc-explorer settings "{{{
 let g:coc_explorer_global_presets = {
             \ '.vim': {
@@ -141,7 +143,7 @@ let g:lsp_cxx_hl_use_text_props = 1
 "}}}
 
 " FZF settings "{{{
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'down' --preview '(highlight -O
+let $FZF_DEFAULT_OPTS="--ansi --color=border:grey --border=sharp --preview-window up,border-sharp --preview '(highlight -O
             \ ansi -l {} 2> /dev/null || bat --color=always --style=full
             \ --line-range :300 {} || tree -C{} || echo {}) 2> /dev/null | head -200'
             \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
@@ -162,6 +164,7 @@ let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
 " Disable all gitgutter mappings.
 let g:gitgutter_map_keys = 0
 "}}}
+
 " end plugin options"}}}
 
 " Finalize."{{{
@@ -171,7 +174,7 @@ runtime! vimrc.d/vimrc.end
 packloadall
 packadd coc.nvim
 packadd vim-lsp-cxx-highlight
-packadd auto-pairs
+" packadd auto-pairs
 packadd vim-sandwich
 packadd fzf.vim
 packadd vim-matchup

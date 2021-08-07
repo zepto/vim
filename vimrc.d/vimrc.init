@@ -28,6 +28,11 @@ if &compatible
     set nocompatible
 endif
 
+" If this is neovim use sysinit.vim
+if has('nvim')
+    source /etc/xdg/nvim/sysinit.vim
+endif
+
 " Load shell menu for shellscripts
 runtime! macros/shellmenu.vim
 

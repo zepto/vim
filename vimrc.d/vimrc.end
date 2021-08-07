@@ -196,7 +196,7 @@ augroup all_filetypes
         if  &readonly || !&modifiable
             hi statusline ctermbg=darkred guibg=#DE6951
         else
-            hi statusline ctermbg=blue guibg=#2187F6
+            hi statusline ctermbg=darkblue guibg=#2187F6
         endif
     endfunction
 
@@ -593,11 +593,15 @@ set incsearch
 
 " Set completion options"{{{
 set complete=.,w,b,u,t,i,d,],k,kspell
-set completeopt=menuone,popup
+if !has('nvim')
+    set completeopt=menuone,popup
+endif
 "}}}
 
 " Set encryption options"{{{
-set cryptmethod=blowfish2
+if !has('nvim')
+    set cryptmethod=blowfish2
+endif
 "}}}
 
 " Set tab preferences."{{{
@@ -619,7 +623,11 @@ set wildcharm=<C-Z>
 " Undo and backup settings."{{{
 " Make vim keep an undo file.
 set undofile
-let &undodir=expand('~/.vim/tmp')
+if has('nvim')
+    let &undodir=expand('~/.local/share/nvim/tmp')
+else
+    let &undodir=expand('~/.vim/tmp')
+endif
 set undolevels=1000
 au BufWritePre /tmp/* setlocal noundofile
 
