@@ -28,13 +28,6 @@ if &rtp=~'undotree'
 endif
 " }}}
 
-" Signify keybindings "{{{
-if &rtp=~'vim-signify'
-    noremap <leader>sgd :SignifyHunkDiff<CR>
-    noremap <leader>sgu :SignifyHunkUndo<CR>
-endif
-"}}}
-
 " TagBar keybindings."{{{
 if &rtp=~'tagbar'
     noremap <leader>tb :TagbarToggle<CR>

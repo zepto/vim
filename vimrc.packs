@@ -143,20 +143,13 @@ let g:lsp_cxx_hl_use_text_props = 1
 "}}}
 
 " FZF settings "{{{
-let $FZF_DEFAULT_OPTS="--ansi --color=border:grey --border=sharp --preview-window up,border-sharp --preview '(highlight -O
-            \ ansi -l {} 2> /dev/null || bat --color=always --style=full
-            \ --line-range :300 {} || tree -C{} || echo {}) 2> /dev/null | head -200'
-            \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
-            \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
-            \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
-            \shift-up:preview-top,shift-down:preview-bottom,
-            \alt-up:half-page-up,alt-down:half-page-down,?:toggle-preview"
+" let $FZF_DEFAULT_OPTS="--bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,shift-up:preview-top,shift-down:preview-bottom,alt-up:half-page-up,alt-down:half-page-down,?:toggle-preview"
 
 let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
 
 " Coc-FZF settings "{{{
-" let g:coc_fzf_preview = ''
-" let g:coc_fzf_opts = []
+" let g:coc_fzf_preview = 'up,border-sharp'
+" let g:coc_fzf_opts = ['--ansi', '--color=border:grey', '--border=sharp']
 " }}}
 "}}}
 
@@ -173,15 +166,13 @@ runtime! vimrc.d/vimrc.end
 " Load all packs so they will be in runtimepath for helptags.
 packloadall
 packadd coc.nvim
+packadd coc-fzf
 packadd vim-lsp-cxx-highlight
 " packadd auto-pairs
-packadd vim-sandwich
 packadd fzf.vim
+packadd vim-sandwich
 packadd vim-matchup
-packadd coc-fzf
-" packadd vim-signify
 packadd vim-gitgutter
-" packadd lexima.vim
 
 " Load all helptags
 silent! helptags ALL
