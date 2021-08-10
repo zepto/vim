@@ -42,9 +42,9 @@ let colors_name = "zepto_dark"
 " }}}
 
 " Standard colors."{{{
-hi SpecialKey ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
-hi NonText ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
-hi EndOfBuffer ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
+hi SpecialKey ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
+hi NonText ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
+hi EndOfBuffer ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi Directory cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
 hi ErrorMsg cterm=NONE ctermfg=white ctermbg=darkred gui=BOLD guifg=#FFFFFF guibg=#ee8870
 
@@ -53,7 +53,7 @@ hi Search cterm=nocombine,NONE ctermfg=white ctermbg=darkcyan gui=underline guif
 
 hi MoreMsg ctermfg=green ctermbg=NONE guifg=#bcda55 guibg=#2b2b2b
 hi ModeMsg cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
-hi LineNr cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=#6c6c6c guibg=#2b2b2b
+hi LineNr cterm=NONE ctermfg=darkblue ctermbg=NONE gui=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi CursorLineNr cterm=BOLD ctermfg=grey ctermbg=NONE gui=NONE guifg=#d2d2d2 guibg=#2b2b2b
 hi Question ctermfg=darkgreen ctermbg=NONE guifg=#9dbf60 guibg=#2b2b2b
 
@@ -68,7 +68,7 @@ hi Title ctermfg=blue ctermbg=NONE guifg=#2187F6 guibg=#2b2b2b
 hi Visual cterm=nocombine,NONE ctermfg=black ctermbg=darkgreen guifg=#223344 guibg=#bcda55
 hi WarningMsg cterm=NONE ctermfg=darkyellow ctermbg=NONE gui=BOLD guifg=#E2A564 guibg=#2b2b2b
 
-hi Folded ctermfg=darkgrey ctermbg=NONE guifg=#6c6c6c guibg=NONE
+hi Folded ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=NONE
 hi FoldColumn cterm=NONE ctermfg=green ctermbg=NONE gui=NONE guifg=#bcda55 guibg=#2b2b2b
 
 hi DiffAdd cterm=nocombine,NONE ctermfg=white ctermbg=darkgreen guifg=#FFFFFF guibg=#2187F6
@@ -104,7 +104,7 @@ hi Normal cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#d2d2d2 guibg=#2b2b2b
 " }}}
 
 " Syntax highlighting."{{{
-hi Comment     cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=italic guifg=#6c6c6c
+hi Comment     cterm=NONE ctermfg=darkblue ctermbg=NONE gui=italic guifg=#6c6c6c
 hi Constant    cterm=NONE ctermfg=darkcyan ctermbg=NONE guifg=#4390B1
 hi Special     cterm=BOLD ctermfg=white ctermbg=NONE guifg=#FFFFFF
 hi Identifier  cterm=NONE ctermfg=darkmagenta ctermbg=NONE guifg=#a85cae
