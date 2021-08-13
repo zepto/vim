@@ -234,17 +234,6 @@ if &rtp=~'coc.nvim'
     endfunction
 " }}}
 
-" coc-explorer keybinding "{{{
-    nnoremap <leader>e :CocCommand explorer --toggle<CR>
-    " Use preset argument to open it
-    nnoremap <leader>ed :CocCommand explorer --preset .vim<CR>
-    if has('nvim')
-        nnoremap <leader>ef :CocCommand explorer --preset floating<CR>
-    endif
-    nnoremap <leader>ec :CocCommand explorer --preset cocConfig<CR>
-    nnoremap <leader>eb :CocCommand explorer --preset buffer<CR>
-" }}}
-
 " coc-spell-ckecker keybinding "{{{
     nnoremap <silent><nowait> <leader>ts :call CocActionAsync('toggleExtension', 'coc-spell-checker')<CR>
 " }}}

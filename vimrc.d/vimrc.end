@@ -174,21 +174,32 @@ augroup all_filetypes
     autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
     autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 
-    " Reference: vimrc_example.vim
+    " Reference: defaults.vim
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
     " Also don't do it when the mark is in the first line, that is the default
     " position when opening a file.
     autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+                \ |   exe "normal! g`\""
+                \ | endif
+
+    " Reference: defaults.vim
+    " Convenient command to see the difference between the current buffer and the
+    " file it was loaded from, thus the changes you made.
+    " Only define it when not defined already.
+    " Revert with: ":delcommand DiffOrig".
+    if !exists(":DiffOrig")
+        command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                    \ | wincmd p | diffthis
+    endif
 
     autocmd FileType * setlocal formatoptions-=t |
-               \ setlocal formatoptions-=r |
-               \ setlocal formatoptions-=o |
-               \ setlocal formatoptions+=mMjp
+                \
+                \ setlocal formatoptions-=r |
+                \ setlocal formatoptions-=o |
+                \ setlocal formatoptions+=mMjp
 
     " Statusline coloring."{{{
     " Reference: http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
@@ -510,6 +521,12 @@ set writebackup
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Don't always auto complete filenames wiht the following extentions.
+set suffixes+=.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
+" Allow autocomplete of filenames ending in the following.
+set suffixes-=.h
+set suffixes-=.obj
+
 " Turn on autoindent
 set autoindent
 
@@ -571,6 +588,13 @@ set previewheight=8
 " Make the command line 2 lines height to avoid "hit enter" prompts.
 set cmdheight=2
 
+if has('langmap') && exists('+langremap')
+  " Prevent that the langmap option applies to characters that result from a
+  " mapping.  If set (default), this may break plugins (but it's backward
+  " compatible).
+  set nolangremap
+endif
+
 " }}}
 
 " Showmatch."{{{
@@ -588,7 +612,7 @@ set cpoptions-=m
 " Also switch on highlighting the last used search pattern.
 set hlsearch
 " Do incremental searching
-set incsearch		
+set incsearch
 "}}}
 
 " Set completion options"{{{
@@ -626,7 +650,25 @@ set undofile
 if has('nvim')
     let &undodir=expand('~/.local/share/nvim/tmp')
 else
-    let &undodir=expand('~/.vim/tmp')
+    " Move temporary files to a secure location to protect against CVE-2017-1000382
+    if exists('$XDG_CACHE_HOME')
+    let &g:directory=$XDG_CACHE_HOME
+    else
+    let &g:directory=$HOME . '/.cache'
+    endif
+    let &g:undodir=&g:directory . '/vim/undo//'
+    let &g:backupdir=&g:directory . '/vim/backup//'
+    let &g:directory.='/vim/swap//'
+    " Create directories if they doesn't exist
+    if ! isdirectory(expand(&g:directory))
+    silent! call mkdir(expand(&g:directory), 'p', 0700)
+    endif
+    if ! isdirectory(expand(&g:backupdir))
+    silent! call mkdir(expand(&g:backupdir), 'p', 0700)
+    endif
+    if ! isdirectory(expand(&g:undodir))
+    silent! call mkdir(expand(&g:undodir), 'p', 0700)
+    endif
 endif
 set undolevels=1000
 au BufWritePre /tmp/* setlocal noundofile

@@ -33,11 +33,12 @@ if has('nvim')
     source /etc/xdg/nvim/sysinit.vim
 endif
 
-" Load shell menu for shellscripts
-runtime! macros/shellmenu.vim
-
-" Load extended matching with '%'
-runtime! macros/matchit.vim
+if has('syntax') && has('eval')
+    " Load extended matching with '%'
+  packadd! matchit
+    " Load shell menu for shellscripts
+  packadd! shellmenu
+endif
 " runtime! macros/editexisting.vim
 
 " Set short update time so completion menu will be fast.

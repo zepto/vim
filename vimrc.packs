@@ -65,7 +65,6 @@ let g:coc_global_extensions = [
             \ 'coc-html',
             \ 'coc-css',
             \ 'coc-tsserver',
-            \ 'coc-explorer',
             \ 'coc-spell-checker',
             \ 'coc-pairs',
             \ 'coc-clangd',
@@ -164,15 +163,15 @@ let g:gitgutter_map_keys = 0
 runtime! vimrc.d/vimrc.end
 
 " Load all packs so they will be in runtimepath for helptags.
-packloadall
-packadd coc.nvim
-packadd coc-fzf
-packadd vim-lsp-cxx-highlight
+packloadall!
+packadd! coc.nvim
+packadd! coc-fzf
+packadd! fzf.vim
+packadd! vim-lsp-cxx-highlight
+packadd! vim-sandwich
+packadd! vim-gitgutter
 " packadd auto-pairs
-packadd fzf.vim
-packadd vim-sandwich
-packadd vim-matchup
-packadd vim-gitgutter
+" packadd vim-matchup
 
 " Load all helptags
 silent! helptags ALL

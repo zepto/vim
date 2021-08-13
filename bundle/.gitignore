@@ -1,8 +1,0 @@
-# Ignore everything
-*
-# Except ...
-!.gitignore
-!vim-pylint/*
-!vim-pyflakes/*
-!vim-pep8/*
-!openssl.vim/*
