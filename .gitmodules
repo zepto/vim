@@ -1,23 +1,23 @@
 [submodule "pack/plugins/start/caw.vim"]
-	path = pack/plugins/start/caw.vim
+	path = pack/plugins/opt/caw.vim
 	url = https://github.com/tyru/caw.vim
 [submodule "pack/plugins/start/coc.nvim"]
 	path = pack/plugins/opt/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 [submodule "pack/plugins/start/tagbar"]
-	path = pack/plugins/start/tagbar
+	path = pack/plugins/opt/tagbar
 	url = https://github.com/preservim/tagbar
 [submodule "pack/plugins/start/undotree"]
-	path = pack/plugins/start/undotree
+	path = pack/plugins/opt/undotree
 	url = https://github.com/mbbill/undotree
 [submodule "pack/plugins/start/vim-fugitive"]
-	path = pack/plugins/start/vim-fugitive
+	path = pack/plugins/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
 [submodule "pack/plugins/start/vim-repeat"]
-	path = pack/plugins/start/vim-repeat
+	path = pack/plugins/opt/vim-repeat
 	url = https://github.com/kana/vim-repeat
 [submodule "pack/plugins/start/python-syntax"]
-	path = pack/plugins/start/python-syntax
+	path = pack/plugins/opt/python-syntax
 	url = https://github.com/vim-python/python-syntax
 [submodule "pack/plugins/opt/auto-pairs"]
 	path = pack/plugins/opt/auto-pairs
@@ -26,13 +26,13 @@
 	path = pack/plugins/opt/vim-lsp-cxx-highlight
 	url = https://github.com/jackguo380/vim-lsp-cxx-highlight
 [submodule "pack/plugins/start/vim-snippets"]
-	path = pack/plugins/start/vim-snippets
+	path = pack/plugins/opt/vim-snippets
 	url = https://github.com/honza/vim-snippets
 [submodule "pack/plugins/start/vim-python-pep8-indent"]
-	path = pack/plugins/start/vim-python-pep8-indent
+	path = pack/plugins/opt/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent
 [submodule "pack/plugins/start/nim.vim"]
-	path = pack/plugins/start/nim.vim
+	path = pack/plugins/opt/nim.vim
 	url = https://github.com/zah/nim.vim
 [submodule "pack/plugins/opt/vim-sandwich"]
 	path = pack/plugins/opt/vim-sandwich

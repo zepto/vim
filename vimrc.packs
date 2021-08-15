@@ -170,6 +170,15 @@ packadd! fzf.vim
 packadd! vim-lsp-cxx-highlight
 packadd! vim-sandwich
 packadd! vim-gitgutter
+packadd! caw.vim
+packadd! nim.vim
+packadd! python-syntax
+packadd! vim-python-pep8-indent
+packadd! tagbar
+packadd! undotree
+packadd! vim-fugitive
+packadd! vim-repeat
+packadd! vim-snippets
 " packadd auto-pairs
 " packadd vim-matchup
 
