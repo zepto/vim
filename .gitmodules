@@ -49,3 +49,6 @@
 [submodule "pack/plugins/opt/vim-gitgutter"]
 	path = pack/plugins/opt/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
+[submodule "pack/plugins/opt/vim-peekaboo"]
+	path = pack/plugins/opt/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo
