@@ -52,3 +52,6 @@
 [submodule "pack/plugins/opt/vim-peekaboo"]
 	path = pack/plugins/opt/vim-peekaboo
 	url = https://github.com/junegunn/vim-peekaboo
+[submodule "pack/plugins/opt/vim-cpp"]
+	path = pack/plugins/opt/vim-cpp
+	url = https://github.com/vim-jp/vim-cpp
