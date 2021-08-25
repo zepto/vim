@@ -42,25 +42,29 @@ let colors_name = "zepto_dark"
 " }}}
 
 " Standard colors."{{{
+hi User1 cterm=Bold ctermbg=darkmagenta ctermfg=white
+hi User2 ctermbg=darkblue ctermfg=white
+hi User3 ctermbg=black ctermfg=white
+
 hi SpecialKey ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi NonText ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi EndOfBuffer ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
-hi Directory cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
+hi Directory cterm=NONE ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
 hi ErrorMsg cterm=NONE ctermfg=white ctermbg=darkred gui=BOLD guifg=#FFFFFF guibg=#ee8870
 
 hi IncSearch cterm=nocombine,NONE ctermfg=black ctermbg=grey gui=BOLD guifg=#2b2b2b guibg=#d2d2d2
 hi Search cterm=nocombine,NONE ctermfg=white ctermbg=darkcyan gui=underline guifg=#ffffff guibg=#2187F6
 
 hi MoreMsg ctermfg=green ctermbg=NONE guifg=#bcda55 guibg=#2b2b2b
-hi ModeMsg cterm=BOLD ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
+hi ModeMsg cterm=NONE ctermfg=blue ctermbg=NONE gui=BOLD guifg=#2187F6 guibg=#2b2b2b
 hi LineNr cterm=NONE ctermfg=darkblue ctermbg=NONE gui=NONE guifg=#6c6c6c guibg=#2b2b2b
-hi CursorLineNr cterm=BOLD ctermfg=grey ctermbg=NONE gui=NONE guifg=#d2d2d2 guibg=#2b2b2b
+hi CursorLineNr cterm=NONE ctermfg=blue ctermbg=darkblue gui=NONE guifg=#d2d2d2 guibg=#2b2b2b
 hi Question ctermfg=darkgreen ctermbg=NONE guifg=#9dbf60 guibg=#2b2b2b
 
-hi StatusLine cterm=bold ctermfg=white ctermbg=darkcyan gui=BOLD guifg=#ffffff guibg=#4390B1
+hi StatusLine cterm=NONE ctermfg=white ctermbg=darkcyan gui=BOLD guifg=#ffffff guibg=#4390B1
 hi StatusLineNC cterm=NONE ctermfg=grey ctermbg=darkblue gui=BOLD guifg=#d2d2d2 guibg=#223344
-hi StatusLineTerm cterm=NONE ctermfg=white ctermbg=darkmagenta gui=BOLD guifg=#ffffff guibg=#a85cae
-hi StatusLineTermNC cterm=NONE ctermfg=grey ctermbg=darkmagenta gui=BOLD guifg=#d2d2d2 guibg=#a85cae
+hi StatusLineTerm cterm=NONE ctermfg=black ctermbg=darkyellow gui=BOLD guifg=#ffffff guibg=#a85cae
+hi StatusLineTermNC cterm=NONE ctermfg=grey ctermbg=darkblue gui=BOLD guifg=#d2d2d2 guibg=#a85cae
 
 hi VertSplit cterm=NONE ctermfg=grey ctermbg=NONE guifg=#d2d2d2 guibg=#d2d2d2
 hi Title ctermfg=blue ctermbg=NONE guifg=#2187F6 guibg=#2b2b2b
@@ -69,7 +73,7 @@ hi Visual cterm=nocombine,NONE ctermfg=black ctermbg=darkgreen guifg=#223344 gui
 hi WarningMsg cterm=NONE ctermfg=darkyellow ctermbg=NONE gui=BOLD guifg=#E2A564 guibg=#2b2b2b
 
 hi Folded ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=NONE
-hi FoldColumn cterm=NONE ctermfg=green ctermbg=NONE gui=NONE guifg=#bcda55 guibg=#2b2b2b
+hi FoldColumn cterm=NONE ctermfg=darkgreen ctermbg=NONE gui=NONE guifg=#bcda55 guibg=#2b2b2b
 
 hi DiffAdd cterm=nocombine,NONE ctermfg=white ctermbg=darkgreen guifg=#FFFFFF guibg=#2187F6
 hi DiffChange cterm=nocombine,NONE ctermfg=white ctermbg=darkmagenta guifg=#FFFFFF guibg=#a85cae
@@ -92,12 +96,12 @@ if version >= 700
 
     hi CursorColumn cterm=BOLD ctermfg=NONE ctermbg=darkblue gui=BOLD guibg=#223344
     hi CursorLine cterm=BOLD ctermfg=NONE ctermbg=darkblue gui=BOLD guibg=#223344
-    hi ColorColumn cterm=BOLD ctermfg=NONE ctermbg=darkcyan gui=BOLD guifg=NONE guibg=#4390B1
+    hi ColorColumn cterm=BOLD ctermfg=NONE ctermbg=darkblue gui=BOLD guifg=NONE guibg=#4390B1
 endif
 
-hi TabLine cterm=NONE ctermfg=white ctermbg=grey gui=NONE guifg=#ffffff guibg=#d2d2d2
-hi TabLineSel cterm=BOLD ctermfg=white ctermbg=NONE gui=BOLD guifg=#ffffff guibg=NONE
-hi TabLineFill cterm=NONE ctermfg=NONE ctermbg=grey gui=NONE guibg=#d2d2d2
+hi TabLine cterm=NONE ctermfg=grey ctermbg=darkblue gui=NONE guifg=#ffffff guibg=#d2d2d2
+hi TabLineSel cterm=NONE ctermfg=white ctermbg=NONE gui=BOLD guifg=#ffffff guibg=NONE
+hi TabLineFill cterm=NONE ctermfg=NONE ctermbg=darkblue gui=NONE guibg=#d2d2d2
 
 hi MatchParen cterm=NONE ctermfg=white ctermbg=darkcyan gui=NONE guifg=#ffffff guibg=#4390B1
 hi Normal cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#d2d2d2 guibg=#2b2b2b
@@ -115,7 +119,7 @@ hi String      cterm=NONE ctermfg=darkgreen ctermbg=NONE guifg=#9dbf60
 hi Number      cterm=NONE ctermfg=magenta ctermbg=NONE guifg=#E41F66
 hi Function    cterm=NONE ctermfg=darkyellow ctermbg=NONE guifg=#E2A564
 hi Conditional cterm=NONE ctermfg=blue ctermbg=NONE guifg=#2187F6
-hi Operator    cterm=NONE ctermfg=white ctermbg=NONE guifg=#FFFFFF
-hi Keyword     cterm=NONE ctermfg=blue ctermbg=NONE guifg=#2187F6
+hi Operator    cterm=NONE ctermfg=cyan ctermbg=NONE guifg=#FFFFFF
+hi Keyword     cterm=NONE ctermfg=red ctermbg=NONE guifg=#2187F6
 hi Delimiter   cterm=NONE ctermfg=darkmagenta ctermbg=NONE guifg=#a85cae
 " }}}

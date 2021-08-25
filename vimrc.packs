@@ -75,6 +75,26 @@ let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-lua',
             \ 'coc-go']
+
+" Colors settings "{{{
+function! CocHightlights() abort
+    hi CocFloating cterm=nocombine,NONE ctermbg=darkblue
+    hi CocErrorFloat cterm=nocombine,BOLD ctermfg=red ctermbg=darkblue
+    hi CocWarningFloat cterm=nocombine,BOLD ctermfg=yellow ctermbg=darkblue
+    hi CocInfoFloat cterm=nocombine,BOLD ctermfg=green ctermbg=darkblue
+    hi CocHintFloat cterm=nocombine,BOLD ctermfg=cyan ctermbg=darkblue
+    hi CocFadeOut cterm=None ctermfg=darkblue ctermbg=NONE
+    hi CocErrorSign cterm=nocombine,Bold ctermfg=red ctermbg=NONE
+    hi CocWarningSign cterm=nocombine,Bold ctermfg=yellow ctermbg=NONE
+    hi CocInfoSign cterm=nocombine,Bold ctermfg=green ctermbg=NONE
+    hi CocHintSign cterm=nocombine,Bold ctermfg=blue ctermbg=NONE
+endfunction
+augroup CocColors
+    autocmd!
+    autocmd ColorScheme * call CocHightlights()
+augroup END
+"}}}
+
 " coc-explorer settings "{{{
 let g:coc_explorer_global_presets = {
             \ '.vim': {
@@ -157,17 +177,25 @@ let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
 let g:gitgutter_map_keys = 0
 "}}}
 
+" peekaboo settings " {{{
+" Make window a horizontal split.
+" let g:peekaboo_window='split'
+"}}}
+
 " end plugin options"}}}
 
 " Finalize."{{{
+packadd! coc.nvim
+packadd! vim-fugitive
+
 runtime! vimrc.d/vimrc.end
 
 " Load all packs so they will be in runtimepath for helptags.
 packloadall!
-packadd! coc.nvim
 packadd! coc-fzf
 packadd! fzf.vim
 packadd! vim-lsp-cxx-highlight
+" packadd! vim-cpp-modern
 packadd! vim-sandwich
 packadd! vim-gitgutter
 packadd! caw.vim
@@ -176,9 +204,9 @@ packadd! python-syntax
 packadd! vim-python-pep8-indent
 packadd! tagbar
 packadd! undotree
-packadd! vim-fugitive
 packadd! vim-repeat
 packadd! vim-snippets
+packadd! vim-peekaboo
 " packadd auto-pairs
 " packadd vim-matchup
 

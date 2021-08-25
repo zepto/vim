@@ -5,6 +5,7 @@
 
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": true,
+    "coc.preferences.semanticTokensHighlights": false,
     "suggest.noselect": false,
     "suggest.removeDuplicateItems": true,
 

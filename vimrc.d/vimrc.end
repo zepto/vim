@@ -56,9 +56,9 @@ endfunction
 
 " Vim Terminal "{{{
 " Open bash shell in the vim terminal.
-nnoremap <leader>bs :term bash<CR>
+nnoremap <leader>bs :term ++close bash<CR>
 " Open python shell in the vim terminal.
-nnoremap <leader>ps :term python<CR>
+nnoremap <leader>ps :term ++close python<CR>
 "}}}
 
 " Moving in insert mode."{{{
@@ -206,8 +206,8 @@ augroup all_filetypes
     function! InsertStatuslineColor(mode)
         if  &readonly || !&modifiable
             hi statusline ctermbg=darkred guibg=#DE6951
-        else
-            hi statusline ctermbg=darkblue guibg=#2187F6
+        " else
+        "     hi statusline ctermbg=darkcyan guibg=#2187F6
         endif
     endfunction
 
@@ -408,70 +408,53 @@ augroup END
 " Options."{{{
 
 " Status line settings."{{{
-" Mode function for status line."{{{
-fun! GetMode()
-    let l:mode_l = mode()
-    if l:mode_l == 'n'
-        let l:mode_l='NORMAL'
-    elseif l:mode_l == 'no'
-        let l:mode_l='OPERATOR-PENDING'
-    elseif l:mode_l == 'i'
-        let l:mode_l='INSERT'
-    elseif l:mode_l == 'v'
-        let l:mode_l='VISUAL (character)'
-    elseif l:mode_l == 'V'
-        let l:mode_l='VISUAL (line)'
-    elseif l:mode_l == ''
-        let l:mode_l='VISUAL (block)'
-    elseif l:mode_l == 's'
-        let l:mode_l='SELECT (character)'
-    elseif l:mode_l == 'S'
-        let l:mode_l='SELECT (line)'
-    elseif l:mode_l == '<C-S>'
-        let l:mode_l='SELECT (block)'
-    elseif l:mode_l == 't'
-        let l:mode_l='TERMINAL'
-    elseif l:mode_l == 'R'
-        let l:mode_l='REPLACE'
-    elseif l:mode_l == 'Rv'
-        let l:mode_l='REPLACE (virtual)'
-    elseif l:mode_l == 'c'
-        let l:mode_l='COMMAND-LINE'
-    elseif l:mode_l == 'cv'
-        let l:mode_l='EX (vim)'
-    elseif l:mode_l == 'ce'
-        let l:mode_l='EX (normal)'
-    elseif l:mode_l == 'r'
-        let l:mode_l='PROMPT (enter)'
-    elseif l:mode_l == 'rm'
-        let l:mode_l='PROMPT (more)'
-    elseif l:mode_l == 'r?'
-        let l:mode_l='PROMPT (confirm)'
-    elseif l:mode_l == '!'
-        let l:mode_l='SHELL'
-    endif
-    return l:mode_l
-endfun
-" }}}
-
-" Reference: https://raw.github.com/niw/profiles/master/.vimrc
+" Reference: https://gist.github.com/meskarune/57b613907ebd1df67eb7bdb83c6e6641
+let g:current_mode={
+            \ '!'       :   'Shell',
+            \ 'c'       :   'Command',
+            \ 'ce'      :   'Ex',
+            \ 'cv'      :   'Vim Ex',
+            \ 'i'       :   'I',
+            \ 'n'       :   'N',
+            \ 'no'      :   'N Op-Pend',
+            \ 'r'       :   'Prompt',
+            \ 'rm'      :   'More',
+            \ 'r?'      :   'Confirm',
+            \ 'R'       :   'R',
+            \ 'Rv'      :   'V-Replace',
+            \ 's'       :   'S-Char',
+            \ 'S'       :   'S-Line',
+            \ ''    :   'S-Block',
+            \ 't'       :   'Terminal',
+            \ 'v'       :   'V',
+            \ 'V'       :   'V-Line',
+            \ ''    :   'V-Block',
+            \}
 " Status line
 let &statusline = ''
+if &rtp=~'coc.nvim'
+    " Add (Neo)Vim's native statusline support.
+    " NOTE: Please see `:h coc-status` for integrations with external plugins that
+    " provide custom statusline: lightline.vim, vim-airline.
+    let &statusline .= " │%{coc#status()}%{get(b:,'coc_current_function','')}"
+endif
 " let &statusline .= '%#StatusLine#'
-" let &statusline .= '  %{ GetMode() } │'
+" let &statusline .= ' │%* %{toupper(g:current_mode[mode()])} %2*│'
 " set statusline+=%#IncSearch#
-let &statusline .= ' %3n '     " Buffer number
+" Reference: https://raw.github.com/niw/profiles/master/.vimrc
+let &statusline .= '%3n  │ '     " Buffer number
+" if &rtp=~'vim-fugitive'
+"     let &statusline .= '%<%{fugitive#statusline()} │'   " Git branch
+" endif
+let &statusline .= '%{toupper(g:current_mode[mode()])} │'
 let &statusline .= '%m%r%h%w%q' " Modified flag, Readonly flag, Preview flag,
                                 " and Quickfix flag
-if &rtp=~'vim-fugitive'
-    let &statusline .= ' │ %<%{fugitive#statusline()} '   " Git branch
-endif
-let &statusline .= ' │ %<%f '   " Filename
+let &statusline .= ' %<%f '   " Filename
 
 let &statusline .= '%='         " Spaces
-let &statusline .= '%{" │ " . (&fileencoding != "" ? &fileencoding : &encoding) . " │ " . &fileformat . " │ " . &filetype }'
-let &statusline .= ' │%4P'      " Percentage through file of displayed window.
-let &statusline .= ' │ LN%7l C%3c '  " Line number, Column number, Virtual
+let &statusline .= '│%{" " . (&fileencoding != "" ? &fileencoding : &encoding) . " │ " . &fileformat . " │ " . &filetype }'
+let &statusline .= ' │%4P '      " Percentage through file of displayed window.
+let &statusline .= '│ LN%7l C%3c │ '  " Line number, Column number, Virtual
                                      " column number
 " let &statusline = '%{g:HahHah()}' 
 
@@ -480,9 +463,6 @@ set laststatus=2
 
 " Show the cursor position all the time
 set ruler		
-
-" Set the fill chars for the statusline
-set fillchars+=stl:\ ,stlnc:\ 
 " }}}
 
 " Misc settings."{{{
@@ -498,11 +478,22 @@ set list
 
 " :help digraph to find what characters look best.
 set listchars=tab:»\ ,trail:·,extends:»,precedes:«
-" set showbreak=...\ 
-set showbreak=└→\ 
 
 " Set some other characters.
-set fillchars=vert:│,fold:·,foldopen:-,foldsep:│,foldclose:+
+set fillchars=vert:│,fold:·,foldopen:▼,foldsep:│,foldclose:▶
+
+" Set the fill chars for the statusline
+set fillchars+=stl:\ ,stlnc:\ 
+
+" set showbreak=...\ 
+set showbreak=└▶\ 
+" set showbreak=…\ 
+" set showbreak=→\ 
+" if &term=~'linux'
+"     set showbreak=└▶\ 
+" else
+"     set showbreak=↪\ 
+" endif
 
 " Make :help the default keywordprg
 set keywordprg=:help
