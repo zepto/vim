@@ -48,7 +48,7 @@ set updatetime=100
 set shortmess+=c
 
 " Show signs in the numbercolumn.
-set signcolumn=number
+set signcolumn=yes "number
 "}}}
 
 " Set global variables"{{{
@@ -92,7 +92,7 @@ elseif $ENV_ACCESS ==# 'colinux'
 else  " fallback
     set termencoding=  " same as 'encoding'
 endif
-set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,ucs-bom,cp932,default,latin1,cp1253
+set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,ucs-bom,cp932,default,latin1,cp1253,cp437
 " }}}
 
 " Fileformat settings."{{{

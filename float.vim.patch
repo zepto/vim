@@ -1,0 +1,20 @@
+--- autoload/coc/float.vim	2021-08-26 16:11:48.963450795 -0500
++++ autoload/coc/float.vim.patched	2021-08-26 16:11:40.866379732 -0500
+@@ -497,7 +497,7 @@
+     return v:null
+   endif
+   let width = dimension['width']
+-  let lines = map(a:lines, {_, s -> s =~# '^—' ? repeat('—', width) : s})
++  let lines = map(a:lines, {_, s -> s =~# '^—' ? repeat(s:borderchars[0], width) : s})
+   let config = extend(extend({'lines': lines, 'relative': 'cursor'}, a:config), dimension)
+   call coc#float#close_auto_hide_wins(a:winid)
+   let res = coc#float#create_float_win(a:winid, a:bufnr, config)
+@@ -900,7 +900,7 @@
+   endfor
+   let width = float2nr(coc#helper#min(maxWidth, width))
+   let height = float2nr(coc#helper#min(maxHeight, ch))
+-  let lines = map(a:lines, {_, s -> s =~# '^—' ? repeat('—', width - 2 + (s:is_vim && ch > height ? -1 : 0)) : s})
++  let lines = map(a:lines, {_, s -> s =~# '^—' ? repeat(s:borderchars[0], width - 2 + (s:is_vim && ch > height ? -1 : 0)) : s})
+   let opts = {
+         \ 'lines': lines,
+         \ 'relative': 'editor',

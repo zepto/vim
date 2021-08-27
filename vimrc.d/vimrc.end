@@ -59,6 +59,17 @@ endfunction
 nnoremap <leader>bs :term ++close bash<CR>
 " Open python shell in the vim terminal.
 nnoremap <leader>ps :term ++close python<CR>
+" Open bash terminal in popup.
+function! OpenPopupTerminal(cmd)
+    hi BashPopup cterm=NONE ctermfg=NONE ctermbg=NONE
+    let buf = term_start(a:cmd, #{hidden: 1, term_finish: 'close'})
+    let width = float2nr(&columns * 0.8)
+    let height = float2nr(&lines * 0.8)
+    let winid = popup_create(buf, #{minwidth: width, minheight: height, maxwidth: width, maxheight: height, border: [], borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'], padding: [0,0,0,0], drag:'TRUE'})
+    call setwinvar(winid, '&wincolor', 'BashPopup')
+endfunction
+nnoremap <leader>bp :call OpenPopupTerminal('bash')<CR>
+nnoremap <leader>pp :call OpenPopupTerminal('python')<CR>
 "}}}
 
 " Moving in insert mode."{{{
@@ -480,7 +491,7 @@ set list
 set listchars=tab:»\ ,trail:·,extends:»,precedes:«
 
 " Set some other characters.
-set fillchars=vert:│,fold:·,foldopen:▼,foldsep:│,foldclose:▶
+set fillchars=vert:│,fold:·,foldopen:▼,foldsep:│,foldclose:▶,diff:─
 
 " Set the fill chars for the statusline
 set fillchars+=stl:\ ,stlnc:\ 
@@ -577,7 +588,7 @@ set helpheight=10
 set previewheight=8
 
 " Make the command line 2 lines height to avoid "hit enter" prompts.
-set cmdheight=2
+set cmdheight=1
 
 if has('langmap') && exists('+langremap')
   " Prevent that the langmap option applies to characters that result from a
@@ -585,6 +596,9 @@ if has('langmap') && exists('+langremap')
   " compatible).
   set nolangremap
 endif
+
+" Make preview window a popup.
+set previewpopup=height:30,width:80,highlight:VertSplit
 
 " }}}
 

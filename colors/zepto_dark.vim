@@ -44,7 +44,7 @@ let colors_name = "zepto_dark"
 " Standard colors."{{{
 hi User1 cterm=Bold ctermbg=darkmagenta ctermfg=white
 hi User2 ctermbg=darkblue ctermfg=white
-hi User3 ctermbg=black ctermfg=white
+hi User3 cterm=nocombine,NONE ctermfg=white ctermbg=NONE
 
 hi SpecialKey ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b
 hi NonText ctermfg=darkblue ctermbg=NONE guifg=#6c6c6c guibg=#2b2b2b

@@ -78,12 +78,12 @@ let g:coc_global_extensions = [
 
 " Colors settings "{{{
 function! CocHightlights() abort
-    hi CocFloating cterm=nocombine,NONE ctermbg=darkblue
+    hi CocFloating cterm=nocombine,Bold ctermfg=None ctermbg=darkblue
     hi CocErrorFloat cterm=nocombine,BOLD ctermfg=red ctermbg=darkblue
     hi CocWarningFloat cterm=nocombine,BOLD ctermfg=yellow ctermbg=darkblue
     hi CocInfoFloat cterm=nocombine,BOLD ctermfg=green ctermbg=darkblue
     hi CocHintFloat cterm=nocombine,BOLD ctermfg=cyan ctermbg=darkblue
-    hi CocFadeOut cterm=None ctermfg=darkblue ctermbg=NONE
+    hi CocFadeOut cterm=None ctermfg=darkgrey ctermbg=NONE
     hi CocErrorSign cterm=nocombine,Bold ctermfg=red ctermbg=NONE
     hi CocWarningSign cterm=nocombine,Bold ctermfg=yellow ctermbg=NONE
     hi CocInfoSign cterm=nocombine,Bold ctermfg=green ctermbg=NONE
@@ -165,6 +165,11 @@ let g:lsp_cxx_hl_use_text_props = 1
 " let $FZF_DEFAULT_OPTS="--bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,shift-up:preview-top,shift-down:preview-bottom,alt-up:half-page-up,alt-down:half-page-down,?:toggle-preview"
 
 let $RIPGREP_CONFIG_PATH=expand("~/.ripgreprc")
+" if exists('$TMUX')
+"     let g:fzf_layout = { 'tmux': '-p90%,90%' }
+" else
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'border': 'sharp' } }
+" endif
 
 " Coc-FZF settings "{{{
 " let g:coc_fzf_preview = 'up,border-sharp'
