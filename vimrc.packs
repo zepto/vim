@@ -78,16 +78,16 @@ let g:coc_global_extensions = [
 
 " Colors settings "{{{
 function! CocHightlights() abort
-    hi CocFloating cterm=Bold ctermfg=None ctermbg=darkblue
-    hi CocErrorFloat cterm=nocombine,BOLD ctermfg=red ctermbg=darkblue
-    hi CocWarningFloat cterm=nocombine,BOLD ctermfg=yellow ctermbg=darkblue
-    hi CocInfoFloat cterm=nocombine,BOLD ctermfg=green ctermbg=darkblue
-    hi CocHintFloat cterm=nocombine,BOLD ctermfg=cyan ctermbg=darkblue
-    hi CocFadeOut cterm=None ctermfg=darkgrey ctermbg=NONE
-    hi CocErrorSign cterm=nocombine,Bold ctermfg=red ctermbg=NONE
-    hi CocWarningSign cterm=nocombine,Bold ctermfg=yellow ctermbg=NONE
-    hi CocInfoSign cterm=nocombine,Bold ctermfg=green ctermbg=NONE
-    hi CocHintSign cterm=nocombine,Bold ctermfg=blue ctermbg=NONE
+    hi CocFloating cterm=nocombine,None ctermfg=None ctermbg=None
+    hi CocErrorFloat cterm=nocombine,Bold ctermfg=red ctermbg=None
+    hi CocWarningFloat cterm=nocombine,Bold ctermfg=yellow ctermbg=None
+    hi CocInfoFloat cterm=nocombine,Bold ctermfg=green ctermbg=None
+    hi CocHintFloat cterm=nocombine,Bold ctermfg=cyan ctermbg=None
+    hi CocFadeOut cterm=None ctermfg=darkgrey ctermbg=None
+    hi CocErrorSign cterm=nocombine,Bold ctermfg=red ctermbg=None
+    hi CocWarningSign cterm=nocombine,Bold ctermfg=yellow ctermbg=None
+    hi CocInfoSign cterm=nocombine,Bold ctermfg=green ctermbg=None
+    hi CocHintSign cterm=nocombine,Bold ctermfg=blue ctermbg=None
 endfunction
 augroup CocColors
     autocmd!
