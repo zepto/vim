@@ -598,7 +598,9 @@ if has('langmap') && exists('+langremap')
 endif
 
 " Make preview window a popup.
-set previewpopup=height:30,width:80,highlight:VertSplit
+if !has('nvim')
+    set previewpopup=height:30,width:80,highlight:VertSplit
+endif
 
 " }}}
 

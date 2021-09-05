@@ -110,7 +110,7 @@ hi Normal cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#d2d2d2 guibg=#2b2b2b
 " Syntax highlighting."{{{
 hi Comment     cterm=NONE ctermfg=darkblue ctermbg=NONE gui=italic guifg=#6c6c6c
 hi Constant    cterm=NONE ctermfg=darkcyan ctermbg=NONE guifg=#4390B1
-hi Special     cterm=BOLD ctermfg=white ctermbg=NONE guifg=#FFFFFF
+hi Special     cterm=None ctermfg=cyan ctermbg=NONE guifg=#FFFFFF
 hi Identifier  cterm=NONE ctermfg=darkmagenta ctermbg=NONE guifg=#a85cae
 hi Statement   cterm=NONE ctermfg=cyan ctermbg=NONE guifg=#66cebe
 hi PreProc     cterm=NONE ctermfg=blue ctermbg=NONE guifg=#2187F6
