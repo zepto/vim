@@ -78,11 +78,11 @@ let g:coc_global_extensions = [
 
 " Colors settings "{{{
 function! CocHightlights() abort
-    hi CocFloating cterm=nocombine,Bold ctermfg=None ctermbg=darkblue
-    hi CocErrorFloat cterm=nocombine,Bold ctermfg=red ctermbg=darkblue
-    hi CocWarningFloat cterm=nocombine,Bold ctermfg=yellow ctermbg=darkblue
-    hi CocInfoFloat cterm=nocombine,Bold ctermfg=green ctermbg=darkblue
-    hi CocHintFloat cterm=nocombine,Bold ctermfg=cyan ctermbg=darkblue
+    hi CocFloating cterm=nocombine ctermfg=None ctermbg=None
+    hi CocErrorFloat cterm=nocombine ctermfg=red ctermbg=None
+    hi CocWarningFloat cterm=nocombine ctermfg=yellow ctermbg=None
+    hi CocInfoFloat cterm=nocombine ctermfg=green ctermbg=None
+    hi CocHintFloat cterm=nocombine ctermfg=cyan ctermbg=None
     hi CocFadeOut cterm=None ctermfg=darkgrey ctermbg=None
     hi CocErrorSign cterm=nocombine,Bold ctermfg=red ctermbg=None
     hi CocWarningSign cterm=nocombine,Bold ctermfg=yellow ctermbg=None
