@@ -55,3 +55,6 @@
 [submodule "pack/plugins/opt/vim-cpp-modern"]
 	path = pack/plugins/opt/vim-cpp-modern
 	url = https://github.com/bfrg/vim-cpp-modern
+[submodule "pack/plugins/opt/kotlin-vim"]
+	path = pack/plugins/opt/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
