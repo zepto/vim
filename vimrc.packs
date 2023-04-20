@@ -206,12 +206,14 @@ packadd! vim-gitgutter
 packadd! caw.vim
 packadd! nim.vim
 packadd! python-syntax
+packadd! rust.vim
 packadd! vim-python-pep8-indent
 packadd! tagbar
 packadd! undotree
 packadd! vim-repeat
 packadd! vim-snippets
 packadd! vim-peekaboo
+packadd! kotlin-vim
 " packadd auto-pairs
 " packadd vim-matchup
 

@@ -45,11 +45,11 @@ if &rtp=~'coc.nvim'
     " confirms selection if any or just break line if none
     function! EnterSelect()
         " if the popup is visible and an option is not selected
-        if pumvisible() && complete_info()["selected"] == -1
+        if coc#pum#visible() && complete_info()["selected"] == -1
             return "\<C-y>\<CR>"
 
         " if the pum is visible and an option is selected
-        elseif pumvisible()
+        elseif coc#pum#visible()
             return coc#_select_confirm()
 
         " if the pum is not visible
@@ -224,15 +224,26 @@ if &rtp=~'coc.nvim'
     xmap <leader><leader>x  <Plug>(coc-convert-snippet)
 
     inoremap <silent><expr> <TAB>
-        \ pumvisible() ? coc#_select_confirm() :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
+       \ coc#pum#visible() ? coc#_select_confirm() :
+       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ coc#refresh()
 
     function! s:check_back_space() abort
         let col = col('.') - 1
         return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
+    " function! CheckBackSpace() abort
+    "     let col = col('.') - 1
+    "     return !col || getline('.')[col - 1]  =~ '\s'
+    " endfunction
+    " 
+    " " Insert <tab> when previous text is space, refresh completion if not.
+    " inoremap <silent><expr> <TAB>
+    "    \ coc#pum#visible() ? coc#pum#next(1):
+    "    \ CheckBackSpace() ? "\<Tab>" :
+    "    \ coc#refresh()
+    " inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " }}}
 
 " coc-spell-ckecker keybinding "{{{

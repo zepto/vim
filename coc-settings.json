@@ -39,7 +39,8 @@
     "python.formatting.provider": "autopep8",
     "python.analysis.autoImportCompletions": true,
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.ruffEnabled": true,
     "python.linting.pycodestyleEnabled": true,
     "python.linting.pydocstyleEnabled": true,
     "pyright.completion.snippetSupport": false,
@@ -170,12 +171,30 @@
         }
     },
     "languageserver": {
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"],
+            // Settings are optional, here are some example values
+            "settings": {
+            "haskell": {
+                "checkParents": "CheckOnSave",
+                "checkProject": true,
+                "maxCompletions": 40,
+                "formattingProvider": "ormolu",
+                "plugin": {
+                "stan": { "globalOn": true }
+                }
+            }
+            }
+        }
         "bash": {
             "command": "bash-language-server",
             "args": ["start"],
             "filetypes": ["sh", "bash"],
             "ignoredRootPaths": ["~"]
-        },
+        }
         //"nim": {
         //    "command": "nimlsp",
         //    "filetypes": ["nim"]

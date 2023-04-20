@@ -58,3 +58,6 @@
 [submodule "pack/plugins/opt/kotlin-vim"]
 	path = pack/plugins/opt/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
+[submodule "pack/plugins/opt/rust.vim"]
+	path = pack/plugins/opt/rust.vim
+	url = https://github.com/rust-lang/rust.vim
